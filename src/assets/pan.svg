@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="384px" height="384px" viewBox="0 0 384 384" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>drums/sketches/10</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="0%" cy="0%" fx="0%" fy="0%" r="104.407547%" id="radialGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0.638740166" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="53.8044011%" cy="105.081417%" fx="53.8044011%" fy="105.081417%" r="92.5134044%" gradientTransform="translate(0.538044,1.050814),rotate(-31.913819),scale(1.000000,0.955105),translate(-0.538044,-1.050814)" id="radialGradient-2">
+            <stop stop-color="#000000" stop-opacity="0.406058785" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="radialGradient-3">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.027905794" offset="25.793189%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="32.4070872%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.00662025138" offset="38.5191136%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.0307062553" offset="54.3809168%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.159500656" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="33.6545182%" fx="50%" fy="33.6545182%" r="89.6958404%" id="radialGradient-4">
+            <stop stop-color="#F9F1BA" offset="0%"></stop>
+            <stop stop-color="#978E58" offset="100%"></stop>
+        </radialGradient>
+        <circle id="path-5" cx="192" cy="192" r="192"></circle>
+    </defs>
+    <g id="drums/sketches/10" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="-g-Oval">
+            <use fill="#211104" fill-rule="evenodd" xlink:href="#path-5"></use>
+            <use fill="url(#radialGradient-1)" fill-rule="evenodd" style="mix-blend-mode: overlay;" xlink:href="#path-5"></use>
+            <use fill-opacity="0.35" fill="" fill-rule="evenodd" style="mix-blend-mode: overlay;" xlink:href="#path-5"></use>
+            <use fill="url(#radialGradient-2)" fill-rule="evenodd" style="mix-blend-mode: overlay;" xlink:href="#path-5"></use>
+            <circle stroke-opacity="0.0973011364" stroke="#000000" stroke-width="8" stroke-linejoin="square" fill="url(#radialGradient-3)" fill-rule="evenodd" cx="192" cy="192" r="188"></circle>
+            <circle stroke="url(#radialGradient-4)" stroke-width="6" stroke-linejoin="square" cx="192" cy="192" r="189"></circle>
+        </g>
+    </g>
+</svg>
