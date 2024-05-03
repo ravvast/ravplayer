@@ -4,6 +4,8 @@ import { css } from '@emotion/core';
 
 import { ReactComponent as PlayIcon } from 'assets/play.svg';
 import { ReactComponent as StopIcon } from 'assets/stop.svg';
+import { ReactComponent as MoreIcon } from 'assets/more.svg';
+
 import Drum9 from 'assets/drum9.svg';
 import Drum9P from 'assets/drum9P.svg';
 import Drum10 from 'assets/drum10.svg';
@@ -18,7 +20,6 @@ import {
   Body,
   Combination,
   OverlayMenu,
-  SmallButton,
   Drum,
 } from 'components';
 import { colors, breakpoints } from 'styles';
@@ -106,21 +107,29 @@ const CardMobile = () => {
                     margin-right: 8px;
                   `}
                 >
-                  <Title>
-                    {drum.title}
-                  </Title>
-                  <Caption>
-                    {drum.notesString}
-                  </Caption>
+                  <Title>{drum.title}</Title>
+                  <Caption>{drum.notesString}</Caption>
                 </div>
-                <SmallButton
+                <Button
+                  outline
+                  cx={css`
+                    padding: 0 12px;
+                    white-space: nowrap;
+                  `}
                   onClick={() => {
                     if (demoIsPlaying) {
                       toggleDemo();
                     }
                     openMenu();
                   }}
-                />
+                >
+                  <MoreIcon
+                    css={css`
+                      margin-right: 12px;
+                    `}
+                  />
+                  {titles.select}
+                </Button>
               </div>
               <div
                 css={css`
