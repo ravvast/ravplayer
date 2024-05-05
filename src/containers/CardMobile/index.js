@@ -214,6 +214,7 @@ const CardMobile = () => {
                       margin-left: 8px;
                     `}
                     outline
+                    onClick={() => window.open(drum.link)}
                   >
                     {titles.learnMore}
                   </Button>

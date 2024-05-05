@@ -233,6 +233,7 @@ const Card = () => {
                         width: 50%;
                       `}
                       outline
+                      onClick={() => window.open(drum.link)}
                     >
                       {titles.learnMore}
                     </Button>
