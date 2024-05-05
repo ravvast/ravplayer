@@ -59,6 +59,7 @@ const Card = () => {
       return {
         play: 'Прослушать Демо',
         stop: 'Остановить Демо',
+        learnMore: 'Узнать больше',
         select: 'Выбрать Модель',
         combines: 'Хорошо комбинирует с',
       };
@@ -67,6 +68,7 @@ const Card = () => {
     return {
       play: 'Play Demo',
       stop: 'Stop Demo',
+      learnMore: 'Learn more',
       select: 'Select Model',
       combines: 'Combines well with',
     };
@@ -194,29 +196,47 @@ const Card = () => {
                   >
                     {isRu ? drum.descriptionRu : drum.description}
                   </Body>
-                  <Button
-                    dark
-                    cx={css`
-                      padding: 0 12px;
-                      align-self: flex-start;
+                  <div
+                    css={css`
+                      flex: 1;
+                      display: flex;
+                      flex-direction: row;
+                      justify-content: space-between;
+                      margin: 8px 8px 0;
+                      gap: 12px;
                     `}
-                    onClick={toggleDemo}
                   >
-                    {demoIsPlaying ? titles.stop : titles.play}
-                    {demoIsPlaying ? (
-                      <StopIcon
-                        css={css`
-                        margin-left: 12px;
+                    <Button
+                      dark
+                      cx={css`
+                        width: 50%;
                       `}
-                      />
-                    ) : (
-                      <PlayIcon
-                        css={css`
-                        margin-left: 12px;
+                      onClick={toggleDemo}
+                    >
+                      {demoIsPlaying ? titles.stop : titles.play}
+                      {demoIsPlaying ? (
+                        <StopIcon
+                          css={css`
+                            margin-left: 12px;
+                          `}
+                        />
+                      ) : (
+                        <PlayIcon
+                          css={css`
+                            margin-left: 12px;
+                          `}
+                        />
+                      )}
+                    </Button>
+                    <Button
+                      cx={css`
+                        width: 50%;
                       `}
-                      />
-                    )}
-                  </Button>
+                      outline
+                    >
+                      {titles.learnMore}
+                    </Button>
+                  </div>
                 </div>
                 <div
                   css={css`

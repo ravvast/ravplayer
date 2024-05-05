@@ -62,6 +62,7 @@ const CardMobile = () => {
       return {
         play: 'Прослушать Демо',
         stop: 'Остановить Демо',
+        learnMore: 'Узнать больше',
         select: 'Выбрать Модель',
         combines: 'Хорошо комбинирует с',
       };
@@ -70,6 +71,7 @@ const CardMobile = () => {
     return {
       play: 'Play Demo',
       stop: 'Stop Demo',
+      learnMore: 'Learn more',
       select: 'Select Model',
       combines: 'Combines well with',
     };
@@ -206,15 +208,15 @@ const CardMobile = () => {
                       />
                     )}
                   </Button>
-                  {/* <Button
+                  <Button
                     cx={css`
                       width: 100%;
                       margin-left: 8px;
                     `}
                     outline
                   >
-                    More Info
-                  </Button> */}
+                    {titles.learnMore}
+                  </Button>
                 </div>
               </div>
 
