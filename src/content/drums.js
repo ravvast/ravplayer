@@ -1804,7 +1804,7 @@ export default [
   {
     type: '14',
     key: 'FAriumi',
-    title: 'F Ariumi',
+    title: 'RAV Moon F Ariumi',
     link: 'https://ravvast.com/collections/featured',
     description: 'F Ariumi',
     descriptionRu: 'Комбинация Хиджаза и Романского минора придаёт этому строю уникальное звучание. Это наш первый эксперимент с 13 нотами на верхней части инструмента. И нам кажется, что очень удачный.',
