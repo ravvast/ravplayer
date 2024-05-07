@@ -12,6 +12,7 @@ import Drum10 from 'assets/drum10.svg';
 import Drum11 from 'assets/drum11.svg';
 import Drum12 from 'assets/drum12.svg';
 import Drum13 from 'assets/drum13.svg';
+import Drum14 from 'assets/drum14.svg';
 import { DrumContext } from 'containers/CardContainer';
 import {
   Caption,
@@ -40,6 +41,9 @@ const selectDrumImage = (type) => {
   }
   if (type === '13') {
     return Drum13;
+  }
+  if (type === '14') {
+    return Drum14;
   }
   return Drum11;
 };
@@ -128,6 +132,7 @@ const CardMobile = () => {
                   <MoreIcon
                     css={css`
                       margin-right: 12px;
+                      white-space: nowrap;
                     `}
                   />
                   {titles.select}
