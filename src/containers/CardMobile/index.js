@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
+import Switch from 'react-switch';
 import { css } from '@emotion/core';
 
 import { ReactComponent as PlayIcon } from 'assets/play.svg';
@@ -59,6 +60,9 @@ const CardMobile = () => {
     drum,
     selectDrum,
     isRu,
+    hasSticksMode,
+    sticksMode,
+    setSticksMode,
   } = React.useContext(DrumContext);
 
   const getTitles = React.useCallback(() => {
@@ -145,9 +149,7 @@ const CardMobile = () => {
                   padding: 16px;
                 `}
               >
-                <Body>
-                  {isRu ? drum.descriptionRu : drum.description}
-                </Body>
+                <Body>{isRu ? drum.descriptionRu : drum.description}</Body>
               </div>
 
               <div
@@ -166,11 +168,25 @@ const CardMobile = () => {
                     align-items: center;
                   `}
                 >
-                  <Drum
-                    drum={drum}
-                    src={drumImage}
-                  />
+                  <Drum drum={drum} src={drumImage} />
                 </div>
+                {hasSticksMode && (
+                  <div
+                    css={css`
+                      display: flex;
+                      flex: 1;
+                      justify-content: center;
+                      align-items: center;
+                    `}
+                  >
+                    <Switch
+                      onChange={() => {
+                        setSticksMode(!sticksMode);
+                      }}
+                      checked={sticksMode}
+                    />
+                  </div>
+                )}
                 <div
                   css={css`
                     display: flex;
