@@ -20,7 +20,13 @@ const ModeSwitch = ({ onChange, checked }) => (
       color: white;
     `}
   >
-    <Body>Play mode - {checked ? 'sticks' : 'fingers'}</Body>
+    <Body
+      cx={css`
+        margin-bottom: 4px;
+      `}
+    >
+      Play mode - {checked ? 'sticks' : 'fingers'}
+    </Body>
     <Switch
       onColor="#DEDEDE"
       offColor="#DEDEDE"
