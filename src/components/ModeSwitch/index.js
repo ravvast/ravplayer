@@ -20,7 +20,7 @@ const ModeSwitch = ({ onChange, checked }) => (
       color: white;
     `}
   >
-    <Body>Select mode:</Body>
+    <Body>Play mode - {checked ? 'sticks' : 'fingers'}</Body>
     <Switch
       onColor="#DEDEDE"
       offColor="#DEDEDE"
