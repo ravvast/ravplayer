@@ -17,11 +17,13 @@ const ModeSwitch = ({ onChange, checked }) => (
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      color: white;
     `}
   >
     <Body>Select mode:</Body>
     <Switch
-      onColor="#888"
+      onColor="#DEDEDE"
+      offColor="#DEDEDE"
       height={35}
       width={70}
       onChange={onChange}
@@ -43,6 +45,7 @@ const ModeSwitch = ({ onChange, checked }) => (
             margin-left: 6px;
             width: 22px;
             height: 22px;
+            color: white;
           `}
         />
       )}
