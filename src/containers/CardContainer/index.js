@@ -53,7 +53,7 @@ const CardContainer = () => {
 
   const { audioContext } = React.useContext(context);
 
-  const hasSticksMode = selectedDrum.notesStick && selectedDrum.notesStick.length > 0;
+  const hasSticksMode = !!(selectedDrum.notesStick && selectedDrum.notesStick.length > 0);
 
   const toggleDemo = () => {
     if (demoIsPlaying && currentDemoSource) {
@@ -84,6 +84,8 @@ const CardContainer = () => {
     setPreloadedStatus(false);
     setHasErrors(false);
 
+    const useSticksData = sticksMode && !!selectedDrum.notesStick;
+
     // eslint-disable-next-line prefer-const
     let localBuffer = {};
     // eslint-disable-next-line no-unused-vars
@@ -101,7 +103,7 @@ const CardContainer = () => {
     const centerNoterequest = new XMLHttpRequest();
     centerNoterequest.open(
       'get',
-      `https://storage.googleapis.com/rav_app_bucket/soundsMP3/${selectedDrum.key}/${sticksMode ? selectedDrum.centerNoteStick.key : selectedDrum.centerNote.key}.mp3`,
+      `https://storage.googleapis.com/rav_app_bucket/soundsMP3/${selectedDrum.key}/${useSticksData ? selectedDrum.centerNoteStick.key : selectedDrum.centerNote.key}.mp3`,
       true,
     );
     centerNoterequest.responseType = 'arraybuffer';
@@ -144,7 +146,7 @@ const CardContainer = () => {
       const request = new XMLHttpRequest();
       request.open(
         'get',
-        `https://storage.googleapis.com/rav_app_bucket/soundsMP3/${selectedDrum.key}/${sticksMode ? selectedDrum.notesStick[i].key : selectedDrum.notes[i].key}.mp3`,
+        `https://storage.googleapis.com/rav_app_bucket/soundsMP3/${selectedDrum.key}/${useSticksData ? selectedDrum.notesStick[i].key : selectedDrum.notes[i].key}.mp3`,
         true,
       );
       request.responseType = 'arraybuffer';
