@@ -2220,8 +2220,8 @@ export default [
     key: 'MoonUS',
     title: 'RAV Moon US',
     link: 'https://ravvast.com/collections/featured',
-    description: 'RAV Moon US',
-    descriptionRu: 'RAV Moon US',
+    description: 'If you are searching for versatility, you came up for the right scale. The drum’s name speaks for itself as US is the abbreviation for “Universal Scale”. Just like salted caramel, it combines 2 tastes in one, as you can play in both major and minor tonalities. By simply switching the root note, you can get a completely new melody as if you changed the instrument. The drum has a peaceful and balanced sound, therefore, it will be suitable for yoga and meditation. The scale can sound in both major and minor tonalities.',
+    descriptionRu: 'If you are searching for versatility, you came up for the right scale. The drum’s name speaks for itself as US is the abbreviation for “Universal Scale”. Just like salted caramel, it combines 2 tastes in one, as you can play in both major and minor tonalities. By simply switching the root note, you can get a completely new melody as if you changed the instrument. The drum has a peaceful and balanced sound, therefore, it will be suitable for yoga and meditation. The scale can sound in both major and minor tonalities.',
     notesString: 'D3 C5 A4 G4 F4 E4 C4 A3 F3',
     notes: [
       {
