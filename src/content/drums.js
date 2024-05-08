@@ -1936,6 +1936,9 @@ export default [
       color: colors.buttons.red,
     },
     combinesWith: [
+      { type: '14', key: 'CelticD', title: 'RAV Moon Celtic D' },
+      { type: '14', key: 'MoonDMajor', title: 'RAV Moon D Major' },
+      { type: '14', key: 'MoonUS', title: 'RAV Moon US' },
     ],
     demo: [],
   },
@@ -2074,6 +2077,9 @@ export default [
       color: colors.buttons.red,
     },
     combinesWith: [
+      { type: '14', key: 'MoonDMajor', title: 'RAV Moon D Major' },
+      { type: '14', key: 'MoonUS', title: 'RAV Moon US' },
+      { type: '14', key: 'MoonDHijaz', title: 'RAV Moon D Hijaz' },
     ],
     demo: [],
   },
@@ -2212,6 +2218,9 @@ export default [
       color: colors.buttons.red,
     },
     combinesWith: [
+      { type: '14', key: 'MoonUS', title: 'RAV Moon US' },
+      { type: '14', key: 'MoonDHijaz', title: 'RAV Moon D Hijaz' },
+      { type: '14', key: 'MoonDIntegral', title: 'RAV Moon D Integral' },
     ],
     demo: [],
   },
@@ -2350,6 +2359,9 @@ export default [
       color: colors.buttons.red,
     },
     combinesWith: [
+      { type: '14', key: 'MoonDHijaz', title: 'RAV Moon D Hijaz' },
+      { type: '14', key: 'MoonDIntegral', title: 'RAV Moon D Integral' },
+      { type: '14', key: 'MoonDPygmy', title: 'RAV Moon D Pygmy' },
     ],
     demo: [],
   },
@@ -2488,6 +2500,9 @@ export default [
       color: colors.buttons.red,
     },
     combinesWith: [
+      { type: '14', key: 'MoonDIntegral', title: 'RAV Moon D Integral' },
+      { type: '14', key: 'MoonDPygmy', title: 'RAV Moon D Pygmy' },
+      { type: '14', key: 'FAriumi', title: 'RAV Moon F Ariumi' },
     ],
     demo: [],
   },
@@ -2626,6 +2641,9 @@ export default [
       color: colors.buttons.red,
     },
     combinesWith: [
+      { type: '14', key: 'MoonDPygmy', title: 'RAV Moon D Pygmy' },
+      { type: '14', key: 'FAriumi', title: 'RAV Moon F Ariumi' },
+      { type: '14', key: 'CelticD', title: ' RAV Moon Celtic D' },
     ],
     demo: [],
   },
@@ -2764,6 +2782,9 @@ export default [
       color: colors.buttons.red,
     },
     combinesWith: [
+      { type: '14', key: 'FAriumi', title: 'RAV Moon F Ariumi' },
+      { type: '14', key: 'CelticD', title: ' RAV Moon Celtic D' },
+      { type: '14', key: 'MoonDMajor', title: 'RAV Moon D Major' },
     ],
     demo: [],
   },
