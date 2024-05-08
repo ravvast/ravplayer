@@ -24,6 +24,7 @@ import {
   Body,
   Combination,
   OverlayMenu,
+  ModeSwitch,
 } from 'components';
 
 
@@ -56,6 +57,9 @@ const Card = () => {
     drum,
     selectDrum,
     isRu,
+    hasSticksMode,
+    sticksMode,
+    setSticksMode,
   } = React.useContext(DrumContext);
 
   const getTitles = React.useCallback(() => {
@@ -116,25 +120,18 @@ const Card = () => {
                     align-items: center;
                   `}
                 >
-                  <Drum
-                    drum={drum}
-                    src={drumImage}
-                  />
+                  <div>
+                    <Drum drum={drum} src={drumImage} />
+                    {hasSticksMode && (
+                      <ModeSwitch
+                        onChange={() => {
+                          setSticksMode(!sticksMode);
+                        }}
+                        checked={sticksMode}
+                      />
+                    )}
+                  </div>
                 </div>
-                {/* <div
-                  css={css`
-                    padding: 40px 82px;
-                  `}
-                >
-                  <Button
-                    cx={css`
-                      width: 100%;
-                    `}
-                    outline
-                  >
-                    More Info
-                  </Button>
-                </div> */}
               </div>
               <div
                 css={css`
@@ -157,12 +154,8 @@ const Card = () => {
                       margin-right: 8px;
                     `}
                   >
-                    <Title>
-                      {drum.title}
-                    </Title>
-                    <Caption>
-                      {drum.notesString}
-                    </Caption>
+                    <Title>{drum.title}</Title>
+                    <Caption>{drum.notesString}</Caption>
                   </div>
                   <Button
                     outline

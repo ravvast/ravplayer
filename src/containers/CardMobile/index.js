@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import React from 'react';
-import Switch from 'react-switch';
 import { css } from '@emotion/core';
 
 import { ReactComponent as PlayIcon } from 'assets/play.svg';
@@ -23,6 +22,7 @@ import {
   Combination,
   OverlayMenu,
   Drum,
+  ModeSwitch,
 } from 'components';
 import { colors, breakpoints } from 'styles';
 
@@ -168,25 +168,18 @@ const CardMobile = () => {
                     align-items: center;
                   `}
                 >
-                  <Drum drum={drum} src={drumImage} />
-                </div>
-                {hasSticksMode && (
-                  <div
-                    css={css`
-                      display: flex;
-                      flex: 1;
-                      justify-content: center;
-                      align-items: center;
-                    `}
-                  >
-                    <Switch
-                      onChange={() => {
-                        setSticksMode(!sticksMode);
-                      }}
-                      checked={sticksMode}
-                    />
+                  <div>
+                    <Drum drum={drum} src={drumImage} />
+                    {hasSticksMode && (
+                      <ModeSwitch
+                        onChange={() => {
+                          setSticksMode(!sticksMode);
+                        }}
+                        checked={sticksMode}
+                      />
+                    )}
                   </div>
-                )}
+                </div>
                 <div
                   css={css`
                     display: flex;
