@@ -160,7 +160,8 @@ const OverlayMenu = ({ children, onMenuClose }) => {
               key={object.key}
               title={object.title}
               caption={object.notesString}
-              isPan={object.type === '11' || object.type === '9P' || object.type === '14'}
+              isPan={object.type === '11' || object.type === '9P'}
+              isMoon={object.type === '14'}
               cx={css`
                 margin-top: ${index === 0 ? '128px' : '0'};
                 margin-bottom: ${index === drums.length - 1 ? '64px' : '24px'};
