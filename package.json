@@ -70,7 +70,7 @@
     "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "GENERATE_SOURCEMAP=false node scripts/build.js"
+    "start": "NODE_OPTIONS='--openssl-legacy-provider' node scripts/start.js",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider' GENERATE_SOURCEMAP=false node scripts/build.js"
   }
 }
