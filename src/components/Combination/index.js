@@ -38,7 +38,7 @@ const Combination = ({
       css={css`
         display: flex;
         padding-top: 16px;
-        justify-content: flex-start;
+        justify-content: center;
         @media (max-width: ${breakpoints.mobile}) {
           justify-content: center;
         }
@@ -48,6 +48,7 @@ const Combination = ({
         <DrumItem
           key={object.key}
           isPan={object.type === '11' || object.type === '9P'}
+          isMoon={object.type === '14'}
           onClick={() => {
             if (demoIsPlaying) {
               toggleDemo();

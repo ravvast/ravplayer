@@ -12,6 +12,7 @@ import Drum10 from 'assets/drum10.svg';
 import Drum11 from 'assets/drum11.svg';
 import Drum12 from 'assets/drum12.svg';
 import Drum13 from 'assets/drum13.svg';
+import Drum14 from 'assets/drum14.svg';
 import colors from 'styles/colors';
 
 
@@ -23,6 +24,7 @@ import {
   Body,
   Combination,
   OverlayMenu,
+  ModeSwitch,
 } from 'components';
 
 
@@ -42,6 +44,9 @@ const selectDrumImage = (type) => {
   if (type === '13') {
     return Drum13;
   }
+  if (type === '14') {
+    return Drum14;
+  }
   return Drum11;
 };
 
@@ -52,6 +57,9 @@ const Card = () => {
     drum,
     selectDrum,
     isRu,
+    hasSticksMode,
+    sticksMode,
+    setSticksMode,
   } = React.useContext(DrumContext);
 
   const getTitles = React.useCallback(() => {
@@ -59,6 +67,7 @@ const Card = () => {
       return {
         play: 'Прослушать Демо',
         stop: 'Остановить Демо',
+        learnMore: 'Узнать больше',
         select: 'Выбрать Модель',
         combines: 'Хорошо комбинирует с',
       };
@@ -67,6 +76,7 @@ const Card = () => {
     return {
       play: 'Play Demo',
       stop: 'Stop Demo',
+      learnMore: 'Learn more',
       select: 'Select Model',
       combines: 'Combines well with',
     };
@@ -110,25 +120,18 @@ const Card = () => {
                     align-items: center;
                   `}
                 >
-                  <Drum
-                    drum={drum}
-                    src={drumImage}
-                  />
+                  <div>
+                    <Drum drum={drum} src={drumImage} />
+                    {hasSticksMode && (
+                      <ModeSwitch
+                        onChange={() => {
+                          setSticksMode(!sticksMode);
+                        }}
+                        checked={sticksMode}
+                      />
+                    )}
+                  </div>
                 </div>
-                {/* <div
-                  css={css`
-                    padding: 40px 82px;
-                  `}
-                >
-                  <Button
-                    cx={css`
-                      width: 100%;
-                    `}
-                    outline
-                  >
-                    More Info
-                  </Button>
-                </div> */}
               </div>
               <div
                 css={css`
@@ -151,12 +154,8 @@ const Card = () => {
                       margin-right: 8px;
                     `}
                   >
-                    <Title>
-                      {drum.title}
-                    </Title>
-                    <Caption>
-                      {drum.notesString}
-                    </Caption>
+                    <Title>{drum.title}</Title>
+                    <Caption>{drum.notesString}</Caption>
                   </div>
                   <Button
                     outline
@@ -173,6 +172,7 @@ const Card = () => {
                     <MoreIcon
                       css={css`
                         margin-right: 12px;
+                        white-space: nowrap;
                       `}
                     />
                     {titles.select}
@@ -194,29 +194,48 @@ const Card = () => {
                   >
                     {isRu ? drum.descriptionRu : drum.description}
                   </Body>
-                  <Button
-                    dark
-                    cx={css`
-                      padding: 0 12px;
-                      align-self: flex-start;
+                  <div
+                    css={css`
+                      flex: 1;
+                      display: flex;
+                      flex-direction: row;
+                      justify-content: space-between;
+                      margin: 8px 8px 0;
+                      gap: 12px;
                     `}
-                    onClick={toggleDemo}
                   >
-                    {demoIsPlaying ? titles.stop : titles.play}
-                    {demoIsPlaying ? (
-                      <StopIcon
-                        css={css`
-                        margin-left: 12px;
+                    <Button
+                      dark
+                      cx={css`
+                        width: 50%;
                       `}
-                      />
-                    ) : (
-                      <PlayIcon
-                        css={css`
-                        margin-left: 12px;
+                      onClick={toggleDemo}
+                    >
+                      {demoIsPlaying ? titles.stop : titles.play}
+                      {demoIsPlaying ? (
+                        <StopIcon
+                          css={css`
+                            margin-left: 12px;
+                          `}
+                        />
+                      ) : (
+                        <PlayIcon
+                          css={css`
+                            margin-left: 12px;
+                          `}
+                        />
+                      )}
+                    </Button>
+                    <Button
+                      cx={css`
+                        width: 50%;
                       `}
-                      />
-                    )}
-                  </Button>
+                      outline
+                      onClick={() => window.open(drum.link)}
+                    >
+                      {titles.learnMore}
+                    </Button>
+                  </div>
                 </div>
                 <div
                   css={css`

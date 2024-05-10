@@ -4,12 +4,15 @@ import { css } from '@emotion/core';
 
 import { ReactComponent as PlayIcon } from 'assets/play.svg';
 import { ReactComponent as StopIcon } from 'assets/stop.svg';
+import { ReactComponent as MoreIcon } from 'assets/more.svg';
+
 import Drum9 from 'assets/drum9.svg';
 import Drum9P from 'assets/drum9P.svg';
 import Drum10 from 'assets/drum10.svg';
 import Drum11 from 'assets/drum11.svg';
 import Drum12 from 'assets/drum12.svg';
 import Drum13 from 'assets/drum13.svg';
+import Drum14 from 'assets/drum14.svg';
 import { DrumContext } from 'containers/CardContainer';
 import {
   Caption,
@@ -18,8 +21,8 @@ import {
   Body,
   Combination,
   OverlayMenu,
-  SmallButton,
   Drum,
+  ModeSwitch,
 } from 'components';
 import { colors, breakpoints } from 'styles';
 
@@ -40,6 +43,9 @@ const selectDrumImage = (type) => {
   if (type === '13') {
     return Drum13;
   }
+  if (type === '14') {
+    return Drum14;
+  }
   return Drum11;
 };
 
@@ -54,6 +60,9 @@ const CardMobile = () => {
     drum,
     selectDrum,
     isRu,
+    hasSticksMode,
+    sticksMode,
+    setSticksMode,
   } = React.useContext(DrumContext);
 
   const getTitles = React.useCallback(() => {
@@ -61,6 +70,7 @@ const CardMobile = () => {
       return {
         play: 'Прослушать Демо',
         stop: 'Остановить Демо',
+        learnMore: 'Узнать больше',
         select: 'Выбрать Модель',
         combines: 'Хорошо комбинирует с',
       };
@@ -69,6 +79,7 @@ const CardMobile = () => {
     return {
       play: 'Play Demo',
       stop: 'Stop Demo',
+      learnMore: 'Learn more',
       select: 'Select Model',
       combines: 'Combines well with',
     };
@@ -106,21 +117,30 @@ const CardMobile = () => {
                     margin-right: 8px;
                   `}
                 >
-                  <Title>
-                    {drum.title}
-                  </Title>
-                  <Caption>
-                    {drum.notesString}
-                  </Caption>
+                  <Title>{drum.title}</Title>
+                  <Caption>{drum.notesString}</Caption>
                 </div>
-                <SmallButton
+                <Button
+                  outline
+                  cx={css`
+                    padding: 0 12px;
+                    white-space: nowrap;
+                  `}
                   onClick={() => {
                     if (demoIsPlaying) {
                       toggleDemo();
                     }
                     openMenu();
                   }}
-                />
+                >
+                  <MoreIcon
+                    css={css`
+                      margin-right: 12px;
+                      white-space: nowrap;
+                    `}
+                  />
+                  {titles.select}
+                </Button>
               </div>
               <div
                 css={css`
@@ -129,9 +149,7 @@ const CardMobile = () => {
                   padding: 16px;
                 `}
               >
-                <Body>
-                  {isRu ? drum.descriptionRu : drum.description}
-                </Body>
+                <Body>{isRu ? drum.descriptionRu : drum.description}</Body>
               </div>
 
               <div
@@ -150,10 +168,17 @@ const CardMobile = () => {
                     align-items: center;
                   `}
                 >
-                  <Drum
-                    drum={drum}
-                    src={drumImage}
-                  />
+                  <div>
+                    <Drum drum={drum} src={drumImage} />
+                    {hasSticksMode && (
+                      <ModeSwitch
+                        onChange={() => {
+                          setSticksMode(!sticksMode);
+                        }}
+                        checked={sticksMode}
+                      />
+                    )}
+                  </div>
                 </div>
                 <div
                   css={css`
@@ -197,15 +222,16 @@ const CardMobile = () => {
                       />
                     )}
                   </Button>
-                  {/* <Button
+                  <Button
                     cx={css`
                       width: 100%;
                       margin-left: 8px;
                     `}
                     outline
+                    onClick={() => window.open(drum.link)}
                   >
-                    More Info
-                  </Button> */}
+                    {titles.learnMore}
+                  </Button>
                 </div>
               </div>
 
