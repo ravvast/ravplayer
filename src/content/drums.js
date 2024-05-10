@@ -1936,16 +1936,16 @@ export default [
       color: colors.buttons.red,
     },
     combinesWith: [
-      { type: '14', key: 'CelticD', title: 'RAV Moon Celtic D' },
+      { type: '14', key: 'CelticD', title: 'RAV Moon D Celtic' },
       { type: '14', key: 'MoonDMajor', title: 'RAV Moon D Major' },
-      { type: '14', key: 'MoonUS', title: 'RAV Moon US' },
+      { type: '14', key: 'MoonUS', title: 'RAV Moon D US' },
     ],
     demo: [],
   },
   {
     type: '14',
     key: 'CelticD',
-    title: 'RAV Moon Celtic D',
+    title: 'RAV Moon D Celtic',
     link: `${BASE_LINK}rav-moon-d-celtic-minor`,
     description: 'Sonorous like the spring drops of melting icicles, the RAV Moon D Celtic Minor enchants you and leads deeper down a hidden path to the secret druid forest. The drum is tuned in a minor scale and has an incredibly soothing and relaxing sound. The voice of this scale is spellbinding and can easily hypnotize anyone who is hearing it. It is a perfect scale for those who just started their musical path with RAV.',
     descriptionRu: 'Sonorous like the spring drops of melting icicles, the RAV Moon D Celtic Minor enchants you and leads deeper down a hidden path to the secret druid forest. The drum is tuned in a minor scale and has an incredibly soothing and relaxing sound. The voice of this scale is spellbinding and can easily hypnotize anyone who is hearing it. It is a perfect scale for those who just started their musical path with RAV.',
@@ -2078,7 +2078,7 @@ export default [
     },
     combinesWith: [
       { type: '14', key: 'MoonDMajor', title: 'RAV Moon D Major' },
-      { type: '14', key: 'MoonUS', title: 'RAV Moon US' },
+      { type: '14', key: 'MoonUS', title: 'RAV Moon D US' },
       { type: '14', key: 'MoonDHijaz', title: 'RAV Moon D Hijaz' },
     ],
     demo: [],
@@ -2218,7 +2218,7 @@ export default [
       color: colors.buttons.red,
     },
     combinesWith: [
-      { type: '14', key: 'MoonUS', title: 'RAV Moon US' },
+      { type: '14', key: 'MoonUS', title: 'RAV Moon D US' },
       { type: '14', key: 'MoonDHijaz', title: 'RAV Moon D Hijaz' },
       { type: '14', key: 'MoonDIntegral', title: 'RAV Moon D Integral' },
     ],
@@ -2227,7 +2227,7 @@ export default [
   {
     type: '14',
     key: 'MoonUS',
-    title: 'RAV Moon US',
+    title: 'RAV Moon D US',
     link: `${BASE_LINK}rav-moon-d-universal`,
     description: 'If you are searching for versatility, you came up for the right scale. The drum’s name Universal Scale speaks for itself. Just like salted caramel, it combines 2 tastes in one, as you can play in both major and minor tonalities. By simply switching the root note, you can get a completely new melody as if you changed the instrument. The drum has a peaceful and balanced sound it will be suitable for yoga and meditation.',
     descriptionRu: 'If you are searching for versatility, you came up for the right scale. The drum’s name Universal Scale speaks for itself. Just like salted caramel, it combines 2 tastes in one, as you can play in both major and minor tonalities. By simply switching the root note, you can get a completely new melody as if you changed the instrument. The drum has a peaceful and balanced sound it will be suitable for yoga and meditation.',
@@ -2643,7 +2643,7 @@ export default [
     combinesWith: [
       { type: '14', key: 'MoonDPygmy', title: 'RAV Moon D Pygmy' },
       { type: '14', key: 'FAriumi', title: 'RAV Moon F Ariumi' },
-      { type: '14', key: 'CelticD', title: ' RAV Moon Celtic D' },
+      { type: '14', key: 'CelticD', title: ' RAV Moon D Celtic' },
     ],
     demo: [],
   },
@@ -2783,7 +2783,7 @@ export default [
     },
     combinesWith: [
       { type: '14', key: 'FAriumi', title: 'RAV Moon F Ariumi' },
-      { type: '14', key: 'CelticD', title: ' RAV Moon Celtic D' },
+      { type: '14', key: 'CelticD', title: ' RAV Moon D Celtic' },
       { type: '14', key: 'MoonDMajor', title: 'RAV Moon D Major' },
     ],
     demo: [],
