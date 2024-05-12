@@ -13,6 +13,7 @@ const OverlayButtons = ({ drum }) => {
   const innerWidth = useResizeEvent();
 
   const isPan = drum.type === '11' || drum.type === '9P';
+  const isMoon = drum.type === '14';
 
   const [buttonWidth, setButtonWidth] = React.useState(80);
   const [bigButtonWidth, setBigButtonWidth] = React.useState(100);
@@ -91,6 +92,7 @@ const OverlayButtons = ({ drum }) => {
         ref={centerButtonRef}
         demoIsPlaying={demoIsPlaying}
         playSound={() => playSound(drum.centerNote.key)}
+        isMoon={isMoon}
       >
         {drum.centerNote.name}
       </Button>
@@ -104,6 +106,7 @@ const OverlayButtons = ({ drum }) => {
           playSound={() => playSound(object.key)}
           top={getXCoordinate(object.delta, object.angle)}
           left={getYCoordinate(object.delta, object.angle)}
+          isMoon={isMoon}
         >
           {object.name}
         </Button>
