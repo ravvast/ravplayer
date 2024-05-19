@@ -12,77 +12,46 @@ export default [
     description: 'A integral is an enigmatic scale that has both, major and minor chords.  RAV Vast A Integral refers to Native American culture and sounds like a lonely horseman crossing a deserted prairie.',
     descriptionRu: 'A Integral сможет подстроиться под ваше настроение: в этой настройке сочетаются минорные мажорные аккорды. Для начинающих этот RAV будет непрост. В нем много полутонов, которые не всегда идеально сочетаются между собой, но создают гармонию между крайними нотами.',
     notesString: 'A2 C3 E3 F3 G3 A3 B3 C4 E4',
-    notes: getNotePositions({ type: '9',
+    notes: getNotePositions({
+      type: '9',
       notes: [
         {
           key: 'C3',
           name: 'C3',
-          // delta: 2.8,
-          // angle: -6,
-          // color: colors.buttons.orange,
-          color: colors.buttons.yellow,
         },
         {
           key: 'E3',
-          // delta: 3.1,
-          // angle: 45,
           name: 'E3',
-          // color: colors.buttons.lightGrey,
-          color: colors.buttons.yellow,
         },
         {
           key: 'G3',
-          // delta: 3.3,
-          // angle: 95,
           name: 'G3',
-          color: colors.buttons.yellow,
         },
         {
           key: 'B3',
-          // delta: 3.4,
-          // angle: 146,
           name: 'B3',
-          // color: colors.buttons.green,
-          color: colors.buttons.yellow,
         },
         {
           key: 'E4',
-          // delta: 3.2,
-          // angle: 186,
           name: 'E4',
-          // color: colors.buttons.lightBlue,
-          color: colors.buttons.yellow,
         },
         {
           key: 'C4',
-          // delta: 3,
-          // angle: 225,
           name: 'C4',
-          // color: colors.buttons.lightGreen,
-          color: colors.buttons.yellow,
         },
         {
           key: 'A3',
-          // delta: 2.7,
-          // angle: 266,
           name: 'A3',
-          // color: colors.buttons.grey,
-          color: colors.buttons.yellow,
         },
         {
           key: 'F3',
-          // delta: 2.7,
-          // angle: 309,
           name: 'F3',
-          // color: colors.buttons.pink,
-          color: colors.buttons.yellow,
         },
       ],
     }),
     centerNote: {
       key: 'A2',
       name: 'A2',
-      // color: colors.buttons.red,
       color: colors.buttons.yellow,
     },
     combinesWith: [
@@ -101,68 +70,47 @@ export default [
     description: 'This scale is definitely on the minor side, melancholic and nostalgic mood brings in the air of mystery and a fairytale. A Marmara is named after the Sea of Marmara and sounds quite like big water.',
     descriptionRu: 'Marmara самая меланхоличная, ностальгирующая - минорная настройка из всех наших RAVов. За счет своего настроения она подходит не только профессиональным музыкантам, но и начинающим пользователям: нет переходных полутонов между мажорными и минорными аккордами. Такая настройка подходит для медитации.',
     notesString: 'A2 C#3 E3 G#3 A3 C#4 D#4 E4 G#4',
-    notes: [
-      {
-        key: 'C%233',
-        name: 'C#3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'E3',
-        delta: 3,
-        angle: 39,
-        name: 'E3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'A3',
-        delta: 3.3,
-        angle: 86,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D%234',
-        delta: 3.3,
-        angle: 136,
-        name: 'D#4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'G%234',
-        delta: 3.1,
-        angle: 186,
-        name: 'G#4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'E4',
-        delta: 2.9,
-        angle: 230,
-        name: 'E4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'C%234',
-        delta: 2.7,
-        angle: 271,
-        name: 'C#4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'G%233',
-        delta: 2.6,
-        angle: 312,
-        name: 'G#3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'C%233',
+          name: 'C#3',
+        },
+        {
+          key: 'E3',
+          name: 'E3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'D%234',
+          name: 'D#4',
+        },
+        {
+          key: 'G%234',
+          name: 'G#4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'G%233',
+          name: 'G#3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'A2',
       name: 'A2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '10', key: 'BCelticDoubleDing', title: 'B Celtic Double Ding' },
@@ -170,7 +118,6 @@ export default [
     ],
     demo: [],
   },
-
   {
     type: '9',
     key: 'BArabianNight',
@@ -179,68 +126,46 @@ export default [
     description: "B Arabian Night is a scale with a distinct Arabic mood, - the sound of this scale is best explained by it's name. Let Alladin's flying carpet carry you above the burning sands of Agraba.",
     descriptionRu: 'B Arabian Night вдохновлена восточной культурой. У этой настройки очень много переходных тонов: для начинающих она не совсем подходит - её звучание не так просто обуздать. Рекомендуем использовать Arabian Night не только для игры, но и для медитаций.',
     notesString: 'B2 F#3 G3 A#3 B3 C#4 D4 F4 F#4',
-    notes: [
-      {
+    notes: getNotePositions({
+      type: '9',
+      notes: [{
         key: 'F%233',
         name: 'F#3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
       },
       {
         key: 'G3',
-        delta: 3,
-        angle: 39,
         name: 'G3',
-        color: colors.buttons.lightGrey,
       },
       {
         key: 'B3',
-        delta: 3.3,
-        angle: 86,
         name: 'B3',
-        color: colors.buttons.yellow,
       },
       {
         key: 'D4',
-        delta: 3.3,
-        angle: 136,
         name: 'D4',
-        color: colors.buttons.green,
       },
       {
         key: 'F%234',
-        delta: 3.1,
-        angle: 186,
         name: 'F#4',
-        color: colors.buttons.lightBlue,
       },
       {
         key: 'F4',
-        delta: 2.9,
-        angle: 230,
         name: 'F4',
-        color: colors.buttons.lightGreen,
       },
       {
         key: 'C%234',
-        delta: 2.7,
-        angle: 271,
         name: 'C#4',
-        color: colors.buttons.grey,
       },
       {
         key: 'A%233',
-        delta: 2.6,
-        angle: 312,
         name: 'A#3',
-        color: colors.buttons.pink,
       },
-    ],
+      ],
+    }),
     centerNote: {
       key: 'B2',
       name: 'B2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'BOnoleo', title: 'B Onoleo' },
@@ -249,7 +174,6 @@ export default [
     ],
     demo: [],
   },
-
   {
     type: '10',
     key: 'BCelticDoubleDing',
@@ -258,75 +182,51 @@ export default [
     description: 'B Celtic Double Ding is a balanced scale with 2 dings, - use it as B minor and as A major. If you’re hit all tongues one by one you will hear how a small river becomes a magnificent waterfall.',
     descriptionRu: 'B Celtic Double Ding сбалансированная настройка с уникальной особенностью. У этого RAVа не девять, а десять нот. Количество нот увеличивается за счет добавления дополнительного язычка, но это никак не влияет на качество звука. Так как и в других RAV барабанах звук B Celtic Double Ding чистый и гармоничный, без диссонансных призвуков.',
     notesString: 'A2 B2 F#3 A3 B3 C#4 D4 E4 F#4 A4',
-    notes: [
-      {
-        key: 'B2',
-        name: 'B2',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'F%233',
-        delta: 3,
-        angle: 39,
-        name: 'F#3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'B3',
-        delta: 3.3,
-        angle: 86,
-        name: 'B3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4',
-        delta: 3.3,
-        angle: 136,
-        name: 'D4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'F%234',
-        delta: 2.8,
-        angle: 186,
-        name: 'F#4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'A4',
-        delta: 5,
-        angle: 190,
-        name: 'A4',
-        color: colors.buttons.darkBlue,
-      },
-      {
-        key: 'E4',
-        delta: 2.9,
-        angle: 230,
-        name: 'E4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'C%234',
-        delta: 2.7,
-        angle: 271,
-        name: 'C#4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'A3',
-        delta: 2.6,
-        angle: 312,
-        name: 'A3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '10',
+      notes: [
+        {
+          key: 'B2',
+          name: 'B2',
+        },
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'A2',
       name: 'A2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'BCelticMinor', title: 'B Celtic Minor' },
@@ -335,7 +235,6 @@ export default [
     ],
     demo: [],
   },
-
   {
     type: '9',
     key: 'BCelticMinor',
@@ -344,68 +243,47 @@ export default [
     description: 'Perfect for beginners in RAV playing and in overall music, - one of the easiesst scale to play and learn. B Celtic sounds like nature recovering after a disaster. Still and calm.',
     descriptionRu: 'B Celtic Minor универсальная настройка, она проста в изучении - идеальна для начинающих. Звучание B Celtic Minor успокаивает и умиротворяет. Это любимая настройка Андрея Ремянникова, создателя RAVа.',
     notesString: 'B2 F#3 A3 B3 C#4 D4 E4 F#4 A4',
-    notes: [
-      {
-        key: 'F%233',
-        name: 'F#3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'A3',
-        delta: 3,
-        angle: 39,
-        name: 'A3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'C%234',
-        delta: 3.3,
-        angle: 86,
-        name: 'C#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4',
-        delta: 3.3,
-        angle: 136,
-        name: 'E4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'A4',
-        delta: 3.1,
-        angle: 186,
-        name: 'A4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'F%234',
-        delta: 2.9,
-        angle: 230,
-        name: 'F#4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'D4',
-        delta: 2.7,
-        angle: 271,
-        name: 'D4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'B3',
-        delta: 2.6,
-        angle: 312,
-        name: 'B3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'B2',
       name: 'B2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'BRus', title: 'B Rus' },
@@ -423,68 +301,47 @@ export default [
     description: 'B Golden Arcadia is a calming scale. Deep dive in the Pacific Ocean. It is an instrument that can help you in a yoga or meditation session. Drown your worries in the sound of B Golden Arcadia.',
     descriptionRu: 'B Golden Arcadia погружает вас в океан спокойствия. Эта настройка со средним уровнем сложности. Не рекомендуем начинать свой музыкальный путь с B Golden Arcadia. Но если вы ищите инструмент, который поможет вам с йогой и медитациями, то эта настройка будет отличным помощником для вас.',
     notesString: 'B2 D#3 F#3 А#3 B3 C#4 F4 F#4 G#4',
-    notes: [
-      {
-        key: 'D%233',
-        name: 'D#3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'F%233',
-        delta: 3,
-        angle: 39,
-        name: 'F#3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'B3',
-        delta: 3.3,
-        angle: 86,
-        name: 'B3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F4',
-        delta: 3.3,
-        angle: 136,
-        name: 'F4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'G%234',
-        delta: 3.1,
-        angle: 186,
-        name: 'G#4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'F%234',
-        delta: 2.9,
-        angle: 230,
-        name: 'F#4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'C%234',
-        delta: 2.7,
-        angle: 271,
-        name: 'C#4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'A%233',
-        delta: 2.6,
-        angle: 312,
-        name: 'A#3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'D%233',
+          name: 'D#3',
+        },
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'G%234',
+          name: 'G#4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'A%233',
+          name: 'A#3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'B2',
       name: 'B2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '10', key: 'BKurd', title: 'B Kurd' },
@@ -502,75 +359,51 @@ export default [
     description: "B Kurd's sound is spiced up with an Arabian temper since it is named after the Kurdish people. The night gradually turns into dawn, - hear the balance between darkness and light in these 10 notes.",
     descriptionRu: 'B Kurd универсальная настройка с дополнительным язычком. Её звучание приправлено восточными специями, а названа она в честь курдов, средневосточного народа. Это достаточно простая и интуитивная настройка. Этот RAV идеально подходит для начинающих.',
     notesString: 'B2 F#3 G3 A3 B3 C#4 D4 E4 F#4 A4',
-    notes: [
-      {
-        key: 'F%233',
-        name: 'F#3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'G3',
-        delta: 3,
-        angle: 39,
-        name: 'G3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'B3',
-        delta: 3.3,
-        angle: 86,
-        name: 'B3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4',
-        delta: 3.3,
-        angle: 136,
-        name: 'D4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'F%234',
-        delta: 2.8,
-        angle: 186,
-        name: 'F#4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'A4',
-        delta: 5,
-        angle: 190,
-        name: 'A4',
-        color: colors.buttons.darkBlue,
-      },
-      {
-        key: 'E4',
-        delta: 2.9,
-        angle: 230,
-        name: 'E4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'C%234',
-        delta: 2.7,
-        angle: 271,
-        name: 'C#4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'A3',
-        delta: 2.6,
-        angle: 312,
-        name: 'A3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '10',
+      notes: [
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'B2',
       name: 'B2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'DMajor', title: 'D Major' },
@@ -589,68 +422,47 @@ export default [
     description: 'Bright and cheerful sound, which is uplifting you. Reach and clear sound of B Major will be a joy for your ears, and if you into jazz, a melody on this scale will suit you perfectly.',
     descriptionRu: 'RAV Vast2 B Major - старший брат RAV D Major.  Его яркое веселое звучание поднимает настроение и тонизирует. Как “старший брат” эта настройка находится на среднем уровне сложности - мы рекомендуем использовать эту настройку в качестве сольного инструмента. B Major станет наслаждением для любителей джаза.',
     notesString: 'B2 E3 F#3 G#3 A#3 B3 C#4 D#4 F#4',
-    notes: [
-      {
-        key: 'E3',
-        name: 'E3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'F%233',
-        delta: 3,
-        angle: 39,
-        name: 'F#3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'A%233',
-        delta: 3.3,
-        angle: 86,
-        name: 'A#3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C%234',
-        delta: 3.3,
-        angle: 136,
-        name: 'C#4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'F%234',
-        delta: 3.1,
-        angle: 186,
-        name: 'F#4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'D%234',
-        delta: 2.9,
-        angle: 230,
-        name: 'D#4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'B3',
-        delta: 2.7,
-        angle: 271,
-        name: 'B3',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'G%233',
-        delta: 2.6,
-        angle: 312,
-        name: 'G#3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'E3',
+          name: 'E3',
+        },
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'A%233',
+          name: 'A#3',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'D%234',
+          name: 'D#4',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+        {
+          key: 'G%233',
+          name: 'G#3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'B2',
       name: 'B2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'BRus', title: 'B Rus' },
@@ -668,68 +480,47 @@ export default [
     description: 'RAV Vast2 B Onoleo is a challenge. This scale has a strong and deep sound. Also, it has an Egyptian vibe to it. Attention: we don’t recommend this RAV for yoga and meditation practices.',
     descriptionRu: 'RAV Vast2 B Onoleo - это настоящее испытание. Да, это непростая настройка, даже мастеру понадобится время, чтобы овладеть ей. Но если вы уделите достаточно времени, терпения и усидчивости, то B Onoleo раскроется в ваших руках. Идеальный RAV для исполнения соло. Но мы не рекомендуем использовать эту настройку для йоги и медитации.',
     notesString: 'B2 F#3 G3 B3 D#4 E4 F#4 G4 B4',
-    notes: [
-      {
-        key: 'F%233',
-        name: 'F#3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'G3',
-        delta: 3,
-        angle: 39,
-        name: 'G3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'D%234',
-        delta: 3.3,
-        angle: 86,
-        name: 'D#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F%234',
-        delta: 3.3,
-        angle: 136,
-        name: 'F#4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'B4',
-        delta: 3.1,
-        angle: 186,
-        name: 'B4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'G4',
-        delta: 2.9,
-        angle: 230,
-        name: 'G4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'E4',
-        delta: 2.7,
-        angle: 271,
-        name: 'E4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'B3',
-        delta: 2.6,
-        angle: 312,
-        name: 'B3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'D%234',
+          name: 'D#4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'B4',
+          name: 'B4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'B2',
       name: 'B2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'BGoldenArcadia', title: 'B Golden Arcadia' },
@@ -737,7 +528,6 @@ export default [
     ],
     demo: [],
   },
-
   {
     type: '9',
     key: 'BRus',
@@ -746,68 +536,47 @@ export default [
     description: 'RUS scales are very versatile: you can play in B minor, D major, F# minor and A major using different tongues as root notes on your B RUS. Each composition can sound completely different.',
     descriptionRu: 'RUS расшифровывается как "RAV Universal Scale" (универсальная RAV настройка). Вариативность нот инструмента только подтверждает это: B минор, D мажор, F# минор и A мажор - каждая новая композиция может звучать совершенно иначе, словно вы поменяли инструмент.',
     notesString: 'B2 D3 F#3 A3 C#4 D4 E4 F#4 A4',
-    notes: [
-      {
-        key: 'D3',
-        name: 'D3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'F%233',
-        delta: 3,
-        angle: 39,
-        name: 'F#3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'C%234',
-        delta: 3.3,
-        angle: 86,
-        name: 'C#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4',
-        delta: 3.3,
-        angle: 136,
-        name: 'E4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'A4',
-        delta: 3.1,
-        angle: 186,
-        name: 'A4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'F%234',
-        delta: 2.9,
-        angle: 230,
-        name: 'F#4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'D4',
-        delta: 2.7,
-        angle: 271,
-        name: 'D4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'A3',
-        delta: 2.6,
-        angle: 312,
-        name: 'A3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'D3',
+          name: 'D3',
+        },
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'B2',
       name: 'B2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'DMajor', title: 'D Major' },
@@ -825,68 +594,47 @@ export default [
     description: 'D Celtic Minor has a light and airy sound. It has a medieval Сeltic mood. D Celtic Minor brings you somewhere to Sherwood Forest to wander around the age-old trees and see the fairies dance.',
     descriptionRu: 'D Celtic Minor - RAV с легким звучанием. Он хорошо подойдет не только профессиональным перкуссионистам, но и начинающим. Из-за  своего спокойного и легкого звучания D Celtic идеально подходит для медитации. Это настройка просто кельтская магия.',
     notesString: 'D3 A3 C4 D4 E4 F4 G4 A4 C5',
-    notes: [
-      {
-        key: 'A3',
-        name: 'A3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'C4',
-        delta: 3,
-        angle: 39,
-        name: 'C4',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'E4',
-        delta: 3.3,
-        angle: 86,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G4',
-        delta: 3.3,
-        angle: 136,
-        name: 'G4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'C5',
-        delta: 3.1,
-        angle: 186,
-        name: 'C5',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'A4',
-        delta: 2.9,
-        angle: 230,
-        name: 'A4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'F4',
-        delta: 2.7,
-        angle: 271,
-        name: 'F4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'D4',
-        delta: 2.6,
-        angle: 312,
-        name: 'D4',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'C5',
+          name: 'C5',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+      ],
+    }),
     centerNote: {
       key: 'D3',
       name: 'D3',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'ELowPygmy', title: 'E Low Pygmy' },
@@ -904,68 +652,47 @@ export default [
     description: 'D Major is an elated and happy sounding tuning with an air of a pop-song. It sounds like a nostalgia about a happy childhood or other careless times when everything was easy and so much fun.',
     descriptionRu: 'D Major очень легкая и простая настройка. Вы не останетесь к ней равнодушным, к её радостному звучанию. D Major подойдет не только профессиональным музыкантам, но и начинающим. Эта настройка просто создана для коллабораций с другими музыкантами, особенно с гитаристами.',
     notesString: 'D3 G3 A3 B3 C#4 D4 E4 F#4 A4',
-    notes: [
-      {
-        key: 'G3',
-        name: 'G3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'A3',
-        delta: 3,
-        angle: 39,
-        name: 'A3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'C%234',
-        delta: 3.3,
-        angle: 86,
-        name: 'C#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4',
-        delta: 3.3,
-        angle: 136,
-        name: 'E4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'A4',
-        delta: 3.1,
-        angle: 186,
-        name: 'A4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'F%234',
-        delta: 2.9,
-        angle: 230,
-        name: 'F#4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'D4',
-        delta: 2.7,
-        angle: 271,
-        name: 'D4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'B3',
-        delta: 2.6,
-        angle: 312,
-        name: 'B3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'D3',
       name: 'D3',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9P', key: 'PanDMajor', title: 'Pan D Major' },
@@ -983,68 +710,47 @@ export default [
     description: 'E Low Pygmy is the lowest scale in the range. Perfect for slow playing and meditation. Its sound has a distinct African air about it, - reminds of a shining from a far away star, deep and mysterious.',
     descriptionRu: 'На данный момент, E Low Pygmy наша самая низкая настройка. Она идеально подходит для медитации и неторопливой игры. E Low Pygmy вдохновлена африканской культурой. Следуя за успокаивающим звуком E Low Pygmy, вы отправитесь в космическое путешествие по далеким галактикам.',
     notesString: 'E2 A2 B2 C3 E3 G3 A3 B3 D4',
-    notes: [
-      {
-        key: 'A2',
-        name: 'A2',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'B2',
-        delta: 3,
-        angle: 39,
-        name: 'B2',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'E3',
-        delta: 3.3,
-        angle: 86,
-        name: 'E3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3',
-        delta: 3.3,
-        angle: 136,
-        name: 'A3',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'D4',
-        delta: 3.1,
-        angle: 186,
-        name: 'D4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'B3',
-        delta: 2.9,
-        angle: 230,
-        name: 'B3',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'G3',
-        delta: 2.7,
-        angle: 271,
-        name: 'G3',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'C3',
-        delta: 2.6,
-        angle: 312,
-        name: 'C3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'A2',
+          name: 'A2',
+        },
+        {
+          key: 'B2',
+          name: 'B2',
+        },
+        {
+          key: 'E3',
+          name: 'E3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'C3',
+          name: 'C3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'E2',
       name: 'E2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'GPygmy', title: 'G Pygmy' },
@@ -1062,68 +768,47 @@ export default [
     description: 'G Minor Pentatonic is definitely on the Asian side. So If you hear it for the first time, you may recognize it as a Japanese instrument. This scale can be your everyday helper in meditation.',
     descriptionRu: 'G Minor Pentatonic вдохновлен звучанием Азии: услышав его впервые,- вы скорее всего не узнаете RAV - очень он похож на японские традиционные инструменты. Эта настройка подходит для любого уровня игры: начинающего, среднего, продвинутого. А если вы занимаетесь медитацией, то G Minor Pentatonic будет отличным помощником.',
     notesString: 'G2, D3, F3, G3, A#3, C4, D4, F4, G4',
-    notes: [
-      {
-        key: 'D3',
-        name: 'D3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'F3',
-        delta: 3,
-        angle: 39,
-        name: 'F3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'A%233',
-        delta: 3.3,
-        angle: 86,
-        name: 'A#3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4',
-        delta: 3.3,
-        angle: 136,
-        name: 'D4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'G4',
-        delta: 3.1,
-        angle: 186,
-        name: 'G4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'F4',
-        delta: 2.9,
-        angle: 230,
-        name: 'F4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'C4',
-        delta: 2.7,
-        angle: 271,
-        name: 'C4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'G3',
-        delta: 2.6,
-        angle: 312,
-        name: 'G3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'D3',
+          name: 'D3',
+        },
+        {
+          key: 'F3',
+          name: 'F3',
+        },
+        {
+          key: 'A%233',
+          name: 'A#3',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'G2',
       name: 'G2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'GPygmy', title: 'G Pygmy' },
@@ -1141,68 +826,47 @@ export default [
     description: "G Pygmy is a warm and earthy mysterious scale with a bell-like sounding, - it's referring to African culture. The slightly dark mood and low notes remind of the smell of ozone before the rain.",
     descriptionRu: 'G Pygmy сделана из стали толщиной 1,5 мм, обычная толщина стали в наших барабанах 2 мм. Такая тонкая сталь создаёт особое звучание, очень объемное, почти колокольное. Также такая толщина позволяет расширить диапазон инструмента. С G Pygmy вы можете создавать потрясающе сложные и контрастные композиции.',
     notesString: 'G2 C3 D3 D#3 G3 A#3 C4 D4 F4',
-    notes: [
-      {
-        key: 'C3',
-        name: 'C3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'D3',
-        delta: 3,
-        angle: 39,
-        name: 'D3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'G3',
-        delta: 3.3,
-        angle: 86,
-        name: 'G3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4',
-        delta: 3.3,
-        angle: 136,
-        name: 'C4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'F4',
-        delta: 3.1,
-        angle: 186,
-        name: 'F4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'D4',
-        delta: 2.9,
-        angle: 230,
-        name: 'D4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'A%233',
-        delta: 2.7,
-        angle: 271,
-        name: 'A#3',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'D%233',
-        delta: 2.6,
-        angle: 312,
-        name: 'D#3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'C3',
+          name: 'C3',
+        },
+        {
+          key: 'D3',
+          name: 'D3',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'A%233',
+          name: 'A#3',
+        },
+        {
+          key: 'D%233',
+          name: 'D#3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'G2',
       name: 'G2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'ELowPygmy', title: 'E Low Pygmy' },
@@ -1299,75 +963,51 @@ export default [
     description: 'C Blues overwhelms you with no wish to let go. Tuned in a minor pentatonic scale the instrument produces a very perplexed and mesmerizing sound that is very familiar for detective show fans.',
     descriptionRu: 'В основе этого строя RAV Vast лежит классическая блюзовая гамма — это настоящая находка для музыкантов, которые любят играть в группе или сочинять музыку.',
     notesString: 'C3 D#3 F3 F#3 G3 A#3 C4 D#4 F4 F#4',
-    notes: [
-      {
-        key: 'D%233',
-        name: 'D#3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'F3',
-        delta: 3,
-        angle: 39,
-        name: 'F3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'G3',
-        delta: 3.3,
-        angle: 86,
-        name: 'G3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4',
-        delta: 3.3,
-        angle: 136,
-        name: 'C4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'F4',
-        delta: 5.0,
-        angle: 190,
-        name: 'F4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'F%234',
-        delta: 2.7,
-        angle: 186,
-        name: 'F#4',
-        color: colors.buttons.blue,
-      },
-      {
-        key: 'D%234',
-        delta: 2.9,
-        angle: 230,
-        name: 'D#4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'A%233',
-        delta: 2.7,
-        angle: 271,
-        name: 'A#3',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'F%233',
-        delta: 2.6,
-        angle: 312,
-        name: 'F#3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '10',
+      notes: [
+        {
+          key: 'D%233',
+          name: 'D#3',
+        },
+        {
+          key: 'F3',
+          name: 'F3',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'D%234',
+          name: 'D#4',
+        },
+        {
+          key: 'A%233',
+          name: 'A#3',
+        },
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'C3',
       name: 'C3',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'CGoldenGate', title: 'C Golden Gate' }, /* type? */
@@ -1383,68 +1023,47 @@ export default [
     description: 'The C Golden Gate is one of the brightest scales. The sound of this scale is engrossing, so melodically it’s perfect for yoga or mental practice when the sound helps to delve into a special state of mind.',
     descriptionRu: 'C Golden Gate - одна из самых ярких настроек. Её звонкий звук дарит позитивное настроение и способен погрузить вас в приятную медитацию.',
     notesString: 'C3 E3 G3 C4 F#4 B4 G4 D4 B3',
-    notes: [
-      {
-        key: 'E3',
-        name: 'E3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'G3',
-        delta: 3,
-        angle: 39,
-        name: 'G3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'C4',
-        delta: 3.3,
-        angle: 86,
-        name: 'C4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F%234',
-        delta: 3.3,
-        angle: 136,
-        name: 'F#4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'B4',
-        delta: 3.1,
-        angle: 186,
-        name: 'B4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'G4',
-        delta: 2.9,
-        angle: 230,
-        name: 'G4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'D4',
-        delta: 2.7,
-        angle: 271,
-        name: 'D4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'B3',
-        delta: 2.6,
-        angle: 312,
-        name: 'B3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'E3',
+          name: 'E3',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'B4',
+          name: 'B4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'C3',
       name: 'C3',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
       { type: '9', key: 'CBlues', title: 'C Blues' },
@@ -1461,68 +1080,47 @@ export default [
     description: '',
     descriptionRu: '',
     notesString: 'F2 C3 F3 G#3 D#4 G4 F4 C4 G3',
-    notes: [
-      {
-        key: 'C3',
-        name: 'C3',
-        delta: 2.8,
-        angle: -6,
-        color: colors.buttons.orange,
-      },
-      {
-        key: 'F3',
-        delta: 3,
-        angle: 39,
-        name: 'F3',
-        color: colors.buttons.lightGrey,
-      },
-      {
-        key: 'G%233',
-        delta: 3.3,
-        angle: 86,
-        name: 'G#3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D%234',
-        delta: 3.3,
-        angle: 136,
-        name: 'D#4',
-        color: colors.buttons.green,
-      },
-      {
-        key: 'G4',
-        delta: 3.2,
-        angle: 186,
-        name: 'G4',
-        color: colors.buttons.lightBlue,
-      },
-      {
-        key: 'F4',
-        delta: 2.9,
-        angle: 230,
-        name: 'F4',
-        color: colors.buttons.lightGreen,
-      },
-      {
-        key: 'C4',
-        delta: 2.7,
-        angle: 271,
-        name: 'C4',
-        color: colors.buttons.grey,
-      },
-      {
-        key: 'G3',
-        delta: 2.6,
-        angle: 312,
-        name: 'G3',
-        color: colors.buttons.pink,
-      },
-    ],
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'C3',
+          name: 'C3',
+        },
+        {
+          key: 'F3',
+          name: 'F3',
+        },
+        {
+          key: 'G%233',
+          name: 'G#3',
+        },
+        {
+          key: 'D%234',
+          name: 'D#4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+      ],
+    }),
     centerNote: {
       key: 'F2',
       name: 'F2',
-      color: colors.buttons.red,
+      color: colors.buttons.yellow,
     },
     combinesWith: [
 

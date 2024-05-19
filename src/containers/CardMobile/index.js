@@ -8,7 +8,7 @@ import { ReactComponent as MoreIcon } from 'assets/more.svg';
 
 import Drum9 from 'assets/drum9.png';
 import Drum9P from 'assets/drum9P.svg';
-import Drum10 from 'assets/drum10.svg';
+import Drum10 from 'assets/drum10.png';
 import Drum11 from 'assets/drum11.svg';
 import Drum12 from 'assets/drum12.svg';
 import Drum13 from 'assets/drum13.svg';
