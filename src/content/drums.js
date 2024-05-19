@@ -2397,4 +2397,358 @@ export default [
     ],
     demo: [],
   },
+  {
+    type: '9',
+    key: 'AIntegral432',
+    title: 'A Integral 432',
+    link: `${BASE_LINK}rav-vast-a-integral-432-hz-indigo`,
+    description: 'The traditional A Integral sounds meditative, exotic and even mystic. A 432 version will be suitable for an advanced musician who is ready to handle the drum’s semitones.',
+    descriptionRu: 'The traditional A Integral sounds meditative, exotic and even mystic. A 432 version will be suitable for an advanced musician who is ready to handle the drum’s semitones.',
+    notesString: 'A2 C3 E3 F3 G3 A3 B3 C4 E4',
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'C3',
+          name: 'C3',
+        },
+        {
+          key: 'E3',
+          name: 'E3',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'F3',
+          name: 'F3',
+        },
+      ],
+    }),
+    centerNote: {
+      key: 'A2',
+      name: 'A2',
+      color: colors.buttons.yellow,
+    },
+    combinesWith: [
+      { type: '11', key: 'GPygmy', title: 'G Pygmy' },
+      { type: '9', key: 'DCelticMinor', title: 'D Celtic Minor' },
+      { type: '9', key: 'ELowPygmy', title: 'E Low Pygmy' },
+    ],
+    demo: [],
+  },
+  {
+    type: '10',
+    key: 'BCelticDoubleDing432',
+    title: 'B Celtic Double Ding 432',
+    link: `${BASE_LINK}rav-vast-b-celtic-double-ding-432-indigo`,
+    description: 'B Celtic Double Ding copies the note layout of B Celtic Minor but has an extra note which makes the tongue drum so ideal for practising improvising and composing. Tuned in 432, this particular drum sounds even deeper and overwhelming',
+    descriptionRu: 'B Celtic Double Ding copies the note layout of B Celtic Minor but has an extra note which makes the tongue drum so ideal for practising improvising and composing. Tuned in 432, this particular drum sounds even deeper and overwhelming',
+    notesString: 'A2 B2 F#3 A3 B3 C#4 D4 E4 F#4 A4',
+    notes: getNotePositions({
+      type: '10',
+      notes: [
+        {
+          key: 'B2',
+          name: 'B2',
+        },
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+      ],
+    }),
+    centerNote: {
+      key: 'A2',
+      name: 'A2',
+      color: colors.buttons.yellow,
+    },
+    combinesWith: [
+      { type: '9', key: 'BCelticMinor', title: 'B Celtic Minor' },
+      { type: '10', key: 'BKurd', title: 'B Kurd' },
+      { type: '9', key: 'DMajor', title: 'D Major' },
+    ],
+    demo: [],
+  },
+  {
+    type: '9',
+    key: 'BCelticMinor432',
+    title: 'B Celtic Minor 432',
+    link: `${BASE_LINK}rav-vast-b-celtic-minor-432-hz-indigo`,
+    description: 'Our beloved B Celtic Minor scale already boasts a romantic and melancholic voice that can effortlessly set the stage for a serene and peaceful atmosphere. At 432 Hz, this instrument resonates with a deeper and more grounded quality. Some even refer to it as the "planet\'s heartbeat," as it carries a profound spiritual and emotional significance',
+    descriptionRu: 'Our beloved B Celtic Minor scale already boasts a romantic and melancholic voice that can effortlessly set the stage for a serene and peaceful atmosphere. At 432 Hz, this instrument resonates with a deeper and more grounded quality. Some even refer to it as the "planet\'s heartbeat," as it carries a profound spiritual and emotional significance',
+    notesString: 'B2 F#3 A3 B3 C#4 D4 E4 F#4 A4',
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+      ],
+    }),
+    centerNote: {
+      key: 'B2',
+      name: 'B2',
+      color: colors.buttons.yellow,
+    },
+    combinesWith: [
+      { type: '9', key: 'BRus', title: 'B Rus' },
+      { type: '9', key: 'D Major', title: 'D Major' },
+      { type: '9P', key: 'PanDMajor', title: 'Pan D Major' },
+    ],
+    demo: [],
+  },
+  {
+    type: '9',
+    key: 'DCelticMinor432',
+    title: 'D Celtic Minor 432',
+    link: `${BASE_LINK}rav-vast-d-celtic-minor-432-hz-indigo`,
+    description: 'There’s no instrument than D Celtic Minor RAV Vast that will fit better for sound therapy. The voice of this scale is really spellbinding and can hypnotize anyone who is hearing it.The D Celtic is also the right choice if you are eager to find your first tongue drum. This is a beginner-friendly scale that will let you create perfect melodies.',
+    descriptionRu: 'There’s no instrument than D Celtic Minor RAV Vast that will fit better for sound therapy. The voice of this scale is really spellbinding and can hypnotize anyone who is hearing it.The D Celtic is also the right choice if you are eager to find your first tongue drum. This is a beginner-friendly scale that will let you create perfect melodies.',
+    notesString: 'D3 A3 C4 D4 E4 F4 G4 A4 C5',
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'C5',
+          name: 'C5',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+      ],
+    }),
+    centerNote: {
+      key: 'D3',
+      name: 'D3',
+      color: colors.buttons.yellow,
+    },
+    combinesWith: [
+      { type: '9', key: 'ELowPygmy', title: 'E Low Pygmy' },
+      { type: '9', key: 'AIntegral', title: 'A Integral' },
+      { type: '9P', key: 'PanDCelticMinor', title: 'Pan D Celtic Minor' },
+    ],
+    demo: [],
+  },
+  {
+    type: '9',
+    key: 'AAriumi',
+    title: 'A Ariumi',
+    link: `${BASE_LINK}rav-vast-a-ariumi-indigo`,
+    description: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Ariumi.',
+    descriptionRu: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Ariumi.',
+    notesString: 'A#2 C3 D3 F3 A3 C4 E4 F4 A4',
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'C3',
+          name: 'C3',
+        },
+        {
+          key: 'D3',
+          name: 'D3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'F3',
+          name: 'F3',
+        },
+      ],
+    }),
+    centerNote: {
+      key: 'A%232',
+      name: 'A#2',
+      color: colors.buttons.yellow,
+    },
+    combinesWith: [
+    ],
+    demo: [],
+  },
+  {
+    type: '15',
+    key: 'GMystic7',
+    title: 'G Mystic 7',
+    link: `${BASE_LINK}rav-x-rewildyoursoul-g-mystic-7`,
+    description: 'The drum was crafted in a luxurious gold colour, coated with our newest hydrophobic glaze. The G Mystic scale is an iteration of a classic minor scale, brooding, mysterious and full of potential. Percussionist will enjoy the tuned percussive space, which activates the G5 harmonic of the central note.',
+    descriptionRu: 'The drum was crafted in a luxurious gold colour, coated with our newest hydrophobic glaze. The G Mystic scale is an iteration of a classic minor scale, brooding, mysterious and full of potential. Percussionist will enjoy the tuned percussive space, which activates the G5 harmonic of the central note.',
+    notesString: 'G2 D3 D#3 G3 A#3 C4 D4 F4',
+    notes: [
+      {
+        key: 'D3',
+        delta: 3.3,
+        angle: 46,
+        name: 'D3',
+        color: colors.buttons.grey,
+      },
+      {
+        key: 'G3',
+        delta: 3.5,
+        angle: 95,
+        name: 'G3',
+        color: colors.buttons.grey,
+      },
+      {
+        key: 'C4',
+        delta: 3.5,
+        angle: 143,
+        name: 'C4',
+        color: colors.buttons.grey,
+      },
+      {
+        key: 'F4',
+        delta: 3.3,
+        angle: 184,
+        name: 'F4',
+        color: colors.buttons.grey,
+      },
+      {
+        key: 'D4',
+        delta: 3.2,
+        angle: 222,
+        name: 'D4',
+        color: colors.buttons.grey,
+      },
+      {
+        key: 'A%233',
+        delta: 3,
+        angle: 262,
+        name: 'A#3',
+        color: colors.buttons.grey,
+      },
+      {
+        key: 'D%233',
+        delta: 3,
+        angle: 305,
+        name: 'D#3',
+        color: colors.buttons.grey,
+      },
+    ],
+    centerNote: {
+      key: 'G2',
+      name: 'G2',
+      color: colors.buttons.grey,
+    },
+    combinesWith: [
+    ],
+    demo: [],
+  },
 ];

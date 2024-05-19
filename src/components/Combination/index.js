@@ -48,7 +48,7 @@ const Combination = ({
         <DrumItem
           key={object.key}
           isPan={object.type === '11' || object.type === '9P'}
-          isMoon={object.type === '14'}
+          isMoon={object.type === '14' || object.type === '15'}
           onClick={() => {
             if (demoIsPlaying) {
               toggleDemo();

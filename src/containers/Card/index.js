@@ -13,6 +13,7 @@ import Drum11 from 'assets/drum11.svg';
 import Drum12 from 'assets/drum12.svg';
 import Drum13 from 'assets/drum13.svg';
 import Drum14 from 'assets/drum14.png';
+import Drum15 from 'assets/drum15.png';
 import colors from 'styles/colors';
 
 
@@ -46,6 +47,9 @@ const selectDrumImage = (type) => {
   }
   if (type === '14') {
     return Drum14;
+  }
+  if (type === '15') {
+    return Drum15;
   }
   return Drum11;
 };
