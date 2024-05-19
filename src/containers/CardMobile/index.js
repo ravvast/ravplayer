@@ -6,7 +6,7 @@ import { ReactComponent as PlayIcon } from 'assets/play.svg';
 import { ReactComponent as StopIcon } from 'assets/stop.svg';
 import { ReactComponent as MoreIcon } from 'assets/more.svg';
 
-import Drum9 from 'assets/drum9.svg';
+import Drum9 from 'assets/drum9.png';
 import Drum9P from 'assets/drum9P.svg';
 import Drum10 from 'assets/drum10.svg';
 import Drum11 from 'assets/drum11.svg';
