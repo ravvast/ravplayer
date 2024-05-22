@@ -6,13 +6,14 @@ import { ReactComponent as PlayIcon } from 'assets/play.svg';
 import { ReactComponent as StopIcon } from 'assets/stop.svg';
 import { ReactComponent as MoreIcon } from 'assets/more.svg';
 
-import Drum9 from 'assets/drum9.svg';
+import Drum9 from 'assets/drum9.png';
 import Drum9P from 'assets/drum9P.svg';
-import Drum10 from 'assets/drum10.svg';
+import Drum10 from 'assets/drum10.png';
 import Drum11 from 'assets/drum11.svg';
 import Drum12 from 'assets/drum12.svg';
 import Drum13 from 'assets/drum13.svg';
 import Drum14 from 'assets/drum14.png';
+import Drum15 from 'assets/drum15.png';
 import { DrumContext } from 'containers/CardContainer';
 import {
   Caption,
@@ -45,6 +46,9 @@ const selectDrumImage = (type) => {
   }
   if (type === '14') {
     return Drum14;
+  }
+  if (type === '15') {
+    return Drum15;
   }
   return Drum11;
 };
