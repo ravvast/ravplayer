@@ -5,8 +5,8 @@ import { breakpoints } from 'styles';
 import { Title, Caption } from 'components';
 import { getBackgroundImage } from '../../../../utils';
 
-const DrumRow = ({ cx, onClick, isPan, isMoon, title, caption }) => {
-  const backgroundImage = getBackgroundImage({ isPan, isMoon });
+const DrumRow = ({ cx, onClick, isPan, isMoon, isMystic, title, caption }) => {
+  const backgroundImage = getBackgroundImage({ isPan, isMoon, isMystic });
   return (
     <button
       type="button"
@@ -89,6 +89,7 @@ const DrumRow = ({ cx, onClick, isPan, isMoon, title, caption }) => {
 DrumRow.propTypes = {
   isPan: PropTypes.bool,
   isMoon: PropTypes.bool,
+  isMystic: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   cx: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,

@@ -5,8 +5,8 @@ import { Caption } from 'components';
 import { breakpoints, colors } from 'styles';
 import { getBackgroundImage } from '../../../../utils';
 
-const DrumItem = ({ isPan, isMoon, onClick, children }) => {
-  const backgroundImage = getBackgroundImage({ isPan, isMoon });
+const DrumItem = ({ isPan, isMoon, isMystic, onClick, children }) => {
+  const backgroundImage = getBackgroundImage({ isPan, isMoon, isMystic });
   return (
     <button
       type="button"
@@ -64,6 +64,7 @@ DrumItem.propTypes = {
   onClick: PropTypes.func.isRequired,
   isPan: PropTypes.bool,
   isMoon: PropTypes.bool,
+  isMystic: PropTypes.bool,
 };
 
 export default React.memo(DrumItem);
