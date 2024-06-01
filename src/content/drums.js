@@ -1415,8 +1415,8 @@ export default [
     key: 'FAriumi',
     title: 'RAV Moon F Ariumi',
     link: `${BASE_LINK}rav-moon-f-m-ariumi`,
-    description: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Dm-F Ariumi.',
-    descriptionRu: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Dm-F Ariumi.',
+    description: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Ariumi F#m-A.',
+    descriptionRu: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Ariumi F#m-A.',
     notesString: 'D3 E3 F#3 A3 C#4 E4 G#4 A4 C#5',
     notes: [
       {
