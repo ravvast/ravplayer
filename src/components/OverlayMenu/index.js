@@ -5,18 +5,25 @@ import { css } from '@emotion/core';
 
 import { ReactComponent as CloseIcon } from 'assets/close.svg';
 import { DrumContext } from 'containers/CardContainer';
-import { SmallButton, Loader, Body } from 'components';
+import { SmallButton, CustomSelect } from 'components';
 import drums from 'content/drums';
 import { breakpoints } from 'styles';
 
 import { DrumRow } from './components';
 
+const selectOptions = [
+  { value: 'all', label: 'All' },
+  { value: 'ravVast', label: 'RAV Vast' },
+  { value: 'ravMoon', label: 'RAV Moon' },
+];
 
 const OverlayMenu = ({ children, onMenuClose }) => {
   const [animationIsActive, setAnimationStatus] = React.useState(false);
   const [menuIsOpen, changeMenuState] = React.useState(false);
 
   const [scrollTop, setScrollTop] = React.useState(0);
+
+  const [selectedOption, setSelectedOption] = React.useState(selectOptions[0]);
 
   // eslint-disable-next-line arrow-body-style
   const checkScrollBar = () => {
@@ -97,7 +104,21 @@ const OverlayMenu = ({ children, onMenuClose }) => {
 
   const { selectDrum } = React.useContext(DrumContext);
 
-  const getIsPan = type => type === '9P' || type === '11' || type === '12' || type === '13';
+  const filterByType = (type) => {
+    const isPan = type === '9P' || type === '11' || type === '12' || type === '13';
+    const isMoon = type === '14';
+    const isVast = !isPan && !isMoon;
+
+    if (selectedOption.value === 'ravVast') {
+      return isVast;
+    }
+
+    if (selectedOption.value === 'ravMoon') {
+      return isMoon;
+    }
+
+    return !isPan;
+  };
 
   return (
     <>
@@ -141,7 +162,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
               position: sticky;
               top: 0;
               display: flex;
-              justify-content: flex-end;
+              justify-content: space-between;
               align-items: center;
               background-image: linear-gradient(to top, rgba(238, 238, 238, 0), #ffffff);
               @media (min-width: ${960}px) {
@@ -149,6 +170,14 @@ const OverlayMenu = ({ children, onMenuClose }) => {
               }
             `}
           >
+            <CustomSelect
+              cx={css`
+                margin-left: 12px;
+              `}
+              defaultValue={selectedOption}
+              onChange={setSelectedOption}
+              options={selectOptions}
+            />
             <SmallButton
               onClick={closeMenu}
               close
@@ -157,7 +186,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
               `}
             />
           </div>
-          {drums.filter(drum => !getIsPan(drum.type)).map((object, index) => (
+          {drums.filter(drum => filterByType(drum.type)).map((object, index) => (
             <DrumRow
               key={object.key}
               title={object.title}
@@ -173,44 +202,58 @@ const OverlayMenu = ({ children, onMenuClose }) => {
                 }
               `}
               onClick={() => {
-                selectDrum(drums[index]);
+                selectDrum(drums.filter(drum => drum.key === object.key)[0]);
                 closeMenu();
               }}
             />
           ))}
-          <button
-            type="button"
+          <div
             css={css`
-              width: 56px;
-              height: 56px;
+              height: 72px;
+              width: 100%;
+              position: absolute;
+              top: 0;
               display: flex;
-              justify-content: center;
+              justify-content: space-between;
               align-items: center;
-              position: fixed;
-              top: calc(50vh - 268px + 36px);
-              right: calc(50vw - 480px + 16px);
-              outline: none;
-              border: none;
-              margin: 0;
-              padding: 0;
-              background-color: transparent;
-              &:active {
-                opacity: .8;
-              }
-              @media (max-width: ${breakpoints.mobile}) {
+              @media (max-width: ${960}px) {
                 display: none;
               }
             `}
-            onClick={closeMenu}
-            onKeyPress={null}
           >
-            <CloseIcon
+            <CustomSelect
+              cx={css`
+                margin-left: 20px;
+              `}
+              defaultValue={selectedOption}
+              onChange={setSelectedOption}
+              options={selectOptions}
+            />
+            <button
+              type="button"
               css={css`
+                width: 56px;
+                height: 56px;
+                outline: none;
+                border: none;
+                margin: 0;
+                padding: 0;
+                background-color: transparent;
+                &:active {
+                  opacity: .8;
+                }
+              `}
+              onClick={closeMenu}
+              onKeyPress={null}
+            >
+              <CloseIcon
+                css={css`
                 width: 32px;
                 height: 32px;
               `}
-            />
-          </button>
+              />
+            </button>
+          </div>
         </div>
       )}
 
