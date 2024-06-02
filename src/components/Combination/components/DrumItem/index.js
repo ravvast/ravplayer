@@ -23,6 +23,7 @@ const DrumItem = ({ isPan, isMoon, isMystic, onClick, children }) => {
         cursor: pointer;
         background: transparent;
         margin: 0 8px;
+        flex: 1;
         &:active {
           opacity: 0.8;
         }

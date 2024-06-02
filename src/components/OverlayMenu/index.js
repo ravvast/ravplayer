@@ -97,6 +97,8 @@ const OverlayMenu = ({ children, onMenuClose }) => {
 
   const { selectDrum } = React.useContext(DrumContext);
 
+  const getIsPan = type => type === '9P' || type === '11' || type === '12' || type === '13';
+
   return (
     <>
       {menuIsOpen && (
@@ -155,7 +157,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
               `}
             />
           </div>
-          {drums.map((object, index) => (
+          {drums.filter(drum => !getIsPan(drum.type)).map((object, index) => (
             <DrumRow
               key={object.key}
               title={object.title}

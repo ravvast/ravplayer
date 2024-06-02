@@ -20,7 +20,7 @@ const parseQuery = asPath => qs.parse(qs.extract(asPath), {
 const getId = (asPath) => {
   const number = parseQuery(asPath).id;
 
-  if (number >= 0 && number <= 18) {
+  if (number >= 0 && number <= 34) {
     return number;
   }
   return 0;
