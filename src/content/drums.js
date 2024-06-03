@@ -55,6 +55,9 @@ export default [
       color: colors.buttons.yellow,
     },
     combinesWith: [
+      { type: '9', key: 'DMajor', title: 'RAV Vast D Major' },
+      { type: '10', key: 'BKurd', title: 'RAV Vast B Kurd' },
+      { type: '9', key: 'BRus', title: 'RAV Vast B Rus' },
     ],
     demo: [],
   },
