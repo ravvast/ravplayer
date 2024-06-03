@@ -38,7 +38,7 @@ const Combination = ({
       css={css`
         display: flex;
         padding-top: 16px;
-        justify-content: center;
+        justify-content: space-around;
         @media (max-width: ${breakpoints.mobile}) {
           justify-content: center;
         }
