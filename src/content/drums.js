@@ -1399,6 +1399,63 @@ export default [
     demo: [],
   },
   {
+    type: '9',
+    key: 'GPygmy432',
+    title: 'RAV Vast G Pygmy 432',
+    link: `${BASE_LINK}rav-vast-g-pygmy-432-hz-indigo`,
+    description: "G Pygmy is a warm and earthy mysterious scale with a bell-like sounding, - it's referring to African culture. The slightly dark mood and low notes remind of the smell of ozone before the rain.",
+    descriptionRu: 'G Pygmy сделана из стали толщиной 1,5 мм, обычная толщина стали в наших барабанах 2 мм. Такая тонкая сталь создаёт особое звучание, очень объемное, почти колокольное. Также такая толщина позволяет расширить диапазон инструмента. С G Pygmy вы можете создавать потрясающе сложные и контрастные композиции.',
+    notesString: 'G2 C3 D3 D#3 G3 A#3 C4 D4 F4',
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'C3',
+          name: 'C3',
+        },
+        {
+          key: 'D3',
+          name: 'D3',
+        },
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'A%233',
+          name: 'A#3',
+        },
+        {
+          key: 'D%233',
+          name: 'D#3',
+        },
+      ],
+    }),
+    centerNote: {
+      key: 'G2',
+      name: 'G2',
+      color: colors.buttons.yellow,
+    },
+    combinesWith: [
+      { type: '9', key: 'ELowPygmy', title: 'RAV Vast E Low Pygmy' },
+      { type: '9', key: 'GMinorPentatonic', title: 'RAV Vast G Minor Pentatonic' },
+      { type: '9', key: 'AIntegral', title: 'RAV Vast A Integral' },
+    ],
+    demo: [],
+  },
+  {
     type: '14',
     key: 'CelticD',
     title: 'RAV Moon D Celtic',
