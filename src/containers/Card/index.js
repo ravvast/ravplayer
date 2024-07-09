@@ -80,7 +80,7 @@ const Card = () => {
     return {
       play: 'Play Demo',
       stop: 'Stop Demo',
-      learnMore: 'Learn more',
+      learnMore: 'Buy this RAV',
       select: 'Select Model',
       combines: 'Combines well with',
     };
