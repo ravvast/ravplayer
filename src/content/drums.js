@@ -7,7 +7,7 @@ export default [
   {
     type: '9',
     key: 'AAriumi',
-    title: 'RAV Vast A Ariumi',
+    title: 'RAV Vast Dm-F Ariumi',
     link: `${BASE_LINK}rav-vast-a-ariumi-indigo`,
     description: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Ariumi.',
     descriptionRu: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Ariumi.',
