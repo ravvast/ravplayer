@@ -64,6 +64,7 @@ const CardMobile = () => {
     drum,
     selectDrum,
     isRu,
+    isSimpleView,
     hasSticksMode,
     sticksMode,
     setSticksMode,
@@ -124,37 +125,41 @@ const CardMobile = () => {
                   <Title>{drum.title}</Title>
                   <Caption>{drum.notesString}</Caption>
                 </div>
-                <Button
-                  outline
-                  cx={css`
-                    padding: 0 12px;
-                    white-space: nowrap;
-                  `}
-                  onClick={() => {
-                    if (demoIsPlaying) {
-                      toggleDemo();
-                    }
-                    openMenu();
-                  }}
-                >
-                  <MoreIcon
-                    css={css`
-                      margin-right: 12px;
+                {!isSimpleView && (
+                  <Button
+                    outline
+                    cx={css`
+                      padding: 0 12px;
                       white-space: nowrap;
                     `}
-                  />
-                  {titles.select}
-                </Button>
+                    onClick={() => {
+                      if (demoIsPlaying) {
+                        toggleDemo();
+                      }
+                      openMenu();
+                    }}
+                  >
+                    <MoreIcon
+                      css={css`
+                        margin-right: 12px;
+                        white-space: nowrap;
+                      `}
+                    />
+                    {titles.select}
+                  </Button>
+                )}
               </div>
-              <div
-                css={css`
-                  display: flex;
-                  flex-direction: column;
-                  padding: 16px;
-                `}
-              >
-                <Body>{isRu ? drum.descriptionRu : drum.description}</Body>
-              </div>
+              {!isSimpleView && (
+                <div
+                  css={css`
+                    display: flex;
+                    flex-direction: column;
+                    padding: 16px;
+                  `}
+                >
+                  <Body>{isRu ? drum.descriptionRu : drum.description}</Body>
+                </div>
+              )}
 
               <div
                 css={css`
@@ -226,36 +231,39 @@ const CardMobile = () => {
                       />
                     )}
                   </Button>
-                  <Button
-                    cx={css`
-                      width: 100%;
-                      margin-left: 8px;
-                    `}
-                    outline
-                    onClick={() => window.open(drum.link)}
-                  >
-                    {titles.learnMore}
-                  </Button>
+                  {!isSimpleView && (
+                    <Button
+                      cx={css`
+                        width: 100%;
+                        margin-left: 8px;
+                      `}
+                      outline
+                      onClick={() => window.open(drum.link)}
+                    >
+                      {titles.learnMore}
+                    </Button>
+                  )}
                 </div>
               </div>
-
-              <div
-                css={css`
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  padding: 8px 0;
-                  border-top: solid 1px ${colors.dark.border};
-                `}
-              >
-                <Combination
-                  drums={drum.combinesWith}
-                  title={titles.combines}
-                  selectDrum={selectDrum}
-                  demoIsPlaying={demoIsPlaying}
-                  toggleDemo={toggleDemo}
-                />
-              </div>
+              {!isSimpleView && (
+                <div
+                  css={css`
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 8px 0;
+                    border-top: solid 1px ${colors.dark.border};
+                  `}
+                >
+                  <Combination
+                    drums={drum.combinesWith}
+                    title={titles.combines}
+                    selectDrum={selectDrum}
+                    demoIsPlaying={demoIsPlaying}
+                    toggleDemo={toggleDemo}
+                  />
+                </div>
+              )}
             </>
           );
         }}

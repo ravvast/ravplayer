@@ -35,11 +35,14 @@ const checkRuLanguage = (asPath) => {
   return false;
 };
 
+const checkSimpleView = asPath => parseQuery(asPath).simpleView === 'true';
+
 // eslint-disable-next-line react/prop-types
 const CardContainer = () => {
   // eslint-disable-next-line max-len
   const id = getId(document.location.href);
   const isRu = checkRuLanguage(document.location.href);
+  const isSimpleView = checkSimpleView(document.location.href);
   const [selectedDrum, selectDrum] = React.useState(drums[id]);
   const [demoIsPlaying, setDemoStatus] = React.useState(false);
 
@@ -220,6 +223,7 @@ const CardContainer = () => {
         selectDrum,
         playSound,
         isRu,
+        isSimpleView,
         hasSticksMode,
         sticksMode,
         setSticksMode,
