@@ -2804,4 +2804,61 @@ export default [
     ],
     demo: [],
   },
+  {
+    type: '9',
+    key: 'BHijaz',
+    title: 'RAV Vast B Hijaz',
+    link: `${BASE_LINK}rav-vast-b-hijaz-indigo`,
+    description: 'Hijaz needs no introduction – just feel its fiery temperament and the magic of its Eastern sound. The deep and resonant tone of B Hijaz comes to life in the RAV Vast, enhanced by thicker steel, delivering a balanced, powerful, and rich sound. This scale perfectly captures the essence of Arabic, Andalusian, Persian, and Eastern music.',
+    descriptionRu: 'Hijaz needs no introduction – just feel its fiery temperament and the magic of its Eastern sound. The deep and resonant tone of B Hijaz comes to life in the RAV Vast, enhanced by thicker steel, delivering a balanced, powerful, and rich sound. This scale perfectly captures the essence of Arabic, Andalusian, Persian, and Eastern music.',
+    notesString: 'B2 F#3 A3 B3 C4 D#4 E4 F#4 A4',
+    notes: getNotePositions({
+      type: '9',
+      notes: [
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'D%234',
+          name: 'D#4',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+      ],
+    }),
+    centerNote: {
+      key: 'B2',
+      name: 'B2',
+      color: colors.buttons.yellow,
+    },
+    combinesWith: [
+      { type: '9', key: 'AIntegral', title: 'RAV Vast A Integral' },
+      { type: '9', key: 'GPygmy', title: 'RAV Vast G Pygmy' },
+      { type: '9', key: 'AAriumi', title: 'RAV Vast Dm-F Ariumi' },
+    ],
+    demo: [],
+  },
 ];

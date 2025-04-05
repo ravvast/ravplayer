@@ -11,6 +11,8 @@ import { breakpoints, colors } from 'styles';
 
 import context from './audioContext';
 
+const DRUMS_AMOUNT = 36;
+
 export const DrumContext = React.createContext();
 
 const parseQuery = asPath => qs.parse(qs.extract(asPath), {
@@ -20,7 +22,7 @@ const parseQuery = asPath => qs.parse(qs.extract(asPath), {
 const getId = (asPath) => {
   const number = parseQuery(asPath).id;
 
-  if (number >= 0 && number <= 34) {
+  if (number >= 0 && number <= DRUMS_AMOUNT) {
     return number;
   }
   return 0;
