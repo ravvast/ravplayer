@@ -38,6 +38,7 @@ const checkRuLanguage = (asPath) => {
 };
 
 const checkSimpleView = asPath => parseQuery(asPath).simpleView === 'true';
+const checkMinimalView = asPath => parseQuery(asPath).minimalView === 'true';
 
 // eslint-disable-next-line react/prop-types
 const CardContainer = () => {
@@ -45,6 +46,7 @@ const CardContainer = () => {
   const id = getId(document.location.href);
   const isRu = checkRuLanguage(document.location.href);
   const isSimpleView = checkSimpleView(document.location.href);
+  const isMinimalView = checkMinimalView(document.location.href);
   const [selectedDrum, selectDrum] = React.useState(drums[id]);
   const [demoIsPlaying, setDemoStatus] = React.useState(false);
 
@@ -226,6 +228,7 @@ const CardContainer = () => {
         playSound,
         isRu,
         isSimpleView,
+        isMinimalView,
         hasSticksMode,
         sticksMode,
         setSticksMode,
@@ -240,24 +243,28 @@ const CardContainer = () => {
           align-items: center;
         `}
       >
-        <div
-          css={css`
-            min-height: 100vh;
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            @media (min-width: ${breakpoints.mobile}) {
-              min-height: auto;
-              height: 536px;
-              border: solid 1px ${colors.dark.border};
-              width: 960px;
-            }
-        `}
-        >
-          {content}
-        </div>
+        {isMinimalView ? (
+          <div>{content}</div>
+        ) : (
+          <div
+            css={css`
+              min-height: 100vh;
+              width: 100vw;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              @media (min-width: ${breakpoints.mobile}) {
+                min-height: auto;
+                height: 536px;
+                border: solid 1px ${colors.dark.border};
+                width: 960px;
+              }
+            `}
+          >
+            {content}
+          </div>
+        )}
       </div>
     </DrumContext.Provider>
   );

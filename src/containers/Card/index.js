@@ -62,6 +62,7 @@ const Card = () => {
     selectDrum,
     isRu,
     isSimpleView,
+    isMinimalView,
     hasSticksMode,
     sticksMode,
     setSticksMode,
@@ -101,6 +102,21 @@ const Card = () => {
       <OverlayMenu>
         {({ openMenu }) => {
           const drumImage = selectDrumImage(drum.type);
+
+          if (isMinimalView) {
+            return (
+              <div
+                css={css`
+                  flex: 1;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                `}
+              >
+                <Drum drum={drum} src={drumImage} />
+              </div>
+            );
+          }
 
           return (
             <div

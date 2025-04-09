@@ -65,6 +65,7 @@ const CardMobile = () => {
     selectDrum,
     isRu,
     isSimpleView,
+    isMinimalView,
     hasSticksMode,
     sticksMode,
     setSticksMode,
@@ -105,6 +106,22 @@ const CardMobile = () => {
       <OverlayMenu onMenuClose={onMenuClose}>
         {({ openMenu }) => {
           const drumImage = selectDrumImage(drum.type);
+
+          if (isMinimalView) {
+            return (
+              <div
+                css={css`
+                  flex: 1;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                `}
+              >
+                <Drum drum={drum} src={drumImage} />
+              </div>
+            );
+          }
+
           return (
             <>
               <div
