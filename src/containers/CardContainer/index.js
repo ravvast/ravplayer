@@ -1,14 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import qs from 'query-string';
-
 import CardMobile from 'containers/CardMobile';
 import Card from 'containers/Card';
 import { Loader, Body, Button } from 'components';
 import drums from 'content/drums';
 import { useResizeEvent } from 'effects';
 import { breakpoints, colors } from 'styles';
-
 import context from './audioContext';
 
 const DRUMS_AMOUNT = 36;
@@ -40,24 +38,21 @@ const checkRuLanguage = (asPath) => {
 const checkSimpleView = asPath => parseQuery(asPath).simpleView === 'true';
 const checkMinimalView = asPath => parseQuery(asPath).minimalView === 'true';
 
-// eslint-disable-next-line react/prop-types
 const CardContainer = () => {
-  // eslint-disable-next-line max-len
   const id = getId(document.location.href);
   const isRu = checkRuLanguage(document.location.href);
   const isSimpleView = checkSimpleView(document.location.href);
   const isMinimalView = checkMinimalView(document.location.href);
   const [selectedDrum, selectDrum] = React.useState(drums[id]);
   const [demoIsPlaying, setDemoStatus] = React.useState(false);
-
   const [audioBuffer, setAudioBuffer] = React.useState({});
   const [preloaded, setPreloadedStatus] = React.useState(false);
   const [hasErrors, setHasErrors] = React.useState(false);
-
   const [currentDemoSource, setCurrentDemoSource] = React.useState(null);
-
   const [sticksMode, setSticksMode] = React.useState(false);
+  const [audioContextReady, setAudioContextReady] = React.useState(false);
 
+  const pendingSoundRef = React.useRef(null);
   const { audioContext } = React.useContext(context);
 
   const hasSticksMode = !!(selectedDrum.notesStick && selectedDrum.notesStick.length > 0);
@@ -70,12 +65,12 @@ const CardContainer = () => {
     setDemoStatus(!demoIsPlaying);
   };
 
-  const playSound = (key, onEnded) => {
+  const playSoundInternal = (key, onEnded) => {
     const buffer = audioBuffer[key];
+    if (!buffer) return;
 
     const source = audioContext.createBufferSource();
     source.buffer = buffer;
-
     source.connect(audioContext.destination);
     source.start(0);
     if (key === 'DEMO') {
@@ -85,6 +80,42 @@ const CardContainer = () => {
       source.addEventListener('ended', () => onEnded());
     }
   };
+
+  const handleFirstUserInteraction = (soundKey, onEnded) => {
+    if (audioContext.state === 'suspended') {
+      audioContext.resume().then(() => {
+        setAudioContextReady(true);
+        if (soundKey) {
+          playSoundInternal(soundKey, onEnded);
+        }
+      });
+    } else {
+      setAudioContextReady(true);
+    }
+  };
+
+  const playSound = (key, onEnded) => {
+    if (!audioContextReady) {
+      pendingSoundRef.current = { key, onEnded };
+      handleFirstUserInteraction(key, onEnded);
+      return;
+    }
+    playSoundInternal(key, onEnded);
+  };
+
+  React.useEffect(() => {
+    const handleInteraction = () => {
+      if (!audioContextReady && pendingSoundRef.current) {
+        handleFirstUserInteraction(
+          pendingSoundRef.current.key,
+          pendingSoundRef.current.onEnded,
+        );
+      }
+    };
+
+    window.addEventListener('click', handleInteraction, { once: true });
+    return () => window.removeEventListener('click', handleInteraction);
+  }, [audioContextReady]);
 
   React.useEffect(() => {
     setAudioBuffer({});
