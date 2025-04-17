@@ -1,22 +1,9 @@
 /* eslint-disable max-len */
-import React from 'react';
-import { css } from '@emotion/core';
-
-import { ReactComponent as MoreIcon } from 'assets/more.svg';
-import { ReactComponent as PlayIcon } from 'assets/play.svg';
-import { ReactComponent as StopIcon } from 'assets/stop.svg';
-import { DrumContext } from 'containers/CardContainer';
-import Drum9 from 'assets/drum9.png';
-import Drum9P from 'assets/drum9P.svg';
-import Drum10 from 'assets/drum10.png';
-import Drum11 from 'assets/drum11.svg';
-import Drum12 from 'assets/drum12.svg';
-import Drum13 from 'assets/drum13.svg';
-import Drum14 from 'assets/drum14.png';
-import Drum15 from 'assets/drum15.png';
-import colors from 'styles/colors';
-
-
+import React from "react";
+import { css } from "@emotion/core";
+import { getDrumImage } from "utils/getDrumImage";
+import { TITLES } from "constants/titles";
+import { DrumContext } from "containers/CardContainer";
 import {
   Button,
   Caption,
@@ -26,33 +13,11 @@ import {
   Combination,
   OverlayMenu,
   ModeSwitch,
-} from 'components';
-
-
-const selectDrumImage = (type) => {
-  if (type === '9') {
-    return Drum9;
-  }
-  if (type === '10') {
-    return Drum10;
-  }
-  if (type === '9P') {
-    return Drum9P;
-  }
-  if (type === '12') {
-    return Drum12;
-  }
-  if (type === '13') {
-    return Drum13;
-  }
-  if (type === '14') {
-    return Drum14;
-  }
-  if (type === '15') {
-    return Drum15;
-  }
-  return Drum11;
-};
+} from "components";
+import colors from "styles/colors";
+import { ReactComponent as MoreIcon } from "assets/more.svg";
+import { ReactComponent as PlayIcon } from "assets/play.svg";
+import { ReactComponent as StopIcon } from "assets/stop.svg";
 
 const Card = () => {
   const {
@@ -62,33 +27,14 @@ const Card = () => {
     selectDrum,
     isRu,
     isSimpleView,
-    isMinimalView,
     hasSticksMode,
     sticksMode,
     setSticksMode,
   } = React.useContext(DrumContext);
 
-  const getTitles = React.useCallback(() => {
-    if (isRu) {
-      return {
-        play: 'Прослушать Демо',
-        stop: 'Остановить Демо',
-        learnMore: 'Узнать больше',
-        select: 'Выбрать Модель',
-        combines: 'Хорошо комбинирует с',
-      };
-    }
-
-    return {
-      play: 'Play Demo',
-      stop: 'Stop Demo',
-      learnMore: 'Buy this RAV',
-      select: 'Select Model',
-      combines: 'Combines well with',
-    };
-  }, [isRu]);
-
-  const titles = getTitles();
+  const language = isRu ? "ru" : "en";
+  const titles = TITLES[language];
+  const shouldHideContent = isSimpleView;
 
   return (
     <div
@@ -101,22 +47,7 @@ const Card = () => {
     >
       <OverlayMenu>
         {({ openMenu }) => {
-          const drumImage = selectDrumImage(drum.type);
-
-          if (isMinimalView) {
-            return (
-              <div
-                css={css`
-                  flex: 1;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                `}
-              >
-                <Drum drum={drum} src={drumImage} />
-              </div>
-            );
-          }
+          const drumImage = getDrumImage(drum.type);
 
           return (
             <div
@@ -178,7 +109,7 @@ const Card = () => {
                     <Title>{drum.title}</Title>
                     <Caption>{drum.notesString}</Caption>
                   </div>
-                  {!isSimpleView && (
+                  {!shouldHideContent && (
                     <Button
                       outline
                       cx={css`
@@ -211,7 +142,7 @@ const Card = () => {
                     padding: 0px 16px 8px 16px;
                   `}
                 >
-                  {!isSimpleView && (
+                  {!shouldHideContent && (
                     <Body
                       cx={css`
                         margin: 0 8px 8px;
@@ -233,7 +164,7 @@ const Card = () => {
                     <Button
                       dark
                       cx={css`
-                        width: ${isSimpleView ? '100%' : '50%'};
+                        width: ${shouldHideContent ? "100%" : "50%"};
                       `}
                       onClick={toggleDemo}
                     >
@@ -252,7 +183,7 @@ const Card = () => {
                         />
                       )}
                     </Button>
-                    {!isSimpleView && (
+                    {!shouldHideContent && (
                       <Button
                         cx={css`
                           width: 50%;
@@ -265,7 +196,7 @@ const Card = () => {
                     )}
                   </div>
                 </div>
-                {!isSimpleView && (
+                {!shouldHideContent && (
                   <div
                     css={css`
                       border-top: solid 1px ${colors.dark.border};

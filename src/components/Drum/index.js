@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { css } from '@emotion/core';
+import React from "react";
+import PropTypes from "prop-types";
+import { css } from "@emotion/core";
 
-import { breakpoints } from 'styles';
+import { breakpoints } from "styles";
 
-import { OverlayButtons } from './components';
-
+import { OverlayButtons } from "./components";
 
 const Drum = ({ src, drum }) => (
   <div
@@ -24,7 +23,6 @@ const Drum = ({ src, drum }) => (
     <OverlayButtons drum={drum} />
   </div>
 );
-
 
 Drum.propTypes = {
   drum: PropTypes.shape({}),

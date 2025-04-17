@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import CardContainer from './containers/CardContainer';
-
+import CardContainer from "./containers/CardContainer";
+import Layout from "./containers/Layout";
 
 const App = () => (
-  <CardContainer />
+  <Layout>
+    <CardContainer />
+  </Layout>
 );
 
 export default App;

@@ -1,13 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { css } from '@emotion/core';
+import React from "react";
+import PropTypes from "prop-types";
+import { css } from "@emotion/core";
 
-import { Body } from 'components';
-import drums from 'content/drums';
-import { breakpoints } from 'styles';
+import { Body } from "components";
+import drums from "content/drums";
+import { breakpoints } from "styles";
 
-import DrumItem from './components/DrumItem';
-
+import DrumItem from "./components/DrumItem";
 
 const findDrum = key => drums.find(object => object.key === key);
 
@@ -20,7 +19,6 @@ const Combination = ({
 }) => (
   <span
     css={css`
-      padding: 8px 16px 16px 16px;
       display: flex;
       flex: 1;
       justify-content: center;
@@ -47,9 +45,9 @@ const Combination = ({
       {combinationDrums.map(object => (
         <DrumItem
           key={object.key}
-          isPan={object.type === '11' || object.type === '9P'}
-          isMoon={object.type === '14'}
-          isMystic={object.type === '15'}
+          isPan={object.type === "11" || object.type === "9P"}
+          isMoon={object.type === "14"}
+          isMystic={object.type === "15"}
           onClick={() => {
             if (demoIsPlaying) {
               toggleDemo();

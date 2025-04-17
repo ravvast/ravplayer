@@ -1,20 +1,9 @@
 /* eslint-disable max-len */
-import React from 'react';
-import { css } from '@emotion/core';
-
-import { ReactComponent as PlayIcon } from 'assets/play.svg';
-import { ReactComponent as StopIcon } from 'assets/stop.svg';
-import { ReactComponent as MoreIcon } from 'assets/more.svg';
-
-import Drum9 from 'assets/drum9.png';
-import Drum9P from 'assets/drum9P.svg';
-import Drum10 from 'assets/drum10.png';
-import Drum11 from 'assets/drum11.svg';
-import Drum12 from 'assets/drum12.svg';
-import Drum13 from 'assets/drum13.svg';
-import Drum14 from 'assets/drum14.png';
-import Drum15 from 'assets/drum15.png';
-import { DrumContext } from 'containers/CardContainer';
+import React from "react";
+import { css } from "@emotion/core";
+import { getDrumImage } from "utils/getDrumImage";
+import { TITLES } from "constants/titles";
+import { DrumContext } from "containers/CardContainer";
 import {
   Caption,
   Button,
@@ -24,34 +13,11 @@ import {
   OverlayMenu,
   Drum,
   ModeSwitch,
-} from 'components';
-import { colors, breakpoints } from 'styles';
-
-
-const selectDrumImage = (type) => {
-  if (type === '9') {
-    return Drum9;
-  }
-  if (type === '10') {
-    return Drum10;
-  }
-  if (type === '9P') {
-    return Drum9P;
-  }
-  if (type === '12') {
-    return Drum12;
-  }
-  if (type === '13') {
-    return Drum13;
-  }
-  if (type === '14') {
-    return Drum14;
-  }
-  if (type === '15') {
-    return Drum15;
-  }
-  return Drum11;
-};
+} from "components";
+import { colors, breakpoints } from "styles";
+import { ReactComponent as PlayIcon } from "assets/play.svg";
+import { ReactComponent as StopIcon } from "assets/stop.svg";
+import { ReactComponent as MoreIcon } from "assets/more.svg";
 
 const CardMobile = () => {
   const onMenuClose = () => {
@@ -65,33 +31,14 @@ const CardMobile = () => {
     selectDrum,
     isRu,
     isSimpleView,
-    isMinimalView,
     hasSticksMode,
     sticksMode,
     setSticksMode,
   } = React.useContext(DrumContext);
 
-  const getTitles = React.useCallback(() => {
-    if (isRu) {
-      return {
-        play: 'Прослушать Демо',
-        stop: 'Остановить Демо',
-        learnMore: 'Узнать больше',
-        select: 'Выбрать Модель',
-        combines: 'Хорошо комбинирует с',
-      };
-    }
-
-    return {
-      play: 'Play Demo',
-      stop: 'Stop Demo',
-      learnMore: 'Buy this RAV',
-      select: 'Select Model',
-      combines: 'Combines well with',
-    };
-  }, [isRu]);
-
-  const titles = getTitles();
+  const language = isRu ? "ru" : "en";
+  const titles = TITLES[language];
+  const shouldHideContent = isSimpleView;
 
   return (
     <div
@@ -105,44 +52,31 @@ const CardMobile = () => {
     >
       <OverlayMenu onMenuClose={onMenuClose}>
         {({ openMenu }) => {
-          const drumImage = selectDrumImage(drum.type);
-
-          if (isMinimalView) {
-            return (
-              <div
-                css={css`
-                  flex: 1;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                `}
-              >
-                <Drum drum={drum} src={drumImage} />
-              </div>
-            );
-          }
+          const drumImage = getDrumImage(drum.type);
 
           return (
             <>
               <div
                 css={css`
-                  padding: 12px 12px 12px 16px;
+                  margin-bottom: 28px;
                   display: flex;
                   justify-content: space-between;
                   align-items: center;
                 `}
               >
-                <div
-                  css={css`
-                    display: flex;
-                    flex-direction: column;
-                    margin-right: 8px;
-                  `}
-                >
-                  <Title>{drum.title}</Title>
-                  <Caption>{drum.notesString}</Caption>
-                </div>
-                {!isSimpleView && (
+                {
+                  <div
+                    css={css`
+                      display: flex;
+                      flex-direction: column;
+                      margin-right: 8px;
+                    `}
+                  >
+                    <Title>{drum.title}</Title>
+                    <Caption>{drum.notesString}</Caption>
+                  </div>
+                }
+                {!shouldHideContent && (
                   <Button
                     outline
                     cx={css`
@@ -166,12 +100,12 @@ const CardMobile = () => {
                   </Button>
                 )}
               </div>
-              {!isSimpleView && (
+              {!shouldHideContent && (
                 <div
                   css={css`
                     display: flex;
                     flex-direction: column;
-                    padding: 16px;
+                    margin-bottom: 16px;
                   `}
                 >
                   <Body>{isRu ? drum.descriptionRu : drum.description}</Body>
@@ -209,7 +143,7 @@ const CardMobile = () => {
                 <div
                   css={css`
                     display: flex;
-                    padding: 16px;
+                    margin: 16px 0;
                     flex-direction: row;
                   `}
                 >
@@ -248,7 +182,7 @@ const CardMobile = () => {
                       />
                     )}
                   </Button>
-                  {!isSimpleView && (
+                  {!shouldHideContent && (
                     <Button
                       cx={css`
                         width: 100%;
@@ -262,13 +196,13 @@ const CardMobile = () => {
                   )}
                 </div>
               </div>
-              {!isSimpleView && (
+              {!shouldHideContent && (
                 <div
                   css={css`
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    padding: 8px 0;
+                    padding: 16px 0 12px;
                     border-top: solid 1px ${colors.dark.border};
                   `}
                 >
