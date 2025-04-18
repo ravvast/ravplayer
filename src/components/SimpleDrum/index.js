@@ -1,23 +1,11 @@
 import React, { useContext } from 'react';
 import { css } from '@emotion/core';
 import { AppContext } from 'providers/AppContextProvider';
-import { TITLES } from 'constants/titles';
 import { breakpoints, colors } from 'styles';
-import { ReactComponent as StopIcon } from 'assets/stop.svg';
-import { ReactComponent as PlayIcon } from 'assets/play.svg';
-import { Drum, Button, ModeSwitch, Title, Caption } from '../';
+import { Drum, ModeSwitch, Title, Caption, DemoButton } from '../';
 
 const SimpleDrum = () => {
-  const {
-    language,
-    selectedDrum,
-    isDemoPlaying,
-    toggleDemo,
-    isStickMode,
-    setIsStickMode,
-  } = useContext(AppContext);
-
-  const titles = TITLES[language];
+  const { selectedDrum, isStickMode, setIsStickMode } = useContext(AppContext);
 
   const hasSticksMode = !!(
     selectedDrum.notesStick && selectedDrum.notesStick.length > 0
@@ -33,8 +21,10 @@ const SimpleDrum = () => {
         border: solid 1px ${colors.dark.border};
 
         @media (max-width: ${breakpoints.mobile}) {
+          height: 100%;
           border: none;
           max-width: none;
+          flex-direction: column;
         }
       `}
     >
@@ -46,6 +36,11 @@ const SimpleDrum = () => {
           min-width: 45%;
           height: 100%;
           border-right: solid 1px ${colors.dark.border};
+
+          @media (max-width: ${breakpoints.mobile}) {
+            order: 1;
+            border: none;
+          }
         `}
       >
         <div>
@@ -64,6 +59,11 @@ const SimpleDrum = () => {
         css={css`
           width: 55%;
           padding: 32px 24px;
+
+          @media (max-width: ${breakpoints.mobile}) {
+            padding: 0;
+            order: 0;
+          }
         `}
       >
         <div
@@ -71,33 +71,39 @@ const SimpleDrum = () => {
             display: flex;
             flex-direction: column;
             margin-bottom: 16px;
+
+            @media (max-width: ${breakpoints.mobile}) {
+              margin-bottom: 0;
+            }
           `}
         >
           <Title>{selectedDrum.title}</Title>
           <Caption>{selectedDrum.notesString}</Caption>
         </div>
-        <Button
-          dark
-          cx={css`
-            width: 100%;
+        <div
+          css={css`
+            display: block;
+
+            @media (max-width: ${breakpoints.mobile}) {
+              display: none;
+            }
           `}
-          onClick={toggleDemo}
         >
-          {isDemoPlaying ? titles.stop : titles.play}
-          {isDemoPlaying ? (
-            <StopIcon
-              css={css`
-                margin-left: 12px;
-              `}
-            />
-          ) : (
-            <PlayIcon
-              css={css`
-                margin-left: 12px;
-              `}
-            />
-          )}
-        </Button>
+          <DemoButton />
+        </div>
+      </div>
+      <div
+        css={css`
+          display: none;
+          order: 2;
+          padding-top: 8px;
+
+          @media (max-width: ${breakpoints.mobile}) {
+            display: block;
+          }
+        `}
+      >
+        <DemoButton />
       </div>
     </div>
   );

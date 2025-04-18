@@ -7,15 +7,13 @@ import {
   Caption,
   Button,
   Title,
-  Body,
   Combination,
   OverlayMenu,
   Drum,
   ModeSwitch,
+  DemoButton,
 } from 'components';
-import { colors, breakpoints } from 'styles';
-import { ReactComponent as PlayIcon } from 'assets/play.svg';
-import { ReactComponent as StopIcon } from 'assets/stop.svg';
+import { colors } from 'styles';
 import { ReactComponent as MoreIcon } from 'assets/more.svg';
 
 const CardMobile = () => {
@@ -142,47 +140,13 @@ const CardMobile = () => {
                   display: flex;
                   margin: 16px 0;
                   flex-direction: row;
+                  gap: 16px;
                 `}
               >
-                <Button
-                  dark
-                  cx={css`
-                    margin-right: 8px;
-                    width: 100%;
-                  `}
-                  onClick={toggleDemo}
-                >
-                  {isDemoPlaying ? titles.stop : titles.play}
-                  {isDemoPlaying ? (
-                    <StopIcon
-                      css={css`
-                        margin-left: 12px;
-                        @media (max-width: ${breakpoints.mobile}) {
-                          width: 3.2vw;
-                          height: 3.2vw;
-                          min-width: 22px;
-                          min-height: 22px;
-                        }
-                      `}
-                    />
-                  ) : (
-                    <PlayIcon
-                      css={css`
-                        margin-left: 12px;
-                        @media (max-width: ${breakpoints.mobile}) {
-                          width: 3.2vw;
-                          height: 3.2vw;
-                          min-width: 22px;
-                          min-height: 22px;
-                        }
-                      `}
-                    />
-                  )}
-                </Button>
+                <DemoButton />
                 <Button
                   cx={css`
                     width: 100%;
-                    margin-left: 8px;
                   `}
                   outline
                   onClick={() => window.open(selectedDrum.link)}

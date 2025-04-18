@@ -12,3 +12,4 @@ export { default as MinimalDrum } from './MinimalDrum';
 export { default as DemoDrum } from './DemoDrum';
 export { default as SimpleDrum } from './SimpleDrum';
 export { default as Error } from './Error';
+export { default as DemoButton } from './DemoButton';

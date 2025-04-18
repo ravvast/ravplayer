@@ -22,8 +22,6 @@ export const useDrumSounds = (setIsLoading, setIsError) => {
           localBuffer[key] = buffer;
           loaded++;
           if (loaded === totalToLoad) {
-            console.log(localBuffer);
-
             setAudioBuffer(localBuffer);
             setIsLoading(false);
           }

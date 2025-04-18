@@ -8,15 +8,13 @@ import {
   Caption,
   Drum,
   Title,
-  Body,
   Combination,
   OverlayMenu,
   ModeSwitch,
+  DemoButton,
 } from 'components';
 import colors from 'styles/colors';
 import { ReactComponent as MoreIcon } from 'assets/more.svg';
-import { ReactComponent as PlayIcon } from 'assets/play.svg';
-import { ReactComponent as StopIcon } from 'assets/stop.svg';
 
 const Card = () => {
   const {
@@ -156,28 +154,11 @@ const Card = () => {
                     gap: 12px;
                   `}
                 >
-                  <Button
-                    dark
+                  <DemoButton
                     cx={css`
                       width: 50%;
                     `}
-                    onClick={toggleDemo}
-                  >
-                    {isDemoPlaying ? titles.stop : titles.play}
-                    {isDemoPlaying ? (
-                      <StopIcon
-                        css={css`
-                          margin-left: 12px;
-                        `}
-                      />
-                    ) : (
-                      <PlayIcon
-                        css={css`
-                          margin-left: 12px;
-                        `}
-                      />
-                    )}
-                  </Button>
+                  />
                   <Button
                     cx={css`
                       width: 50%;
