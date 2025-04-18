@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
-import { useAppContext } from 'providers/AppContextProvider';
+import { AppContext } from 'providers/AppContextProvider';
 import { SmallButton, CustomSelect } from 'components';
 import drums from 'shared/assets/drums';
 import { breakpoints } from 'styles';
@@ -16,7 +16,7 @@ const selectOptions = [
 ];
 
 const OverlayMenu = ({ children, onMenuClose }) => {
-  const { setSelectedDrum } = useAppContext();
+  const { setSelectedDrum } = useContext(AppContext);
 
   const [animationIsActive, setAnimationStatus] = useState(false);
   const [menuIsOpen, changeMenuState] = useState(false);

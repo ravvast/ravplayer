@@ -6,8 +6,6 @@ import { css } from '@emotion/core';
 import { ReactComponent as FingerIcon } from 'assets/finger.svg';
 import { ReactComponent as DrumSticksIcon } from 'assets/drumsticks.svg';
 
-import { Body } from '..';
-
 const ModeSwitch = ({ onChange, checked }) => (
   <div
     css={css`
@@ -20,21 +18,22 @@ const ModeSwitch = ({ onChange, checked }) => (
       color: white;
     `}
   >
-    <Body
-      cx={css`
+    <p
+      css={css`
         margin-bottom: 4px;
+        color: rgba(0, 0, 0, 0.7);
       `}
     >
       Play mode - {checked ? 'sticks' : 'fingers'}
-    </Body>
+    </p>
     <Switch
-      onColor="#DEDEDE"
-      offColor="#DEDEDE"
+      onColor='#DEDEDE'
+      offColor='#DEDEDE'
       height={35}
       width={70}
       onChange={onChange}
       checked={checked}
-      checkedIcon={(
+      checkedIcon={
         <FingerIcon
           css={css`
             margin-top: 6px;
@@ -43,8 +42,8 @@ const ModeSwitch = ({ onChange, checked }) => (
             height: 22px;
           `}
         />
-      )}
-      uncheckedIcon={(
+      }
+      uncheckedIcon={
         <DrumSticksIcon
           css={css`
             margin-top: 6px;
@@ -54,7 +53,7 @@ const ModeSwitch = ({ onChange, checked }) => (
             color: white;
           `}
         />
-      )}
+      }
     />
   </div>
 );

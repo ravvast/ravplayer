@@ -137,15 +137,15 @@ const Card = () => {
                   padding: 0px 16px 8px 16px;
                 `}
               >
-                <Body
-                  cx={css`
+                <p
+                  css={css`
                     margin: 0 8px 8px;
                   `}
                 >
                   {language === 'ru'
                     ? selectedDrum.descriptionRu
                     : selectedDrum.description}
-                </Body>
+                </p>
                 <div
                   css={css`
                     flex: 1;
@@ -194,6 +194,7 @@ const Card = () => {
                   border-top: solid 1px ${colors.dark.border};
                   display: flex;
                   justify-content: center;
+                  padding: 8px 16px 16px;
                 `}
               >
                 <Combination

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { css } from '@emotion/core';
-import { useAppContext } from 'providers/AppContextProvider';
+import { AppContext } from 'providers/AppContextProvider';
 import { getDrumImage } from 'shared/libs/getDrumImage/getDrumImage';
 import { breakpoints } from 'styles';
 import { OverlayButtons } from './components';
 
 const Drum = () => {
-  const { selectedDrum } = useAppContext();
+  const { selectedDrum } = useContext(AppContext);
   const src = getDrumImage(selectedDrum.type);
 
   return (

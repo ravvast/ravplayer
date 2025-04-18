@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { css } from '@emotion/core';
-import { useAppContext } from 'providers/AppContextProvider';
+import { AppContext } from 'providers/AppContextProvider';
 import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
 import { TITLES } from 'constants/titles';
 import { breakpoints } from 'styles';
@@ -9,7 +9,7 @@ import { ReactComponent as PlayIcon } from 'assets/play.svg';
 import { Drum, Button } from '../';
 
 const DemoDrum = () => {
-  const { language, isDemoPlaying } = useAppContext();
+  const { language, isDemoPlaying } = useContext(AppContext);
 
   const { toggleDemo } = useAudioPlayer();
 

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { css } from '@emotion/core';
-import { useAppContext } from 'providers/AppContextProvider';
+import { AppContext } from 'providers/AppContextProvider';
 import { TITLES } from 'constants/titles';
 import { breakpoints, colors } from 'styles';
 import { ReactComponent as StopIcon } from 'assets/stop.svg';
@@ -15,7 +15,7 @@ const SimpleDrum = () => {
     toggleDemo,
     isStickMode,
     setIsStickMode,
-  } = useAppContext();
+  } = useContext(AppContext);
 
   const titles = TITLES[language];
 

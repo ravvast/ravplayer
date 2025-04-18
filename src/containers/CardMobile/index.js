@@ -102,11 +102,11 @@ const CardMobile = () => {
                 margin-bottom: 16px;
               `}
             >
-              <Body>
+              <p>
                 {language === 'ru'
                   ? selectedDrum.descriptionRu
                   : selectedDrum.description}
-              </Body>
+              </p>
             </div>
 
             <div

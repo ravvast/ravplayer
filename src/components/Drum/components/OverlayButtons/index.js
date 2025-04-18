@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { css } from '@emotion/core';
-import { useAppContext } from 'providers/AppContextProvider';
+import { AppContext } from 'providers/AppContextProvider';
 import { useResizeEvent } from 'effects';
 import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
 import Button from '../Button';
 
 const OverlayButtons = () => {
-  const { selectedDrum, isDemoPlaying } = useAppContext();
+  const { selectedDrum, isDemoPlaying } = useContext(AppContext);
 
   const { playSound } = useAudioPlayer();
 

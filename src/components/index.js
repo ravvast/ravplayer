@@ -2,7 +2,6 @@ export { default as Button } from './Button';
 export { default as Drum } from './Drum';
 export { default as Title } from './Title';
 export { default as Caption } from './Caption';
-export { default as Body } from './Body';
 export { default as Combination } from './Combination';
 export { default as OverlayMenu } from './OverlayMenu';
 export { default as Loader } from './Loader';

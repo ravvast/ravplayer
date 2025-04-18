@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import { useAppContext } from 'providers/AppContextProvider';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { AppContext } from 'providers/AppContextProvider';
 import { audioContext } from '../../audioContext/audioContext';
 
 export const useAudioPlayer = () => {
-  const { audioBuffer, isDemoPlaying, setIsDemoPlaying } = useAppContext();
+  const { audioBuffer, isStickMode, isDemoPlaying, setIsDemoPlaying } =
+    useContext(AppContext);
   const [currentDemoSource, setCurrentDemoSource] = useState(null);
   const [isAudioContextReady, setIsAudioContextReady] = useState(false);
   const pendingSoundRef = useRef(null);
@@ -21,8 +22,15 @@ export const useAudioPlayer = () => {
     }
   };
 
+  const getSoundKey = key => {
+    // Для DEMO не добавляем суффикс
+    if (key === 'DEMO') return key;
+    // Для остальных звуков добавляем 'S' в stickMode
+    return `${key}${isStickMode ? 'S' : ''}`;
+  };
+
   const playSoundInternal = (key, onEnded) => {
-    const buffer = audioBuffer[key];
+    const buffer = audioBuffer[getSoundKey(key)];
     if (!buffer) return null;
 
     const source = audioContext.createBufferSource();
