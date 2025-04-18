@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import { AppContext } from 'providers/AppContextProvider';
+import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
 import { TITLES } from 'constants/titles';
 import { breakpoints } from 'styles';
 import { ReactComponent as StopIcon } from 'assets/stop.svg';
@@ -9,7 +10,9 @@ import { ReactComponent as PlayIcon } from 'assets/play.svg';
 import { Button } from '../';
 
 const DemoButton = ({ cx }) => {
-  const { language, isDemoPlaying, toggleDemo } = useContext(AppContext);
+  const { language, isDemoPlaying } = useContext(AppContext);
+
+  const { toggleDemo } = useAudioPlayer();
 
   const titles = TITLES[language];
 
