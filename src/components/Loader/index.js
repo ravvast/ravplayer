@@ -1,7 +1,6 @@
-import React from "react";
-import { css } from "@emotion/core";
-
-import { colors } from "styles";
+import React from 'react';
+import { css } from '@emotion/core';
+import { colors } from 'styles';
 
 const Loader = () => (
   <div

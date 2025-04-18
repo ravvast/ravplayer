@@ -1,26 +1,27 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { css } from '@emotion/core';
-import { AppContext } from 'providers/AppContextProvider';
+import { useAppContext } from 'providers/AppContextProvider';
 import { TITLES } from 'constants/titles';
-import { DrumContext } from 'containers/CardContainer';
 import { breakpoints, colors } from 'styles';
 import { ReactComponent as StopIcon } from 'assets/stop.svg';
 import { ReactComponent as PlayIcon } from 'assets/play.svg';
 import { Drum, Button, ModeSwitch, Title, Caption } from '../';
 
-const SimpleDrum = ({ drumImage }) => {
+const SimpleDrum = () => {
   const {
-    demoIsPlaying,
+    language,
+    selectedDrum,
+    isDemoPlaying,
     toggleDemo,
-    drum,
-    sticksMode,
-    hasSticksMode,
-    setSticksMode,
-  } = useContext(DrumContext);
-  const { language } = useContext(AppContext);
+    isStickMode,
+    setIsStickMode,
+  } = useAppContext();
 
   const titles = TITLES[language];
+
+  const hasSticksMode = !!(
+    selectedDrum.notesStick && selectedDrum.notesStick.length > 0
+  );
 
   return (
     <div
@@ -48,13 +49,13 @@ const SimpleDrum = ({ drumImage }) => {
         `}
       >
         <div>
-          <Drum drum={drum} src={drumImage} />
+          <Drum />
           {hasSticksMode && (
             <ModeSwitch
               onChange={() => {
-                setSticksMode(!sticksMode);
+                setIsStickMode(!isStickMode);
               }}
-              checked={sticksMode}
+              checked={isStickMode}
             />
           )}
         </div>
@@ -72,8 +73,8 @@ const SimpleDrum = ({ drumImage }) => {
             margin-bottom: 16px;
           `}
         >
-          <Title>{drum.title}</Title>
-          <Caption>{drum.notesString}</Caption>
+          <Title>{selectedDrum.title}</Title>
+          <Caption>{selectedDrum.notesString}</Caption>
         </div>
         <Button
           dark
@@ -82,8 +83,8 @@ const SimpleDrum = ({ drumImage }) => {
           `}
           onClick={toggleDemo}
         >
-          {demoIsPlaying ? titles.stop : titles.play}
-          {demoIsPlaying ? (
+          {isDemoPlaying ? titles.stop : titles.play}
+          {isDemoPlaying ? (
             <StopIcon
               css={css`
                 margin-left: 12px;
@@ -100,10 +101,6 @@ const SimpleDrum = ({ drumImage }) => {
       </div>
     </div>
   );
-};
-
-SimpleDrum.propTypes = {
-  drumImage: PropTypes.string,
 };
 
 export default React.memo(SimpleDrum);

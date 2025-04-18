@@ -1,23 +1,23 @@
-/* eslint-disable max-len */
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { css } from '@emotion/core';
-
-import { DrumContext } from 'containers/CardContainer';
+import { useAppContext } from 'providers/AppContextProvider';
 import { useResizeEvent } from 'effects';
-
+import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
 import Button from '../Button';
 
+const OverlayButtons = () => {
+  const { selectedDrum, isDemoPlaying } = useAppContext();
 
-const OverlayButtons = ({ drum }) => {
+  const { playSound } = useAudioPlayer();
+
   const innerWidth = useResizeEvent();
 
-  const isPan = drum.type === '11' || drum.type === '9P';
-  const isMoon = drum.type === '14';
+  const isPan = selectedDrum.type === '11' || selectedDrum.type === '9P';
+  const isMoon = selectedDrum.type === '14';
 
-  const [buttonWidth, setButtonWidth] = React.useState(80);
-  const [bigButtonWidth, setBigButtonWidth] = React.useState(100);
-  const [drumWidth, setDrumWidth] = React.useState(isPan ? 348 : 312);
+  const [buttonWidth, setButtonWidth] = useState(80);
+  const [bigButtonWidth, setBigButtonWidth] = useState(100);
+  const [drumWidth, setDrumWidth] = useState(isPan ? 348 : 312);
 
   React.useEffect(() => {
     if (innerWidth >= 768 && innerWidth < 960) {
@@ -30,50 +30,27 @@ const OverlayButtons = ({ drum }) => {
       setBigButtonWidth(100);
       setDrumWidth(312);
     }
-  }, [innerWidth, drum]);
+  }, [innerWidth, selectedDrum]);
 
   const centerButtonX = (drumWidth - bigButtonWidth) / 2;
   const centerButtonY = (drumWidth - bigButtonWidth) / 2;
 
   const getDrumRadius = delta => drumWidth / delta;
-  const getRadians = angle => Math.PI * angle / 180;
-  const getXCoordinate = (delta, angle) => centerButtonX + getDrumRadius(delta) * Math.cos(getRadians(angle));
-  const getYCoordinate = (delta, angle) => centerButtonY - getDrumRadius(delta) * Math.sin(getRadians(angle));
+  const getRadians = angle => (Math.PI * angle) / 180;
+  const getXCoordinate = (delta, angle) =>
+    centerButtonX + getDrumRadius(delta) * Math.cos(getRadians(angle));
+  const getYCoordinate = (delta, angle) =>
+    centerButtonY - getDrumRadius(delta) * Math.sin(getRadians(angle));
 
   const centerButtonRef = React.useRef();
   const buttonsRefs = React.useRef([]);
 
-  const setButtonRef = id => (ref) => {
+  const setButtonRef = id => ref => {
     if (!buttonsRefs.current) {
       buttonsRefs.current = [];
     }
     buttonsRefs.current[id] = ref;
   };
-
-  const {
-    demoIsPlaying,
-    toggleDemo,
-    playSound,
-  } = React.useContext(DrumContext);
-
-
-  React.useEffect(() => {
-    if (demoIsPlaying) {
-      playSound('DEMO', toggleDemo);
-
-      if (drum.demo.length > 0) {
-        for (let i = 0; i <= drum.demo.length - 1; i += 1) {
-          setTimeout(() => {
-            if (drum.demo[i].key === drum.centerNote.key) {
-              centerButtonRef.current.animate();
-            } else {
-              buttonsRefs.current[drum.demo[i].key].animate();
-            }
-          }, drum.demo[i].delay);
-        }
-      }
-    }
-  }, [demoIsPlaying]);
 
   return (
     <div
@@ -88,20 +65,20 @@ const OverlayButtons = ({ drum }) => {
         width={bigButtonWidth}
         top={centerButtonY}
         left={centerButtonX}
-        color={drum.centerNote.color}
+        color={selectedDrum.centerNote.color}
         ref={centerButtonRef}
-        demoIsPlaying={demoIsPlaying}
-        playSound={() => playSound(drum.centerNote.key)}
+        demoIsPlaying={isDemoPlaying}
+        playSound={() => playSound(selectedDrum.centerNote.key)}
         isMoon={isMoon}
       >
-        {drum.centerNote.name}
+        {selectedDrum.centerNote.name}
       </Button>
-      {drum.notes.map(object => (
+      {selectedDrum.notes.map(object => (
         <Button
           key={object.key}
           width={buttonWidth}
           color={object.color}
-          demoIsPlaying={demoIsPlaying}
+          demoIsPlaying={isDemoPlaying}
           ref={setButtonRef(object.key)}
           playSound={() => playSound(object.key)}
           top={getXCoordinate(object.delta, object.angle)}
@@ -113,10 +90,6 @@ const OverlayButtons = ({ drum }) => {
       ))}
     </div>
   );
-};
-
-OverlayButtons.propTypes = {
-  drum: PropTypes.any,
 };
 
 export default React.memo(OverlayButtons);

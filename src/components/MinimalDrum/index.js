@@ -1,28 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { css } from "@emotion/core";
-import { DrumContext } from "containers/CardContainer";
-import { Drum } from "../";
+import React from 'react';
+import { css } from '@emotion/core';
+import { Drum } from '../';
 
-const MinimalDrum = ({ drumImage }) => {
-  const { drum } = React.useContext(DrumContext);
-
-  return (
-    <div
-      css={css`
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      `}
-    >
-      <Drum drum={drum} src={drumImage} />
-    </div>
-  );
-};
-
-MinimalDrum.propTypes = {
-  drumImage: PropTypes.string,
-};
+const MinimalDrum = () => (
+  <div
+    css={css`
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    `}
+  >
+    <Drum />
+  </div>
+);
 
 export default React.memo(MinimalDrum);

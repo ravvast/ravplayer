@@ -1,4 +1,4 @@
-import { parseQuery } from './parseQuery';
+import { parseQuery } from '../parseQuery/parseQuery';
 
 export const getInitialLanguage = () => {
   const languageKey = parseQuery(document.location.href).language;

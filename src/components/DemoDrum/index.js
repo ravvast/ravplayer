@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { css } from '@emotion/core';
-import { AppContext } from 'providers/AppContextProvider';
+import { useAppContext } from 'providers/AppContextProvider';
+import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
 import { TITLES } from 'constants/titles';
-import { DrumContext } from 'containers/CardContainer';
 import { breakpoints } from 'styles';
 import { ReactComponent as StopIcon } from 'assets/stop.svg';
 import { ReactComponent as PlayIcon } from 'assets/play.svg';
 import { Drum, Button } from '../';
 
-const DemoDrum = ({ drumImage }) => {
-  const { demoIsPlaying, toggleDemo, drum } = useContext(DrumContext);
-  const { language } = useContext(AppContext);
+const DemoDrum = () => {
+  const { language, isDemoPlaying } = useAppContext();
+
+  const { toggleDemo } = useAudioPlayer();
 
   const titles = TITLES[language];
 
@@ -36,7 +36,7 @@ const DemoDrum = ({ drumImage }) => {
           }
         `}
       >
-        <Drum drum={drum} src={drumImage} />
+        <Drum />
       </div>
       <Button
         dark
@@ -50,8 +50,8 @@ const DemoDrum = ({ drumImage }) => {
           }
         `}
       >
-        {demoIsPlaying ? titles.stop : titles.play}
-        {demoIsPlaying ? (
+        {isDemoPlaying ? titles.stop : titles.play}
+        {isDemoPlaying ? (
           <StopIcon
             css={css`
               margin-left: 12px;
@@ -67,10 +67,6 @@ const DemoDrum = ({ drumImage }) => {
       </Button>
     </div>
   );
-};
-
-DemoDrum.propTypes = {
-  drumImage: PropTypes.string,
 };
 
 export default React.memo(DemoDrum);

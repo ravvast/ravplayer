@@ -1,14 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
-
-import { ReactComponent as CloseIcon } from 'assets/close.svg';
-import { DrumContext } from 'containers/CardContainer';
+import { useAppContext } from 'providers/AppContextProvider';
 import { SmallButton, CustomSelect } from 'components';
-import drums from 'content/drums';
+import drums from 'shared/assets/drums';
 import { breakpoints } from 'styles';
-
+import { ReactComponent as CloseIcon } from 'assets/close.svg';
 import { DrumRow } from './components';
 
 const selectOptions = [
@@ -18,12 +16,12 @@ const selectOptions = [
 ];
 
 const OverlayMenu = ({ children, onMenuClose }) => {
-  const [animationIsActive, setAnimationStatus] = React.useState(false);
-  const [menuIsOpen, changeMenuState] = React.useState(false);
+  const { setSelectedDrum } = useAppContext();
 
-  const [scrollTop, setScrollTop] = React.useState(0);
-
-  const [selectedOption, setSelectedOption] = React.useState(selectOptions[0]);
+  const [animationIsActive, setAnimationStatus] = useState(false);
+  const [menuIsOpen, changeMenuState] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(selectOptions[0]);
 
   // eslint-disable-next-line arrow-body-style
   const checkScrollBar = () => {
@@ -102,10 +100,9 @@ const OverlayMenu = ({ children, onMenuClose }) => {
 
   const opacity = animationIsActive ? 1 : 0;
 
-  const { selectDrum } = React.useContext(DrumContext);
-
-  const filterByType = (type) => {
-    const isPan = type === '9P' || type === '11' || type === '12' || type === '13';
+  const filterByType = type => {
+    const isPan =
+      type === '9P' || type === '11' || type === '12' || type === '13';
     const isMoon = type === '14';
     const isVast = !isPan && !isMoon;
 
@@ -135,7 +132,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
             opacity: ${opacity};
             transition: 0.45s opacity ease;
             background-color: transparent;
-            background-color: rgba(255, 255, 255, 0.99);;
+            background-color: rgba(255, 255, 255, 0.99);
             -webkit-overflow-scrolling: touch;
             height: 536px;
             width: 960px;
@@ -146,14 +143,14 @@ const OverlayMenu = ({ children, onMenuClose }) => {
             }
             @keyframes fadein {
               from {
-                opacity:0;
+                opacity: 0;
               }
               to {
-                opacity:1;
+                opacity: 1;
               }
             }
             animation: fadein 0.45s;
-        `}
+          `}
         >
           <div
             css={css`
@@ -164,7 +161,11 @@ const OverlayMenu = ({ children, onMenuClose }) => {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              background-image: linear-gradient(to top, rgba(238, 238, 238, 0), #ffffff);
+              background-image: linear-gradient(
+                to top,
+                rgba(238, 238, 238, 0),
+                #ffffff
+              );
               @media (min-width: ${960}px) {
                 display: none;
               }
@@ -186,27 +187,35 @@ const OverlayMenu = ({ children, onMenuClose }) => {
               `}
             />
           </div>
-          {drums.filter(drum => filterByType(drum.type)).map((object, index) => (
-            <DrumRow
-              key={object.key}
-              title={object.title}
-              caption={object.notesString}
-              isPan={object.type === '11' || object.type === '9P'}
-              isMoon={object.type === '14'}
-              isMystic={object.type === '15'}
-              cx={css`
-                margin-top: ${index === 0 ? '128px' : '0'};
-                margin-bottom: ${index === drums.length - 1 ? '64px' : '24px'};
-                @media (max-width: ${breakpoints.mobile}) {
-                  margin-bottom: ${index === drums.length - 1 ? '24px' : '8px'};
-                }
-              `}
-              onClick={() => {
-                selectDrum(drums.filter(drum => drum.key === object.key)[0]);
-                closeMenu();
-              }}
-            />
-          ))}
+          {drums
+            .filter(drum => filterByType(drum.type))
+            .map((object, index) => (
+              <DrumRow
+                key={object.key}
+                title={object.title}
+                caption={object.notesString}
+                isPan={object.type === '11' || object.type === '9P'}
+                isMoon={object.type === '14'}
+                isMystic={object.type === '15'}
+                cx={css`
+                  margin-top: ${index === 0 ? '128px' : '0'};
+                  margin-bottom: ${index === drums.length - 1
+                    ? '64px'
+                    : '24px'};
+                  @media (max-width: ${breakpoints.mobile}) {
+                    margin-bottom: ${index === drums.length - 1
+                      ? '24px'
+                      : '8px'};
+                  }
+                `}
+                onClick={() => {
+                  setSelectedDrum(
+                    drums.filter(drum => drum.key === object.key)[0],
+                  );
+                  closeMenu();
+                }}
+              />
+            ))}
           <div
             css={css`
               height: 72px;
@@ -230,7 +239,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
               options={selectOptions}
             />
             <button
-              type="button"
+              type='button'
               css={css`
                 width: 56px;
                 height: 56px;
@@ -240,7 +249,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
                 padding: 0;
                 background-color: transparent;
                 &:active {
-                  opacity: .8;
+                  opacity: 0.8;
                 }
               `}
               onClick={closeMenu}
@@ -248,9 +257,9 @@ const OverlayMenu = ({ children, onMenuClose }) => {
             >
               <CloseIcon
                 css={css`
-                width: 32px;
-                height: 32px;
-              `}
+                  width: 32px;
+                  height: 32px;
+                `}
               />
             </button>
           </div>
