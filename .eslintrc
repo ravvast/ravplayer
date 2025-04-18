@@ -30,9 +30,9 @@
     "react/jsx-one-expression-per-line": "off",
     "import/no-useless-path-segments": "off",
     "react/destructuring-assignment": "off",
-    "quotes": "off",
     "arrow-parens": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off"
   },
   "env": {
     "browser": true,

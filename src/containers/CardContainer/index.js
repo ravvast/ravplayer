@@ -1,23 +1,24 @@
-import React from "react";
-import { css } from "@emotion/core";
-import qs from "query-string";
-import { getDrumImage } from "utils/getDrumImage";
-import CardMobile from "containers/CardMobile";
-import Card from "containers/Card";
-import { Loader, Body, Button, MinimalDrum, DemoDrum } from "components";
-import drums from "content/drums";
-import { useResizeEvent } from "effects";
-import { breakpoints, colors } from "styles";
-import context from "./audioContext";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import { css } from '@emotion/core';
+import { getDrumImage } from 'utils/getDrumImage';
+import { parseQuery } from 'utils/parseQuery';
+import CardMobile from 'containers/CardMobile';
+import Card from 'containers/Card';
+import { Loader, MinimalDrum, DemoDrum, SimpleDrum, Error } from 'components';
+import drums from 'content/drums';
+import { useResizeEvent } from 'effects';
+import { breakpoints, colors } from 'styles';
+import context from './audioContext';
 
 const DRUMS_AMOUNT = 36;
 
-export const DrumContext = React.createContext();
-
-const parseQuery = asPath =>
-  qs.parse(qs.extract(asPath), {
-    arrayFormat: "comma",
-  });
+export const DrumContext = createContext();
 
 const getId = asPath => {
   const number = parseQuery(asPath).id;
@@ -28,36 +29,26 @@ const getId = asPath => {
   return 0;
 };
 
-const checkRuLanguage = asPath => {
-  const languageKey = parseQuery(asPath).language;
-
-  if (languageKey === "ru") {
-    return true;
-  }
-  return false;
-};
-
-const checkSimpleView = asPath => parseQuery(asPath).simpleView === "true";
-const checkMinimalView = asPath => parseQuery(asPath).minimalView === "true";
-const checkDemoView = asPath => parseQuery(asPath).demoView === "true";
+const checkSimpleView = asPath => parseQuery(asPath).simpleView === 'true';
+const checkMinimalView = asPath => parseQuery(asPath).minimalView === 'true';
+const checkDemoView = asPath => parseQuery(asPath).demoView === 'true';
 
 const CardContainer = () => {
   const id = getId(document.location.href);
-  const isRu = checkRuLanguage(document.location.href);
   const isSimpleView = checkSimpleView(document.location.href);
   const isMinimalView = checkMinimalView(document.location.href);
   const isDemoView = checkDemoView(document.location.href);
-  const [selectedDrum, selectDrum] = React.useState(drums[id]);
-  const [demoIsPlaying, setDemoStatus] = React.useState(false);
-  const [audioBuffer, setAudioBuffer] = React.useState({});
-  const [preloaded, setPreloadedStatus] = React.useState(false);
-  const [hasErrors, setHasErrors] = React.useState(false);
-  const [currentDemoSource, setCurrentDemoSource] = React.useState(null);
-  const [sticksMode, setSticksMode] = React.useState(false);
-  const [audioContextReady, setAudioContextReady] = React.useState(false);
+  const [selectedDrum, selectDrum] = useState(drums[id]);
+  const [demoIsPlaying, setDemoStatus] = useState(false);
+  const [audioBuffer, setAudioBuffer] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [currentDemoSource, setCurrentDemoSource] = useState(null);
+  const [sticksMode, setSticksMode] = useState(false);
+  const [audioContextReady, setAudioContextReady] = useState(false);
 
-  const pendingSoundRef = React.useRef(null);
-  const { audioContext } = React.useContext(context);
+  const pendingSoundRef = useRef(null);
+  const { audioContext } = useContext(context);
 
   const hasSticksMode = !!(
     selectedDrum.notesStick && selectedDrum.notesStick.length > 0
@@ -79,16 +70,16 @@ const CardContainer = () => {
     source.buffer = buffer;
     source.connect(audioContext.destination);
     source.start(0);
-    if (key === "DEMO") {
+    if (key === 'DEMO') {
       setCurrentDemoSource(source);
     }
     if (onEnded) {
-      source.addEventListener("ended", () => onEnded());
+      source.addEventListener('ended', () => onEnded());
     }
   };
 
   const handleFirstUserInteraction = (soundKey, onEnded) => {
-    if (audioContext.state === "suspended") {
+    if (audioContext.state === 'suspended') {
       audioContext.resume().then(() => {
         setAudioContextReady(true);
         if (soundKey) {
@@ -110,11 +101,16 @@ const CardContainer = () => {
   };
 
   const renderDrumContent = content => {
-    if (isMinimalView)
+    if (isMinimalView) {
       return <MinimalDrum drumImage={getDrumImage(selectedDrum.type)} />;
+    }
 
     if (isDemoView) {
       return <DemoDrum drumImage={getDrumImage(selectedDrum.type)} />;
+    }
+
+    if (isSimpleView) {
+      return <SimpleDrum drumImage={getDrumImage(selectedDrum.type)} />;
     }
 
     return (
@@ -138,7 +134,7 @@ const CardContainer = () => {
     );
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleInteraction = () => {
       if (!audioContextReady && pendingSoundRef.current) {
         handleFirstUserInteraction(
@@ -148,15 +144,11 @@ const CardContainer = () => {
       }
     };
 
-    window.addEventListener("click", handleInteraction, { once: true });
-    return () => window.removeEventListener("click", handleInteraction);
+    window.addEventListener('click', handleInteraction, { once: true });
+    return () => window.removeEventListener('click', handleInteraction);
   }, [audioContextReady]);
 
-  React.useEffect(() => {
-    setAudioBuffer({});
-    setPreloadedStatus(false);
-    setHasErrors(false);
-
+  useEffect(() => {
     const useSticksData = sticksMode && !!selectedDrum.notesStick;
 
     // eslint-disable-next-line prefer-const
@@ -168,13 +160,13 @@ const CardContainer = () => {
       localBuffer[key] = buffer;
       if (preloadedCounter === selectedDrum.notes.length + 2) {
         setAudioBuffer(localBuffer);
-        setPreloadedStatus(true);
+        setIsLoading(false);
       }
     };
 
     const centerNoterequest = new XMLHttpRequest();
     centerNoterequest.open(
-      "get",
+      'get',
       `https://storage.googleapis.com/rav_app_bucket/soundsMP3/${
         selectedDrum.key
       }/${
@@ -184,7 +176,7 @@ const CardContainer = () => {
       }.mp3`,
       true,
     );
-    centerNoterequest.responseType = "arraybuffer";
+    centerNoterequest.responseType = 'arraybuffer';
     centerNoterequest.timeout = 20000;
     centerNoterequest.onload = () => {
       audioContext.decodeAudioData(centerNoterequest.response, buffer => {
@@ -192,38 +184,38 @@ const CardContainer = () => {
       });
     };
     centerNoterequest.onerror = () => {
-      setHasErrors(true);
+      setIsError(true);
     };
     centerNoterequest.ontimeout = () => {
-      setHasErrors(true);
+      setIsError(true);
     };
     centerNoterequest.send();
 
     const demoRequest = new XMLHttpRequest();
     demoRequest.open(
-      "get",
+      'get',
       `https://storage.googleapis.com/rav_app_bucket/soundsMP3/${selectedDrum.key}/DEMO.mp3`,
       true,
     );
-    demoRequest.responseType = "arraybuffer";
+    demoRequest.responseType = 'arraybuffer';
     demoRequest.timeout = 20000;
     demoRequest.onload = () => {
       audioContext.decodeAudioData(demoRequest.response, buffer => {
-        onAudioLoad("DEMO", buffer);
+        onAudioLoad('DEMO', buffer);
       });
     };
     demoRequest.onerror = () => {
-      setHasErrors(true);
+      setIsError(true);
     };
     demoRequest.ontimeout = () => {
-      setHasErrors(true);
+      setIsError(true);
     };
     demoRequest.send();
 
     for (let i = 0; i <= selectedDrum.notes.length - 1; i += 1) {
       const request = new XMLHttpRequest();
       request.open(
-        "get",
+        'get',
         `https://storage.googleapis.com/rav_app_bucket/soundsMP3/${
           selectedDrum.key
         }/${
@@ -233,7 +225,7 @@ const CardContainer = () => {
         }.mp3`,
         true,
       );
-      request.responseType = "arraybuffer";
+      request.responseType = 'arraybuffer';
       request.timeout = 20000;
       request.onload = event => {
         if (event.target.status === 200) {
@@ -241,53 +233,31 @@ const CardContainer = () => {
             onAudioLoad(selectedDrum.notes[i].key, buffer);
           });
         } else {
-          setHasErrors(true);
+          setIsError(true);
         }
       };
       request.onerror = () => {
-        setHasErrors(true);
+        setIsError(true);
       };
       request.ontimeout = () => {
-        setHasErrors(true);
+        setIsError(true);
       };
       request.send();
     }
   }, [selectedDrum, sticksMode]);
   const innerWidth = useResizeEvent();
 
-  let content = <Loader />;
+  let content;
 
-  if (hasErrors) {
-    content = (
-      <Body
-        cx={css`
-          text-align: center;
-        `}
-      >
-        Someting went wrong.
-        <br />
-        Reload or contact with a support team.
-        <Button
-          outline
-          cx={css`
-            margin: 24px auto 0 auto;
-            padding: 0 24px;
-          `}
-          onClick={() => window.location.reload()}
-        >
-          Reload page
-        </Button>
-      </Body>
-    );
+  if (innerWidth >= 960) {
+    content = <Card />;
+  } else {
+    content = <CardMobile />;
   }
 
-  if (!hasErrors && preloaded) {
-    if (innerWidth >= 960) {
-      content = <Card />;
-    } else {
-      content = <CardMobile />;
-    }
-  }
+  if (isLoading) return <Loader />;
+
+  if (isError) return <Error />;
 
   return (
     <DrumContext.Provider
@@ -297,10 +267,6 @@ const CardContainer = () => {
         drum: selectedDrum,
         selectDrum,
         playSound,
-        isRu,
-        isSimpleView,
-        isMinimalView,
-        isDemoView,
         hasSticksMode,
         sticksMode,
         setSticksMode,

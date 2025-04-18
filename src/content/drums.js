@@ -1,5 +1,5 @@
 import colors from 'styles/colors';
-import { getNotePositions } from '../utils/getNotesPositions';
+import { getNotePositions } from 'utils/getNotesPositions';
 
 const BASE_LINK = 'https://ravvast.com/products/';
 

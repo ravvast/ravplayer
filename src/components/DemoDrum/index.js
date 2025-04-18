@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { css } from "@emotion/core";
-import { TITLES } from "constants/titles";
-import { DrumContext } from "containers/CardContainer";
-import { breakpoints } from "styles";
-import { ReactComponent as StopIcon } from "assets/stop.svg";
-import { ReactComponent as PlayIcon } from "assets/play.svg";
-import { Drum, Button } from "../";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { css } from '@emotion/core';
+import { AppContext } from 'providers/AppContextProvider';
+import { TITLES } from 'constants/titles';
+import { DrumContext } from 'containers/CardContainer';
+import { breakpoints } from 'styles';
+import { ReactComponent as StopIcon } from 'assets/stop.svg';
+import { ReactComponent as PlayIcon } from 'assets/play.svg';
+import { Drum, Button } from '../';
 
 const DemoDrum = ({ drumImage }) => {
-  const { demoIsPlaying, toggleDemo, drum, isRu } =
-    React.useContext(DrumContext);
+  const { demoIsPlaying, toggleDemo, drum } = useContext(DrumContext);
+  const { language } = useContext(AppContext);
 
-  const language = isRu ? "ru" : "en";
   const titles = TITLES[language];
 
   return (

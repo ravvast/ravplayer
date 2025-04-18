@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
-import React from "react";
-import { css } from "@emotion/core";
-import { getDrumImage } from "utils/getDrumImage";
-import { TITLES } from "constants/titles";
-import { DrumContext } from "containers/CardContainer";
+import React, { useContext } from 'react';
+import { css } from '@emotion/core';
+import { AppContext } from 'providers/AppContextProvider';
+import { getDrumImage } from 'utils/getDrumImage';
+import { TITLES } from 'constants/titles';
+import { DrumContext } from 'containers/CardContainer';
 import {
   Caption,
   Button,
@@ -13,11 +14,11 @@ import {
   OverlayMenu,
   Drum,
   ModeSwitch,
-} from "components";
-import { colors, breakpoints } from "styles";
-import { ReactComponent as PlayIcon } from "assets/play.svg";
-import { ReactComponent as StopIcon } from "assets/stop.svg";
-import { ReactComponent as MoreIcon } from "assets/more.svg";
+} from 'components';
+import { colors, breakpoints } from 'styles';
+import { ReactComponent as PlayIcon } from 'assets/play.svg';
+import { ReactComponent as StopIcon } from 'assets/stop.svg';
+import { ReactComponent as MoreIcon } from 'assets/more.svg';
 
 const CardMobile = () => {
   const onMenuClose = () => {
@@ -29,16 +30,13 @@ const CardMobile = () => {
     toggleDemo,
     drum,
     selectDrum,
-    isRu,
-    isSimpleView,
     hasSticksMode,
     sticksMode,
     setSticksMode,
-  } = React.useContext(DrumContext);
+  } = useContext(DrumContext);
+  const { language } = useContext(AppContext);
 
-  const language = isRu ? "ru" : "en";
   const titles = TITLES[language];
-  const shouldHideContent = isSimpleView;
 
   return (
     <div
@@ -76,41 +74,39 @@ const CardMobile = () => {
                     <Caption>{drum.notesString}</Caption>
                   </div>
                 }
-                {!shouldHideContent && (
-                  <Button
-                    outline
-                    cx={css`
-                      padding: 0 12px;
+                <Button
+                  outline
+                  cx={css`
+                    padding: 0 12px;
+                    white-space: nowrap;
+                  `}
+                  onClick={() => {
+                    if (demoIsPlaying) {
+                      toggleDemo();
+                    }
+                    openMenu();
+                  }}
+                >
+                  <MoreIcon
+                    css={css`
+                      margin-right: 12px;
                       white-space: nowrap;
                     `}
-                    onClick={() => {
-                      if (demoIsPlaying) {
-                        toggleDemo();
-                      }
-                      openMenu();
-                    }}
-                  >
-                    <MoreIcon
-                      css={css`
-                        margin-right: 12px;
-                        white-space: nowrap;
-                      `}
-                    />
-                    {titles.select}
-                  </Button>
-                )}
+                  />
+                  {titles.select}
+                </Button>
               </div>
-              {!shouldHideContent && (
-                <div
-                  css={css`
-                    display: flex;
-                    flex-direction: column;
-                    margin-bottom: 16px;
-                  `}
-                >
-                  <Body>{isRu ? drum.descriptionRu : drum.description}</Body>
-                </div>
-              )}
+              <div
+                css={css`
+                  display: flex;
+                  flex-direction: column;
+                  margin-bottom: 16px;
+                `}
+              >
+                <Body>
+                  {language === 'ru' ? drum.descriptionRu : drum.description}
+                </Body>
+              </div>
 
               <div
                 css={css`
@@ -182,39 +178,35 @@ const CardMobile = () => {
                       />
                     )}
                   </Button>
-                  {!shouldHideContent && (
-                    <Button
-                      cx={css`
-                        width: 100%;
-                        margin-left: 8px;
-                      `}
-                      outline
-                      onClick={() => window.open(drum.link)}
-                    >
-                      {titles.learnMore}
-                    </Button>
-                  )}
+                  <Button
+                    cx={css`
+                      width: 100%;
+                      margin-left: 8px;
+                    `}
+                    outline
+                    onClick={() => window.open(drum.link)}
+                  >
+                    {titles.learnMore}
+                  </Button>
                 </div>
               </div>
-              {!shouldHideContent && (
-                <div
-                  css={css`
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 16px 0 12px;
-                    border-top: solid 1px ${colors.dark.border};
-                  `}
-                >
-                  <Combination
-                    drums={drum.combinesWith}
-                    title={titles.combines}
-                    selectDrum={selectDrum}
-                    demoIsPlaying={demoIsPlaying}
-                    toggleDemo={toggleDemo}
-                  />
-                </div>
-              )}
+              <div
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 16px 0 12px;
+                  border-top: solid 1px ${colors.dark.border};
+                `}
+              >
+                <Combination
+                  drums={drum.combinesWith}
+                  title={titles.combines}
+                  selectDrum={selectDrum}
+                  demoIsPlaying={demoIsPlaying}
+                  toggleDemo={toggleDemo}
+                />
+              </div>
             </>
           );
         }}

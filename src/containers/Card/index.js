@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
-import React from "react";
-import { css } from "@emotion/core";
-import { getDrumImage } from "utils/getDrumImage";
-import { TITLES } from "constants/titles";
-import { DrumContext } from "containers/CardContainer";
+import React, { useContext } from 'react';
+import { css } from '@emotion/core';
+import { AppContext } from 'providers/AppContextProvider';
+import { getDrumImage } from 'utils/getDrumImage';
+import { TITLES } from 'constants/titles';
+import { DrumContext } from 'containers/CardContainer';
 import {
   Button,
   Caption,
@@ -13,11 +14,11 @@ import {
   Combination,
   OverlayMenu,
   ModeSwitch,
-} from "components";
-import colors from "styles/colors";
-import { ReactComponent as MoreIcon } from "assets/more.svg";
-import { ReactComponent as PlayIcon } from "assets/play.svg";
-import { ReactComponent as StopIcon } from "assets/stop.svg";
+} from 'components';
+import colors from 'styles/colors';
+import { ReactComponent as MoreIcon } from 'assets/more.svg';
+import { ReactComponent as PlayIcon } from 'assets/play.svg';
+import { ReactComponent as StopIcon } from 'assets/stop.svg';
 
 const Card = () => {
   const {
@@ -25,16 +26,13 @@ const Card = () => {
     toggleDemo,
     drum,
     selectDrum,
-    isRu,
-    isSimpleView,
     hasSticksMode,
     sticksMode,
     setSticksMode,
-  } = React.useContext(DrumContext);
+  } = useContext(DrumContext);
+  const { language } = useContext(AppContext);
 
-  const language = isRu ? "ru" : "en";
   const titles = TITLES[language];
-  const shouldHideContent = isSimpleView;
 
   return (
     <div
@@ -109,29 +107,27 @@ const Card = () => {
                     <Title>{drum.title}</Title>
                     <Caption>{drum.notesString}</Caption>
                   </div>
-                  {!shouldHideContent && (
-                    <Button
-                      outline
-                      cx={css`
-                        padding: 0 12px;
+                  <Button
+                    outline
+                    cx={css`
+                      padding: 0 12px;
+                      white-space: nowrap;
+                    `}
+                    onClick={() => {
+                      if (demoIsPlaying) {
+                        toggleDemo();
+                      }
+                      openMenu();
+                    }}
+                  >
+                    <MoreIcon
+                      css={css`
+                        margin-right: 12px;
                         white-space: nowrap;
                       `}
-                      onClick={() => {
-                        if (demoIsPlaying) {
-                          toggleDemo();
-                        }
-                        openMenu();
-                      }}
-                    >
-                      <MoreIcon
-                        css={css`
-                          margin-right: 12px;
-                          white-space: nowrap;
-                        `}
-                      />
-                      {titles.select}
-                    </Button>
-                  )}
+                    />
+                    {titles.select}
+                  </Button>
                 </div>
                 <div
                   css={css`
@@ -142,15 +138,13 @@ const Card = () => {
                     padding: 0px 16px 8px 16px;
                   `}
                 >
-                  {!shouldHideContent && (
-                    <Body
-                      cx={css`
-                        margin: 0 8px 8px;
-                      `}
-                    >
-                      {isRu ? drum.descriptionRu : drum.description}
-                    </Body>
-                  )}
+                  <Body
+                    cx={css`
+                      margin: 0 8px 8px;
+                    `}
+                  >
+                    {language === 'ru' ? drum.descriptionRu : drum.description}
+                  </Body>
                   <div
                     css={css`
                       flex: 1;
@@ -164,7 +158,7 @@ const Card = () => {
                     <Button
                       dark
                       cx={css`
-                        width: ${shouldHideContent ? "100%" : "50%"};
+                        width: 50%;
                       `}
                       onClick={toggleDemo}
                     >
@@ -183,36 +177,32 @@ const Card = () => {
                         />
                       )}
                     </Button>
-                    {!shouldHideContent && (
-                      <Button
-                        cx={css`
-                          width: 50%;
-                        `}
-                        outline
-                        onClick={() => window.open(drum.link)}
-                      >
-                        {titles.learnMore}
-                      </Button>
-                    )}
+                    <Button
+                      cx={css`
+                        width: 50%;
+                      `}
+                      outline
+                      onClick={() => window.open(drum.link)}
+                    >
+                      {titles.learnMore}
+                    </Button>
                   </div>
                 </div>
-                {!shouldHideContent && (
-                  <div
-                    css={css`
-                      border-top: solid 1px ${colors.dark.border};
-                      display: flex;
-                      justify-content: center;
-                    `}
-                  >
-                    <Combination
-                      drums={drum.combinesWith}
-                      title={titles.combines}
-                      selectDrum={selectDrum}
-                      demoIsPlaying={demoIsPlaying}
-                      toggleDemo={toggleDemo}
-                    />
-                  </div>
-                )}
+                <div
+                  css={css`
+                    border-top: solid 1px ${colors.dark.border};
+                    display: flex;
+                    justify-content: center;
+                  `}
+                >
+                  <Combination
+                    drums={drum.combinesWith}
+                    title={titles.combines}
+                    selectDrum={selectDrum}
+                    demoIsPlaying={demoIsPlaying}
+                    toggleDemo={toggleDemo}
+                  />
+                </div>
               </div>
             </div>
           );
