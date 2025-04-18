@@ -57,9 +57,9 @@ const CardContainer = () => {
     content = <CardMobile />;
   }
 
-  if (isLoading) return <Loader />;
-
   if (isError) return <Error />;
+
+  if (isLoading) return <Loader />;
 
   return renderDrumContent(content);
 };
