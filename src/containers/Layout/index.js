@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Layout = ({ children }) => (
   <div
     css={css`
-      min-height: calc(100vh - 24px);
+      min-height: calc(100dvh - 24px);
       width: 100%;
       padding: 12px 16px;
       display: flex;

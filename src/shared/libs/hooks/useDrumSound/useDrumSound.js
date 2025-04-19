@@ -1,11 +1,14 @@
 import { useContext, useEffect } from 'react';
 import { AppContext } from 'providers/AppContextProvider';
-import { audioContext } from '../../audioContext/audioContext';
+import { Howl } from 'howler';
 
 export const useDrumSounds = (setIsLoading, setIsError) => {
   const { isStickMode, selectedDrum, setAudioBuffer } = useContext(AppContext);
 
   useEffect(() => {
+    // Определяем платформу
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
     const useSticks = isStickMode && selectedDrum.notesStick;
     const localBuffer = {};
     let loaded = 0;
@@ -13,23 +16,24 @@ export const useDrumSounds = (setIsLoading, setIsError) => {
     const totalToLoad = selectedDrum.notes.length + 2;
 
     const loadSound = (key, url) => {
-      const request = new XMLHttpRequest();
-      request.open('get', url, true);
-      request.responseType = 'arraybuffer';
-      request.timeout = 20000;
-      request.onload = () => {
-        audioContext.decodeAudioData(request.response, buffer => {
-          localBuffer[key] = buffer;
+      const sound = new Howl({
+        src: [url],
+        format: ['mp3'],
+        html5: isIOS,
+        onload: () => {
+          localBuffer[key] = sound;
           loaded++;
           if (loaded === totalToLoad) {
             setAudioBuffer(localBuffer);
             setIsLoading(false);
           }
-        });
-      };
-      request.onerror = () => setIsError(true);
-      request.ontimeout = () => setIsError(true);
-      request.send();
+        },
+        onloaderror: (_, err) => {
+          console.error(`Error loading ${key}:`, err);
+          setIsError(true);
+        },
+        onerror: () => setIsError(true),
+      });
     };
 
     const baseUrl = `https://storage.googleapis.com/rav_app_bucket/soundsMP3/${selectedDrum.key}`;

@@ -13,13 +13,17 @@ const DemoDrum = () => (
       justify-content: center;
       align-items: center;
       gap: 30px;
+
+      @media (max-width: ${breakpoints.mobile}) {
+        justify-content: space-between;
+      }
     `}
   >
     <div
       css={css`
         @media (max-width: ${breakpoints.mobile}) {
-          height: 100%;
           display: flex;
+          flex-grow: 1;
           align-items: center;
         }
       `}
