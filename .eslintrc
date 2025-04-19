@@ -10,36 +10,29 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
-    "import/prefer-default-export": [
-      0
-    ],
+    "import/prefer-default-export": [0],
     "react/forbid-prop-types": [
       1,
       {
-        "forbid": [
-          "array",
-          "object"
-        ]
+        "forbid": ["array", "object"]
       }
     ],
     "jsx-a11y/alt-text": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
-    "react/no-unescaped-entities": [
-      0
-    ],
+    "react/no-unescaped-entities": [0],
     "react/no-danger": "off",
     "no-plusplus": "off",
     "func-names": ["warn", "as-needed"],
     "object-curly-newline": "off",
     "react/jsx-one-expression-per-line": "off",
     "import/no-useless-path-segments": "off",
-    "react/destructuring-assignment": "off"
+    "react/destructuring-assignment": "off",
+    "arrow-parens": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off"
   },
   "env": {
     "browser": true,
@@ -48,16 +41,11 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": [
-          "src"
-        ]
+        "paths": ["src"]
       }
     },
     "ecmascript": 6,
     "jsx": true
   },
-  "plugins": [
-    "react",
-    "react-hooks"
-  ]
+  "plugins": ["react", "react-hooks"]
 }

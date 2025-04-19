@@ -1,10 +1,15 @@
 import React from 'react';
 
-import CardContainer from './containers/CardContainer';
-
+import { AppContextProvider } from 'providers/AppContextProvider';
+import Layout from 'containers/Layout';
+import CardContainer from 'containers/CardContainer';
 
 const App = () => (
-  <CardContainer />
+  <AppContextProvider>
+    <Layout>
+      <CardContainer />
+    </Layout>
+  </AppContextProvider>
 );
 
 export default App;

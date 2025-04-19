@@ -1,57 +1,20 @@
-/* eslint-disable max-len */
-import React from 'react';
+import React, { useContext } from 'react';
 import { css } from '@emotion/core';
-
-import { ReactComponent as PlayIcon } from 'assets/play.svg';
-import { ReactComponent as StopIcon } from 'assets/stop.svg';
-import { ReactComponent as MoreIcon } from 'assets/more.svg';
-
-import Drum9 from 'assets/drum9.png';
-import Drum9P from 'assets/drum9P.svg';
-import Drum10 from 'assets/drum10.png';
-import Drum11 from 'assets/drum11.svg';
-import Drum12 from 'assets/drum12.svg';
-import Drum13 from 'assets/drum13.svg';
-import Drum14 from 'assets/drum14.png';
-import Drum15 from 'assets/drum15.png';
-import { DrumContext } from 'containers/CardContainer';
+import { AppContext } from 'providers/AppContextProvider';
+import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
+import { TITLES } from 'constants/titles';
 import {
   Caption,
   Button,
   Title,
-  Body,
   Combination,
   OverlayMenu,
   Drum,
   ModeSwitch,
+  DemoButton,
 } from 'components';
-import { colors, breakpoints } from 'styles';
-
-
-const selectDrumImage = (type) => {
-  if (type === '9') {
-    return Drum9;
-  }
-  if (type === '10') {
-    return Drum10;
-  }
-  if (type === '9P') {
-    return Drum9P;
-  }
-  if (type === '12') {
-    return Drum12;
-  }
-  if (type === '13') {
-    return Drum13;
-  }
-  if (type === '14') {
-    return Drum14;
-  }
-  if (type === '15') {
-    return Drum15;
-  }
-  return Drum11;
-};
+import { colors } from 'styles';
+import { ReactComponent as MoreIcon } from 'assets/more.svg';
 
 const CardMobile = () => {
   const onMenuClose = () => {
@@ -59,39 +22,21 @@ const CardMobile = () => {
   };
 
   const {
-    demoIsPlaying,
-    toggleDemo,
-    drum,
-    selectDrum,
-    isRu,
-    isSimpleView,
-    isMinimalView,
-    hasSticksMode,
-    sticksMode,
-    setSticksMode,
-  } = React.useContext(DrumContext);
+    language,
+    selectedDrum,
+    setSelectedDrum,
+    isDemoPlaying,
+    isStickMode,
+    setIsStickMode,
+  } = useContext(AppContext);
 
-  const getTitles = React.useCallback(() => {
-    if (isRu) {
-      return {
-        play: 'Прослушать Демо',
-        stop: 'Остановить Демо',
-        learnMore: 'Узнать больше',
-        select: 'Выбрать Модель',
-        combines: 'Хорошо комбинирует с',
-      };
-    }
+  const { toggleDemo } = useAudioPlayer();
 
-    return {
-      play: 'Play Demo',
-      stop: 'Stop Demo',
-      learnMore: 'Buy this RAV',
-      select: 'Select Model',
-      combines: 'Combines well with',
-    };
-  }, [isRu]);
+  const hasSticksMode = !!(
+    selectedDrum.notesStick && selectedDrum.notesStick.length > 0
+  );
 
-  const titles = getTitles();
+  const titles = TITLES[language];
 
   return (
     <div
@@ -104,34 +49,17 @@ const CardMobile = () => {
       `}
     >
       <OverlayMenu onMenuClose={onMenuClose}>
-        {({ openMenu }) => {
-          const drumImage = selectDrumImage(drum.type);
-
-          if (isMinimalView) {
-            return (
-              <div
-                css={css`
-                  flex: 1;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                `}
-              >
-                <Drum drum={drum} src={drumImage} />
-              </div>
-            );
-          }
-
-          return (
-            <>
-              <div
-                css={css`
-                  padding: 12px 12px 12px 16px;
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                `}
-              >
+        {({ openMenu }) => (
+          <>
+            <div
+              css={css`
+                margin-bottom: 28px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              `}
+            >
+              {
                 <div
                   css={css`
                     display: flex;
@@ -139,151 +67,113 @@ const CardMobile = () => {
                     margin-right: 8px;
                   `}
                 >
-                  <Title>{drum.title}</Title>
-                  <Caption>{drum.notesString}</Caption>
+                  <Title>{selectedDrum.title}</Title>
+                  <Caption>{selectedDrum.notesString}</Caption>
                 </div>
-                {!isSimpleView && (
-                  <Button
-                    outline
-                    cx={css`
-                      padding: 0 12px;
-                      white-space: nowrap;
-                    `}
-                    onClick={() => {
-                      if (demoIsPlaying) {
-                        toggleDemo();
-                      }
-                      openMenu();
-                    }}
-                  >
-                    <MoreIcon
-                      css={css`
-                        margin-right: 12px;
-                        white-space: nowrap;
-                      `}
-                    />
-                    {titles.select}
-                  </Button>
-                )}
-              </div>
-              {!isSimpleView && (
-                <div
+              }
+              <Button
+                outline
+                cx={css`
+                  padding: 0 12px;
+                  white-space: nowrap;
+                `}
+                onClick={() => {
+                  if (isDemoPlaying) {
+                    toggleDemo();
+                  }
+                  openMenu();
+                }}
+              >
+                <MoreIcon
                   css={css`
-                    display: flex;
-                    flex-direction: column;
-                    padding: 16px;
+                    margin-right: 12px;
+                    white-space: nowrap;
                   `}
-                >
-                  <Body>{isRu ? drum.descriptionRu : drum.description}</Body>
-                </div>
-              )}
+                />
+                {titles.select}
+              </Button>
+            </div>
+            <div
+              css={css`
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 16px;
+              `}
+            >
+              <p>
+                {language === 'ru'
+                  ? selectedDrum.descriptionRu
+                  : selectedDrum.description}
+              </p>
+            </div>
 
+            <div
+              css={css`
+                display: flex;
+                flex: 1;
+                justify-content: center;
+                flex-direction: column;
+              `}
+            >
               <div
                 css={css`
                   display: flex;
                   flex: 1;
                   justify-content: center;
-                  flex-direction: column;
+                  align-items: center;
                 `}
               >
-                <div
-                  css={css`
-                    display: flex;
-                    flex: 1;
-                    justify-content: center;
-                    align-items: center;
-                  `}
-                >
-                  <div>
-                    <Drum drum={drum} src={drumImage} />
-                    {hasSticksMode && (
-                      <ModeSwitch
-                        onChange={() => {
-                          setSticksMode(!sticksMode);
-                        }}
-                        checked={sticksMode}
-                      />
-                    )}
-                  </div>
-                </div>
-                <div
-                  css={css`
-                    display: flex;
-                    padding: 16px;
-                    flex-direction: row;
-                  `}
-                >
-                  <Button
-                    dark
-                    cx={css`
-                      margin-right: 8px;
-                      width: 100%;
-                    `}
-                    onClick={toggleDemo}
-                  >
-                    {demoIsPlaying ? titles.stop : titles.play}
-                    {demoIsPlaying ? (
-                      <StopIcon
-                        css={css`
-                          margin-left: 12px;
-                          @media (max-width: ${breakpoints.mobile}) {
-                            width: 3.2vw;
-                            height: 3.2vw;
-                            min-width: 22px;
-                            min-height: 22px;
-                          }
-                        `}
-                      />
-                    ) : (
-                      <PlayIcon
-                        css={css`
-                          margin-left: 12px;
-                          @media (max-width: ${breakpoints.mobile}) {
-                            width: 3.2vw;
-                            height: 3.2vw;
-                            min-width: 22px;
-                            min-height: 22px;
-                          }
-                        `}
-                      />
-                    )}
-                  </Button>
-                  {!isSimpleView && (
-                    <Button
-                      cx={css`
-                        width: 100%;
-                        margin-left: 8px;
-                      `}
-                      outline
-                      onClick={() => window.open(drum.link)}
-                    >
-                      {titles.learnMore}
-                    </Button>
+                <div>
+                  <Drum />
+                  {hasSticksMode && (
+                    <ModeSwitch
+                      onChange={() => {
+                        setIsStickMode(!isStickMode);
+                      }}
+                      checked={isStickMode}
+                    />
                   )}
                 </div>
               </div>
-              {!isSimpleView && (
-                <div
-                  css={css`
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 8px 0;
-                    border-top: solid 1px ${colors.dark.border};
+              <div
+                css={css`
+                  display: flex;
+                  margin: 16px 0;
+                  flex-direction: row;
+                  gap: 16px;
+                `}
+              >
+                <DemoButton />
+                <Button
+                  cx={css`
+                    width: 100%;
                   `}
+                  outline
+                  onClick={() => window.open(selectedDrum.link)}
                 >
-                  <Combination
-                    drums={drum.combinesWith}
-                    title={titles.combines}
-                    selectDrum={selectDrum}
-                    demoIsPlaying={demoIsPlaying}
-                    toggleDemo={toggleDemo}
-                  />
-                </div>
-              )}
-            </>
-          );
-        }}
+                  {titles.learnMore}
+                </Button>
+              </div>
+            </div>
+            <div
+              css={css`
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 16px 0 12px;
+                border-top: solid 1px ${colors.dark.border};
+              `}
+            >
+              <Combination
+                drums={selectedDrum.combinesWith}
+                title={titles.combines}
+                selectDrum={setSelectedDrum}
+                demoIsPlaying={isDemoPlaying}
+                toggleDemo={toggleDemo}
+              />
+            </div>
+          </>
+        )}
       </OverlayMenu>
     </div>
   );

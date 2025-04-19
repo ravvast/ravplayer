@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
+import { getBackgroundImage } from 'utils/getBackgroundImage';
 import { breakpoints } from 'styles';
 import { Title, Caption } from 'components';
-import { getBackgroundImage } from '../../../../utils';
 
 const DrumRow = ({ cx, onClick, isPan, isMoon, isMystic, title, caption }) => {
   const backgroundImage = getBackgroundImage({ isPan, isMoon, isMystic });
   return (
     <button
-      type="button"
+      type='button'
       onClick={onClick}
       onKeyPress={null}
       css={[

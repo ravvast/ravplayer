@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
-
-import { Body } from 'components';
-import drums from 'content/drums';
+import drums from 'shared/assets/drums';
 import { breakpoints } from 'styles';
-
 import DrumItem from './components/DrumItem';
-
 
 const findDrum = key => drums.find(object => object.key === key);
 
@@ -18,22 +14,21 @@ const Combination = ({
   toggleDemo,
   title,
 }) => (
-  <span
+  <div
     css={css`
-      padding: 8px 16px 16px 16px;
       display: flex;
       flex: 1;
       justify-content: center;
       flex-direction: column;
     `}
   >
-    <Body
-      cx={css`
+    <p
+      css={css`
         text-align: center;
       `}
     >
       {title}
-    </Body>
+    </p>
     <div
       css={css`
         display: flex;
@@ -64,7 +59,7 @@ const Combination = ({
         </DrumItem>
       ))}
     </div>
-  </span>
+  </div>
 );
 
 Combination.propTypes = {
