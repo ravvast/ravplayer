@@ -11,6 +11,7 @@ export const AppContextProvider = ({ children }) => {
   const [audioBuffer, setAudioBuffer] = useState({});
   const [isDemoPlaying, setIsDemoPlaying] = useState(false);
   const [isStickMode, setIsStickMode] = useState(false);
+  const [currentDemoSound, setCurrentDemoSound] = useState(null);
 
   return (
     <AppContext.Provider
@@ -24,6 +25,8 @@ export const AppContextProvider = ({ children }) => {
         setIsDemoPlaying,
         isStickMode,
         setIsStickMode,
+        currentDemoSound,
+        setCurrentDemoSound,
       }}
     >
       {children}

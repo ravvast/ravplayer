@@ -1,10 +1,15 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AppContext } from 'providers/AppContextProvider';
 
 export const useAudioPlayer = () => {
-  const { audioBuffer, isStickMode, isDemoPlaying, setIsDemoPlaying } =
-    useContext(AppContext);
-  const [currentDemoSound, setCurrentDemoSound] = useState(null);
+  const {
+    audioBuffer,
+    isStickMode,
+    isDemoPlaying,
+    setIsDemoPlaying,
+    currentDemoSound,
+    setCurrentDemoSound,
+  } = useContext(AppContext);
 
   const getSoundKey = key => {
     if (key === 'DEMO') return key;
@@ -29,6 +34,8 @@ export const useAudioPlayer = () => {
   };
 
   const stopSound = sound => {
+    console.log(sound);
+
     if (sound) {
       sound.stop();
     }
