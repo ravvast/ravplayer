@@ -1,6 +1,5 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { breakpoints } from 'styles';
 import { Drum, DemoButton } from '../';
 
 const DemoDrum = () => (
@@ -13,30 +12,12 @@ const DemoDrum = () => (
       justify-content: center;
       align-items: center;
       gap: 30px;
-
-      @media (max-width: ${breakpoints.mobile}) {
-        justify-content: space-between;
-      }
     `}
   >
-    <div
-      css={css`
-        @media (max-width: ${breakpoints.mobile}) {
-          display: flex;
-          flex-grow: 1;
-          align-items: center;
-        }
-      `}
-    >
-      <Drum />
-    </div>
+    <Drum />
     <DemoButton
       cx={css`
-        max-width: 312px;
-
-        @media (max-width: ${breakpoints.mobile}) {
-          max-width: none;
-        }
+        max-width: 450px;
       `}
     />
   </div>
