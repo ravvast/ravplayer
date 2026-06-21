@@ -6,6 +6,7 @@ import Drum12 from 'assets/drum12.svg';
 import Drum13 from 'assets/drum13.svg';
 import Drum14 from 'assets/drum14.png';
 import Drum15 from 'assets/drum15.png';
+import Drum16 from 'assets/drum16.png';
 
 const drumImageMap = {
   9: Drum9,
@@ -15,6 +16,7 @@ const drumImageMap = {
   13: Drum13,
   14: Drum14,
   15: Drum15,
+  16: Drum16,
 };
 
 export const getDrumImage = type => drumImageMap[type] || Drum11;

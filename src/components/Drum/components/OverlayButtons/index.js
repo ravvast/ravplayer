@@ -60,6 +60,7 @@ const OverlayButtons = () => {
         border-radius: 1000px;
       `}
     >
+      {selectedDrum.centerNote && (
       <Button
         width={bigButtonWidth}
         top={centerButtonY}
@@ -71,6 +72,7 @@ const OverlayButtons = () => {
       >
         {selectedDrum.centerNote.name}
       </Button>
+      )}
       {selectedDrum.notes.map(object => (
         <Button
           key={object.key}

@@ -62,6 +62,23 @@ const POSITIONS = {
     { delta: 3.1, angle: 220 },
     { delta: 3.5, angle: 170 },
   ],
+  // Anima
+  16: [
+    { delta: 2.75, angle: 195 }, // G4 top
+    { delta: 2.7, angle: 225 }, // A4 top-right
+    { delta: 2.5, angle: 260 }, // E4 right
+    { delta: 2.4, angle: 297 }, // C4 bottom-right
+    { delta: 2.4, angle: 340 }, // A3 bottom
+    { delta: 2.6, angle: 22 }, // E3 bottom-left
+    { delta: 2.8, angle: 75 }, // G3 left
+    { delta: 2.9, angle: 120 }, // B3 top-left
+    { delta: 2.85, angle: 160 }, // D4 upper-left
+    { delta: 5.8, angle: 140 }, // D3 inner upper-left
+    { delta: 4.4, angle: 205 }, // C3 inner upper-right
+    { delta: 6, angle: 70 }, // G2 inner left
+    { delta: 4, angle: 265 }, // A2 inner right
+    { delta: 5.5, angle: 325 }, // F2 inner bottom-center
+  ],
 };
 
 export const getNotePositions = ({ type, notes }) => {

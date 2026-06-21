@@ -638,7 +638,6 @@ export default [
       { type: '9', key: 'DMajor', title: 'RAV Vast D Major' },
       { type: '9', key: 'BRus', title: 'RAV Vast B Rus' },
       { type: '9', key: 'BCelticMinor', title: 'RAV Vast B Celtic Minor' },
-  
     ],
     demo: [],
   },
@@ -1208,7 +1207,6 @@ export default [
       color: colors.buttons.yellow,
     },
     combinesWith: [
-  
     ],
     demo: [],
   },
@@ -1892,7 +1890,7 @@ export default [
         },
       ],
     }),
-
+  
     centerNote: {
       key: 'D3',
       name: 'D3',
@@ -2091,7 +2089,7 @@ export default [
         },
       ],
     }),
-
+  
     centerNote: {
       key: 'D3',
       name: 'D3',
@@ -2562,6 +2560,55 @@ export default [
       { type: '9', key: 'GPygmy', title: 'RAV Vast G Pygmy' },
       { type: '9', key: 'AAriumi', title: 'RAV Vast Dm-F Ariumi' },
     ],
+    demo: [],
+  },
+  {
+    type: '16',
+    key: 'Anima',
+    title: 'Anima',
+    link: 'https://ravvast.com/products/rav-vast-anima-indigo',
+    description: 'The RAV Anima is a new concept in the RAV family. Its main feature is five central chords — F major, G major, A minor, C major, and D minor — some of the most common in modern music. When you strike one of the central tongues, you play the entire chord',
+    descriptionRu: 'The RAV Anima is a new concept in the RAV family. Its main feature is five central chords — F major, G major, A minor, C major, and D minor — some of the most common in modern music. When you strike one of the central tongues, you play the entire chord',
+    notesString: 'F2 G2 A2 C3 D3 E3 G3 A3 B3 C4 D4 E4 G4 A4',
+    notes: getNotePositions({
+      type: '16',
+      notes: [
+        { key: 'G4', name: 'G4' },
+        { key: 'A4', name: 'A4' },
+        { key: 'E4', name: 'E4' },
+        { key: 'C4', name: 'C4' },
+        { key: 'A3', name: 'A3' },
+        { key: 'E3', name: 'E3' },
+        { key: 'G3', name: 'G3' },
+        { key: 'B3', name: 'B3' },
+        { key: 'D4', name: 'D4' },
+        { key: 'D3', name: 'D3' },
+        { key: 'C3', name: 'C3' },
+        { key: 'G2', name: 'G2' },
+        { key: 'A2', name: 'A2' },
+        { key: 'F2', name: 'F2' },
+      ],
+    }),
+    notesStick: getNotePositions({
+      type: '16',
+      notes: [
+        { key: 'G4S', name: 'G4' },
+        { key: 'A4S', name: 'A4' },
+        { key: 'E4S', name: 'E4' },
+        { key: 'C4S', name: 'C4' },
+        { key: 'A3S', name: 'A3' },
+        { key: 'E3S', name: 'E3' },
+        { key: 'G3S', name: 'G3' },
+        { key: 'B3S', name: 'B3' },
+        { key: 'D4S', name: 'D4' },
+        { key: 'D3S', name: 'D3' },
+        { key: 'C3S', name: 'C3' },
+        { key: 'G2S', name: 'G2' },
+        { key: 'A2S', name: 'A2' },
+        { key: 'F2S', name: 'F2' },
+      ],
+    }),
+    combinesWith: [],
     demo: [],
   },
 ];
