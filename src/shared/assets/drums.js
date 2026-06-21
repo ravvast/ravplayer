@@ -2565,7 +2565,7 @@ export default [
   {
     type: '16',
     key: 'Anima',
-    title: 'Anima',
+    title: 'RAV ANIMA',
     link: 'https://ravvast.com/products/rav-vast-anima-indigo',
     description: 'The RAV Anima is a new concept in the RAV family. Its main feature is five central chords — F major, G major, A minor, C major, and D minor — some of the most common in modern music. When you strike one of the central tongues, you play the entire chord',
     descriptionRu: 'The RAV Anima is a new concept in the RAV family. Its main feature is five central chords — F major, G major, A minor, C major, and D minor — some of the most common in modern music. When you strike one of the central tongues, you play the entire chord',
