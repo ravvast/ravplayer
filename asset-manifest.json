@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/ravplayer/static/css/main.1478d368.chunk.css",
+    "main.js": "/ravplayer/static/js/main.a8b13d95.chunk.js",
+    "runtime~main.js": "/ravplayer/static/js/runtime~main.0daa744d.js",
+    "static/js/2.79615572.chunk.js": "/ravplayer/static/js/2.79615572.chunk.js",
+    "index.html": "/ravplayer/index.html",
+    "precache-manifest.5093f6e36c43befd8616a44ed15588fd.js": "/ravplayer/precache-manifest.5093f6e36c43befd8616a44ed15588fd.js",
+    "service-worker.js": "/ravplayer/service-worker.js",
+    "static/media/close.66bbee01.svg": "/ravplayer/static/media/close.66bbee01.svg",
+    "static/media/closeWhite.039c4203.svg": "/ravplayer/static/media/closeWhite.039c4203.svg",
+    "static/media/drum.svg": "/ravplayer/static/media/drum.feeb8178.svg",
+    "static/media/drum10.png": "/ravplayer/static/media/drum10.dc175704.png",
+    "static/media/drum11.svg": "/ravplayer/static/media/drum11.c6fd060c.svg",
+    "static/media/drum12.svg": "/ravplayer/static/media/drum12.080661a8.svg",
+    "static/media/drum13.svg": "/ravplayer/static/media/drum13.bb8d260b.svg",
+    "static/media/drum14.png": "/ravplayer/static/media/drum14.9c4d69de.png",
+    "static/media/drum15.png": "/ravplayer/static/media/drum15.f9574ae3.png",
+    "static/media/drum16.png": "/ravplayer/static/media/drum16.f2d2b85f.png",
+    "static/media/drum9.png": "/ravplayer/static/media/drum9.1778eb41.png",
+    "static/media/drum9P.svg": "/ravplayer/static/media/drum9P.330783b9.svg",
+    "static/media/drumsticks.913838c3.svg": "/ravplayer/static/media/drumsticks.913838c3.svg",
+    "static/media/finger.e98a9425.svg": "/ravplayer/static/media/finger.e98a9425.svg",
+    "static/media/moon.svg": "/ravplayer/static/media/moon.2814ffdb.svg",
+    "static/media/more.bd566d5c.svg": "/ravplayer/static/media/more.bd566d5c.svg",
+    "static/media/mystic.svg": "/ravplayer/static/media/mystic.c3854dc2.svg",
+    "static/media/pan.svg": "/ravplayer/static/media/pan.2bd17eb5.svg",
+    "static/media/play.28bef82e.svg": "/ravplayer/static/media/play.28bef82e.svg",
+    "static/media/stop.0716b534.svg": "/ravplayer/static/media/stop.0716b534.svg"
+  }
+}
