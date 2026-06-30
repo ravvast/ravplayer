@@ -64,29 +64,31 @@ const POSITIONS = {
   ],
   // Anima
   16: [
-    { delta: 2.75, angle: 195 }, // G4 top
-    { delta: 2.7, angle: 225 }, // A4 top-right
-    { delta: 2.5, angle: 260 }, // E4 right
-    { delta: 2.4, angle: 297 }, // C4 bottom-right
-    { delta: 2.4, angle: 340 }, // A3 bottom
-    { delta: 2.6, angle: 22 }, // E3 bottom-left
-    { delta: 2.8, angle: 75 }, // G3 left
-    { delta: 2.9, angle: 120 }, // B3 top-left
-    { delta: 2.85, angle: 160 }, // D4 upper-left
-    { delta: 5.8, angle: 140 }, // D3 inner upper-left
-    { delta: 4.4, angle: 205 }, // C3 inner upper-right
-    { delta: 6, angle: 70 }, // G2 inner left
-    { delta: 4, angle: 265 }, // A2 inner right
-    { delta: 5.5, angle: 325 }, // F2 inner bottom-center
+    { delta: 5.5, angle: 100 }, // D3
+    { delta: 2.75, angle: 195 }, // A4
+    { delta: 2.7, angle: 230 }, // E4
+    { delta: 2.5, angle: 270 }, // C4
+    { delta: 2.4, angle: 315 }, // A3
+    { delta: 2.4, angle: 355 }, // E3
+    { delta: 2.6, angle: 45 }, // G3
+    { delta: 2.8, angle: 85 }, // B3
+    { delta: 2.9, angle: 125 }, // D4
+    { delta: 2.85, angle: 160 }, // G4
+    { delta: 5.8, angle: 160 }, // C3
+    { delta: 5, angle: 225 }, // A2
+    { delta: 6, angle: 35 }, // G2
+    { delta: 4.5, angle: 290 }, // F2
   ],
 };
 
 export const getNotePositions = ({ type, notes }) => {
   const currentDrumPositions = POSITIONS[type];
+  const isAnima = String(type) === '16';
 
   return notes.map((note, index) => ({
     ...note,
     color: colors.buttons.yellow,
+    ...(isAnima && { labelColor: 'transparent' }),
     ...currentDrumPositions[index],
   }));
 };

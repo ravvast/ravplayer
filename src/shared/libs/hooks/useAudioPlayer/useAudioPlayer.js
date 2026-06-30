@@ -5,6 +5,7 @@ export const useAudioPlayer = () => {
   const {
     audioBuffer,
     isStickMode,
+    isEffectsMode,
     isDemoPlaying,
     setIsDemoPlaying,
     currentDemoSound,
@@ -13,7 +14,8 @@ export const useAudioPlayer = () => {
 
   const getSoundKey = key => {
     if (key === 'DEMO') return key;
-    return `${key}${isStickMode ? 'S' : ''}`;
+    const soundKey = `${key}${isStickMode ? 'S' : ''}`;
+    return isEffectsMode ? `${soundKey}E` : soundKey;
   };
 
   const playSound = (key, onEnd) => {

@@ -11,6 +11,7 @@ import {
   Combination,
   OverlayMenu,
   ModeSwitch,
+  EffectsSwitch,
   DemoButton,
 } from 'components';
 import colors from 'styles/colors';
@@ -24,6 +25,8 @@ const Card = () => {
     isDemoPlaying,
     isStickMode,
     setIsStickMode,
+    isEffectsMode,
+    setIsEffectsMode,
   } = useContext(AppContext);
 
   const { toggleDemo } = useAudioPlayer();
@@ -31,6 +34,7 @@ const Card = () => {
   const hasSticksMode = !!(
     selectedDrum.notesStick && selectedDrum.notesStick.length > 0
   );
+  const hasEffectsMode = !!selectedDrum.hasEffects;
 
   const titles = TITLES[language];
 
@@ -75,6 +79,14 @@ const Card = () => {
                         setIsStickMode(!isStickMode);
                       }}
                       checked={isStickMode}
+                    />
+                  )}
+                  {hasEffectsMode && (
+                    <EffectsSwitch
+                      onChange={() => {
+                        setIsEffectsMode(!isEffectsMode);
+                      }}
+                      checked={isEffectsMode}
                     />
                   )}
                 </div>

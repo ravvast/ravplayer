@@ -6,6 +6,7 @@ export { default as Combination } from './Combination';
 export { default as OverlayMenu } from './OverlayMenu';
 export { default as Loader } from './Loader';
 export { default as ModeSwitch } from './ModeSwitch';
+export { default as EffectsSwitch } from './EffectsSwitch';
 export { default as SmallButton } from './SmallButton';
 export { default as CustomSelect } from './CustomSelect';
 export { default as MinimalDrum } from './MinimalDrum';

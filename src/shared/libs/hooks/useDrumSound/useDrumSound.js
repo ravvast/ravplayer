@@ -17,7 +17,8 @@ export const useDrumSounds = (setIsLoading, setIsError) => {
     let loaded = 0;
 
     const notes = useSticks ? selectedDrum.notesStick : selectedDrum.notes;
-    const totalToLoad = notes.length + 1 + (centerNote ? 1 : 0);
+    const soundsPerNote = selectedDrum.hasEffects ? 2 : 1;
+    const totalToLoad = notes.length * soundsPerNote + 1 + (centerNote ? 1 : 0);
 
     const loadSound = (key, url) => {
       const sound = new Howl({
@@ -53,6 +54,9 @@ export const useDrumSounds = (setIsLoading, setIsError) => {
     // Все ноты
     notes.forEach(note => {
       loadSound(note.key, `${baseUrl}/${note.key}.mp3`);
+      if (selectedDrum.hasEffects) {
+        loadSound(`${note.key}E`, `${baseUrl}/${note.key}E.mp3`);
+      }
     });
   }, [selectedDrum, isStickMode]);
 };

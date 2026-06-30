@@ -19,12 +19,15 @@ const OverlayButtons = () => {
   const [drumWidth, setDrumWidth] = useState(isPan ? 348 : 312);
 
   React.useEffect(() => {
-    if (innerWidth >= 768 && innerWidth < 960) {
+    if (innerWidth < 768) {
+      setButtonWidth(80);
+      setBigButtonWidth(100);
+      setDrumWidth(Math.round(innerWidth * 0.9));
+    } else if (innerWidth >= 768 && innerWidth < 960) {
       setButtonWidth(100);
       setBigButtonWidth(120);
-      setDrumWidth(400);
-    }
-    if (innerWidth < 768 || innerWidth >= 960) {
+      setDrumWidth(Math.round(innerWidth * 0.8));
+    } else {
       setButtonWidth(80);
       setBigButtonWidth(100);
       setDrumWidth(312);
@@ -78,6 +81,7 @@ const OverlayButtons = () => {
           key={object.key}
           width={buttonWidth}
           color={object.color}
+          labelColor={object.labelColor}
           demoIsPlaying={isDemoPlaying}
           ref={setButtonRef(object.key)}
           playSound={() => playSound(object.key)}

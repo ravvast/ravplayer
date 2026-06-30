@@ -17,9 +17,13 @@ const Drum = () => {
         background-image: url(${src});
         background-size: cover;
         position: relative;
+        @media (max-width: calc(${breakpoints.ipad} - 1px)) {
+          width: 90vw;
+          height: 90vw;
+        }
         @media (min-width: ${breakpoints.ipad}) and (max-width: ${breakpoints.mobile}) {
-          width: 400px;
-          height: 400px;
+          width: 80vw;
+          height: 80vw;
         }
       `}
     >

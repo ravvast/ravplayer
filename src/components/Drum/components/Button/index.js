@@ -12,6 +12,7 @@ class Button extends PureComponent {
   static propTypes = {
     playSound: PropTypes.func.isRequired,
     color: PropTypes.string.isRequired,
+    labelColor: PropTypes.string,
     width: PropTypes.number.isRequired,
     top: PropTypes.number.isRequired,
     left: PropTypes.number.isRequired,
@@ -64,7 +65,8 @@ class Button extends PureComponent {
   }
 
   render() {
-    const { color, children, width, top, left } = this.props;
+    const { color, labelColor, children, width, top, left } = this.props;
+    const textColor = labelColor || color;
 
     return (
       <>
@@ -105,7 +107,7 @@ class Button extends PureComponent {
               width: ${width};
               height: ${width};
               font-weight: 600;
-              color: ${color};
+              color: ${textColor};
               user-select: none;
               @media (max-width: ${breakpoints.mobile}) {
                 font-size: calc(12px + 1vw);
