@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4b3f804fbf68dcbb57b7e793d57882d5",
+    "revision": "abc9f4b263e5def00812f40959d5fe5b",
     "url": "/ravplayer/index.html"
   },
   {
-    "revision": "77ae4f24bd576c4eac98",
+    "revision": "18ed142a20a08f405c44",
     "url": "/ravplayer/static/css/main.1478d368.chunk.css"
   },
   {
-    "revision": "d444848f5d780f2c5091",
-    "url": "/ravplayer/static/js/2.79615572.chunk.js"
+    "revision": "75ed31ecd398db654ffd",
+    "url": "/ravplayer/static/js/2.41734a6c.chunk.js"
   },
   {
-    "revision": "77ae4f24bd576c4eac98",
-    "url": "/ravplayer/static/js/main.a8b13d95.chunk.js"
+    "revision": "18ed142a20a08f405c44",
+    "url": "/ravplayer/static/js/main.db46db06.chunk.js"
   },
   {
     "revision": "9e2e22480ae07a86927f",
@@ -56,8 +56,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ravplayer/static/media/drum15.f9574ae3.png"
   },
   {
-    "revision": "f2d2b85fb26e47b44fcc9ec4bafea9b2",
-    "url": "/ravplayer/static/media/drum16.f2d2b85f.png"
+    "revision": "b43bdf5963423262eb3c46aea9437119",
+    "url": "/ravplayer/static/media/drum16.b43bdf59.png"
   },
   {
     "revision": "1778eb41443c1b2b27325791d0e06d48",

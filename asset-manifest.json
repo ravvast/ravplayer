@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/ravplayer/static/css/main.1478d368.chunk.css",
-    "main.js": "/ravplayer/static/js/main.a8b13d95.chunk.js",
+    "main.js": "/ravplayer/static/js/main.db46db06.chunk.js",
     "runtime~main.js": "/ravplayer/static/js/runtime~main.0daa744d.js",
-    "static/js/2.79615572.chunk.js": "/ravplayer/static/js/2.79615572.chunk.js",
+    "static/js/2.41734a6c.chunk.js": "/ravplayer/static/js/2.41734a6c.chunk.js",
     "index.html": "/ravplayer/index.html",
-    "precache-manifest.5093f6e36c43befd8616a44ed15588fd.js": "/ravplayer/precache-manifest.5093f6e36c43befd8616a44ed15588fd.js",
+    "precache-manifest.928efab97a70c8147ad22f933c01a4e3.js": "/ravplayer/precache-manifest.928efab97a70c8147ad22f933c01a4e3.js",
     "service-worker.js": "/ravplayer/service-worker.js",
     "static/media/close.66bbee01.svg": "/ravplayer/static/media/close.66bbee01.svg",
     "static/media/closeWhite.039c4203.svg": "/ravplayer/static/media/closeWhite.039c4203.svg",
@@ -16,7 +16,7 @@
     "static/media/drum13.svg": "/ravplayer/static/media/drum13.bb8d260b.svg",
     "static/media/drum14.png": "/ravplayer/static/media/drum14.9c4d69de.png",
     "static/media/drum15.png": "/ravplayer/static/media/drum15.f9574ae3.png",
-    "static/media/drum16.png": "/ravplayer/static/media/drum16.f2d2b85f.png",
+    "static/media/drum16.png": "/ravplayer/static/media/drum16.b43bdf59.png",
     "static/media/drum9.png": "/ravplayer/static/media/drum9.1778eb41.png",
     "static/media/drum9P.svg": "/ravplayer/static/media/drum9P.330783b9.svg",
     "static/media/drumsticks.913838c3.svg": "/ravplayer/static/media/drumsticks.913838c3.svg",
