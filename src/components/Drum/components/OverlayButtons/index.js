@@ -3,6 +3,7 @@ import { css } from '@emotion/core';
 import { AppContext } from 'providers/AppContextProvider';
 import { useResizeEvent } from 'effects';
 import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
+import { getLegacySize } from 'shared/libs/getLegacySize/getLegacySize';
 import Button from '../Button';
 
 const OverlayButtons = () => {
@@ -13,13 +14,24 @@ const OverlayButtons = () => {
   const innerWidth = useResizeEvent();
 
   const isPan = selectedDrum.type === '11' || selectedDrum.type === '9P';
+  const isLegacySize = getLegacySize();
 
   const [buttonWidth, setButtonWidth] = useState(80);
   const [bigButtonWidth, setBigButtonWidth] = useState(100);
   const [drumWidth, setDrumWidth] = useState(isPan ? 348 : 312);
 
   React.useEffect(() => {
-    if (innerWidth < 768) {
+    if (isLegacySize) {
+      if (innerWidth >= 768 && innerWidth < 960) {
+        setButtonWidth(100);
+        setBigButtonWidth(120);
+        setDrumWidth(400);
+      } else {
+        setButtonWidth(80);
+        setBigButtonWidth(100);
+        setDrumWidth(312);
+      }
+    } else if (innerWidth < 768) {
       setButtonWidth(80);
       setBigButtonWidth(100);
       setDrumWidth(Math.round(innerWidth * 0.9));
@@ -32,7 +44,7 @@ const OverlayButtons = () => {
       setBigButtonWidth(100);
       setDrumWidth(312);
     }
-  }, [innerWidth, selectedDrum]);
+  }, [innerWidth, selectedDrum, isLegacySize]);
 
   const centerButtonX = (drumWidth - bigButtonWidth) / 2;
   const centerButtonY = (drumWidth - bigButtonWidth) / 2;
