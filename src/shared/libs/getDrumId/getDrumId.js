@@ -1,11 +1,11 @@
+import drums from 'shared/assets/drums';
 import { parseQuery } from '../parseQuery/parseQuery';
 
-const DRUMS_AMOUNT = 36;
-
 export const getDrumId = () => {
-  const number = parseQuery(window.location.href).id;
+  const number = Number(parseQuery(window.location.href).id);
+  const maxId = drums.length - 1;
 
-  if (number >= 0 && number <= DRUMS_AMOUNT) {
+  if (!Number.isNaN(number) && number >= 0 && number <= maxId) {
     return number;
   }
   return 0;
