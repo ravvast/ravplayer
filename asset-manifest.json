@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/ravplayer/static/css/main.1478d368.chunk.css",
-    "main.js": "/ravplayer/static/js/main.8c05242a.chunk.js",
+    "main.js": "/ravplayer/static/js/main.a34b21bd.chunk.js",
     "runtime~main.js": "/ravplayer/static/js/runtime~main.0daa744d.js",
     "static/js/2.41734a6c.chunk.js": "/ravplayer/static/js/2.41734a6c.chunk.js",
     "index.html": "/ravplayer/index.html",
-    "precache-manifest.6b2fc25d001499709a13b7d1921d4ebd.js": "/ravplayer/precache-manifest.6b2fc25d001499709a13b7d1921d4ebd.js",
+    "precache-manifest.51de7d1f8ccffa11f755cafaf38b3a00.js": "/ravplayer/precache-manifest.51de7d1f8ccffa11f755cafaf38b3a00.js",
     "service-worker.js": "/ravplayer/service-worker.js",
     "static/media/close.66bbee01.svg": "/ravplayer/static/media/close.66bbee01.svg",
     "static/media/closeWhite.039c4203.svg": "/ravplayer/static/media/closeWhite.039c4203.svg",
