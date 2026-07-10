@@ -64,7 +64,7 @@ const POSITIONS = {
   ],
   // Anima
   16: [
-    { delta: 5.5, angle: 100 }, // D3
+    { delta: 5.1, angle: 110 }, // D3
     { delta: 2.75, angle: 195 }, // A4
     { delta: 2.7, angle: 230 }, // E4
     { delta: 2.5, angle: 270 }, // C4
@@ -74,10 +74,10 @@ const POSITIONS = {
     { delta: 2.8, angle: 85 }, // B3
     { delta: 2.9, angle: 125 }, // D4
     { delta: 2.85, angle: 160 }, // G4
-    { delta: 5.8, angle: 160 }, // C3
-    { delta: 5, angle: 225 }, // A2
-    { delta: 6, angle: 35 }, // G2
-    { delta: 4.5, angle: 290 }, // F2
+    { delta: 5.3, angle: 170 }, // C3
+    { delta: 4.7, angle: 240 }, // A2
+    { delta: 5.3, angle: 35 }, // G2
+    { delta: 4.5, angle: 310 }, // F2
   ],
 };
 
