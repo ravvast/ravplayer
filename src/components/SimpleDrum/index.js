@@ -2,14 +2,15 @@ import React, { useContext } from 'react';
 import { css } from '@emotion/core';
 import { AppContext } from 'providers/AppContextProvider';
 import { breakpoints, colors } from 'styles';
-import { Drum, ModeSwitch, Title, Caption, DemoButton } from '../';
+import { Drum, ModeSwitch, EffectsSwitch, Title, Caption, DemoButton } from '../';
 
 const SimpleDrum = () => {
-  const { selectedDrum, isStickMode, setIsStickMode } = useContext(AppContext);
+  const { selectedDrum, isStickMode, setIsStickMode, isEffectsMode, setIsEffectsMode } = useContext(AppContext);
 
   const hasSticksMode = !!(
     selectedDrum.notesStick && selectedDrum.notesStick.length > 0
   );
+  const hasEffectsMode = !!selectedDrum.hasEffects;
 
   return (
     <div
@@ -51,6 +52,14 @@ const SimpleDrum = () => {
                 setIsStickMode(!isStickMode);
               }}
               checked={isStickMode}
+            />
+          )}
+          {hasEffectsMode && (
+            <EffectsSwitch
+              onChange={() => {
+                setIsEffectsMode(!isEffectsMode);
+              }}
+              checked={isEffectsMode}
             />
           )}
         </div>

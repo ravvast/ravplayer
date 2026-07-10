@@ -3,6 +3,7 @@ import { css } from '@emotion/core';
 import { AppContext } from 'providers/AppContextProvider';
 import { useResizeEvent } from 'effects';
 import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
+import { getLegacySize } from 'shared/libs/getLegacySize/getLegacySize';
 import Button from '../Button';
 
 const OverlayButtons = () => {
@@ -13,24 +14,37 @@ const OverlayButtons = () => {
   const innerWidth = useResizeEvent();
 
   const isPan = selectedDrum.type === '11' || selectedDrum.type === '9P';
-  const isMoon = selectedDrum.type === '14';
+  const isLegacySize = getLegacySize();
 
   const [buttonWidth, setButtonWidth] = useState(80);
   const [bigButtonWidth, setBigButtonWidth] = useState(100);
   const [drumWidth, setDrumWidth] = useState(isPan ? 348 : 312);
 
   React.useEffect(() => {
-    if (innerWidth >= 768 && innerWidth < 960) {
+    if (isLegacySize) {
+      if (innerWidth >= 768 && innerWidth < 960) {
+        setButtonWidth(100);
+        setBigButtonWidth(120);
+        setDrumWidth(400);
+      } else {
+        setButtonWidth(80);
+        setBigButtonWidth(100);
+        setDrumWidth(312);
+      }
+    } else if (innerWidth < 768) {
+      setButtonWidth(80);
+      setBigButtonWidth(100);
+      setDrumWidth(Math.round(innerWidth * 0.9));
+    } else if (innerWidth >= 768 && innerWidth < 960) {
       setButtonWidth(100);
       setBigButtonWidth(120);
-      setDrumWidth(400);
-    }
-    if (innerWidth < 768 || innerWidth >= 960) {
+      setDrumWidth(Math.round(innerWidth * 0.8));
+    } else {
       setButtonWidth(80);
       setBigButtonWidth(100);
       setDrumWidth(312);
     }
-  }, [innerWidth, selectedDrum]);
+  }, [innerWidth, selectedDrum, isLegacySize]);
 
   const centerButtonX = (drumWidth - bigButtonWidth) / 2;
   const centerButtonY = (drumWidth - bigButtonWidth) / 2;
@@ -61,6 +75,7 @@ const OverlayButtons = () => {
         border-radius: 1000px;
       `}
     >
+      {selectedDrum.centerNote && (
       <Button
         width={bigButtonWidth}
         top={centerButtonY}
@@ -69,21 +84,21 @@ const OverlayButtons = () => {
         ref={centerButtonRef}
         demoIsPlaying={isDemoPlaying}
         playSound={() => playSound(selectedDrum.centerNote.key)}
-        isMoon={isMoon}
       >
         {selectedDrum.centerNote.name}
       </Button>
+      )}
       {selectedDrum.notes.map(object => (
         <Button
           key={object.key}
           width={buttonWidth}
           color={object.color}
+          labelColor={object.labelColor}
           demoIsPlaying={isDemoPlaying}
           ref={setButtonRef(object.key)}
           playSound={() => playSound(object.key)}
           top={getXCoordinate(object.delta, object.angle)}
           left={getYCoordinate(object.delta, object.angle)}
-          isMoon={isMoon}
         >
           {object.name}
         </Button>

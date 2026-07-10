@@ -2,6 +2,7 @@
   "name": "rav",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ravvast.github.io/ravplayer",
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@emotion/core": "^10.0.15",
@@ -66,10 +67,12 @@
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-jsx-a11y": "6.2.1",
     "eslint-plugin-react": "7.12.4",
-    "eslint-plugin-react-hooks": "^1.5.0"
+    "eslint-plugin-react-hooks": "^1.5.0",
+    "gh-pages": "^6.3.0"
   },
   "scripts": {
     "start": "NODE_OPTIONS='--openssl-legacy-provider' node scripts/start.js",
-    "build": "NODE_OPTIONS='--openssl-legacy-provider' GENERATE_SOURCEMAP=false node scripts/build.js"
+    "build": "NODE_OPTIONS='--openssl-legacy-provider' GENERATE_SOURCEMAP=false node scripts/build.js",
+    "deploy": "yarn build && gh-pages -d build -b gh-pages"
   }
 }

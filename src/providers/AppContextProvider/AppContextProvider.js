@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getDrumId } from 'shared/libs/getDrumId/getDrumId';
 import { getInitialLanguage } from 'shared/libs/getInitialLanguage/getInitialLanguage';
@@ -11,7 +11,14 @@ export const AppContextProvider = ({ children }) => {
   const [audioBuffer, setAudioBuffer] = useState({});
   const [isDemoPlaying, setIsDemoPlaying] = useState(false);
   const [isStickMode, setIsStickMode] = useState(false);
+  const [isEffectsMode, setIsEffectsMode] = useState(false);
   const [currentDemoSound, setCurrentDemoSound] = useState(null);
+
+  useEffect(() => {
+    if (!selectedDrum.hasEffects) {
+      setIsEffectsMode(false);
+    }
+  }, [selectedDrum]);
 
   return (
     <AppContext.Provider
@@ -25,6 +32,8 @@ export const AppContextProvider = ({ children }) => {
         setIsDemoPlaying,
         isStickMode,
         setIsStickMode,
+        isEffectsMode,
+        setIsEffectsMode,
         currentDemoSound,
         setCurrentDemoSound,
       }}

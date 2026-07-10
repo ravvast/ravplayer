@@ -13,6 +13,7 @@ const selectOptions = [
   { value: 'all', label: 'All' },
   { value: 'ravVast', label: 'RAV Vast' },
   { value: 'ravMoon', label: 'RAV Moon' },
+  { value: 'ravAnima', label: 'RAV ANIMA' },
 ];
 
 const OverlayMenu = ({ children, onMenuClose }) => {
@@ -104,7 +105,8 @@ const OverlayMenu = ({ children, onMenuClose }) => {
     const isPan =
       type === '9P' || type === '11' || type === '12' || type === '13';
     const isMoon = type === '14';
-    const isVast = !isPan && !isMoon;
+    const isAnima = type === '16';
+    const isVast = !isPan && !isMoon && !isAnima;
 
     if (selectedOption.value === 'ravVast') {
       return isVast;
@@ -112,6 +114,10 @@ const OverlayMenu = ({ children, onMenuClose }) => {
 
     if (selectedOption.value === 'ravMoon') {
       return isMoon;
+    }
+
+    if (selectedOption.value === 'ravAnima') {
+      return isAnima;
     }
 
     return !isPan;

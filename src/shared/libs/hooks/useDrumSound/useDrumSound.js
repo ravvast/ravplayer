@@ -10,10 +10,15 @@ export const useDrumSounds = (setIsLoading, setIsError) => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     const useSticks = isStickMode && selectedDrum.notesStick;
+    const centerNote = useSticks
+      ? selectedDrum.centerNoteStick
+      : selectedDrum.centerNote;
     const localBuffer = {};
     let loaded = 0;
 
-    const totalToLoad = selectedDrum.notes.length + 2;
+    const notes = useSticks ? selectedDrum.notesStick : selectedDrum.notes;
+    const soundsPerNote = selectedDrum.hasEffects ? 2 : 1;
+    const totalToLoad = notes.length * soundsPerNote + 1 + (centerNote ? 1 : 0);
 
     const loadSound = (key, url) => {
       const sound = new Howl({
@@ -39,18 +44,19 @@ export const useDrumSounds = (setIsLoading, setIsError) => {
     const baseUrl = `https://storage.googleapis.com/rav_app_bucket/soundsMP3/${selectedDrum.key}`;
 
     // Центр
-    const centerKey = useSticks
-      ? selectedDrum.centerNoteStick.key
-      : selectedDrum.centerNote.key;
-    loadSound(centerKey, `${baseUrl}/${centerKey}.mp3`);
+    if (centerNote) {
+      loadSound(centerNote.key, `${baseUrl}/${centerNote.key}.mp3`);
+    }
 
     // DEMO
     loadSound('DEMO', `${baseUrl}/DEMO.mp3`);
 
     // Все ноты
-    const notes = useSticks ? selectedDrum.notesStick : selectedDrum.notes;
     notes.forEach(note => {
       loadSound(note.key, `${baseUrl}/${note.key}.mp3`);
+      if (selectedDrum.hasEffects) {
+        loadSound(`${note.key}E`, `${baseUrl}/${note.key}E.mp3`);
+      }
     });
   }, [selectedDrum, isStickMode]);
 };

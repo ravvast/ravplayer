@@ -12,12 +12,12 @@ class Button extends PureComponent {
   static propTypes = {
     playSound: PropTypes.func.isRequired,
     color: PropTypes.string.isRequired,
+    labelColor: PropTypes.string,
     width: PropTypes.number.isRequired,
     top: PropTypes.number.isRequired,
     left: PropTypes.number.isRequired,
     children: PropTypes.string.isRequired,
     demoIsPlaying: PropTypes.bool.isRequired,
-    isMoon: PropTypes.bool.isRequired,
   };
 
   state = {
@@ -65,9 +65,8 @@ class Button extends PureComponent {
   }
 
   render() {
-    const { color, children, width, top, left, isMoon } = this.props;
-    const fontSize = isMoon ? '12px' : '16px';
-    const mobileFontSize = isMoon ? '12px' : 'calc(12px + 1vw)';
+    const { color, labelColor, children, width, top, left } = this.props;
+    const textColor = labelColor || color;
 
     return (
       <>
@@ -104,14 +103,14 @@ class Button extends PureComponent {
               border-radius: 1000px;
               position: absolute;
               z-index: 10;
-              font-size: ${fontSize};
+              font-size: 16px;
               width: ${width};
               height: ${width};
               font-weight: 600;
-              color: ${color};
+              color: ${textColor};
               user-select: none;
               @media (max-width: ${breakpoints.mobile}) {
-                font-size: ${mobileFontSize};
+                font-size: calc(12px + 1vw);
               }
             `}
           >

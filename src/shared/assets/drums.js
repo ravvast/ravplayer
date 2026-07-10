@@ -580,7 +580,6 @@ export default [
     ],
     demo: [],
   },
-
   {
     type: '10',
     key: 'BKurd',
@@ -639,11 +638,9 @@ export default [
       { type: '9', key: 'DMajor', title: 'RAV Vast D Major' },
       { type: '9', key: 'BRus', title: 'RAV Vast B Rus' },
       { type: '9', key: 'BCelticMinor', title: 'RAV Vast B Celtic Minor' },
-
     ],
     demo: [],
   },
-
   {
     type: '9',
     key: 'BMajor',
@@ -701,7 +698,6 @@ export default [
     ],
     demo: [],
   },
-
   {
     type: '9',
     key: 'BOnoleo',
@@ -1097,13 +1093,12 @@ export default [
       color: colors.buttons.yellow,
     },
     combinesWith: [
-      // { type: '9P', key: 'PanDMajor', title: 'Rav Pan D Major' },
+      { type: '9P', key: 'PanDMajor', title: 'Rav Pan D Major' },
       { type: '9', key: 'BRus', title: 'RAV Vast B Rus' },
       { type: '9', key: 'BMajor', title: 'RAV Vast B Major' },
     ],
     demo: [],
   },
-
   {
     type: '9',
     key: 'ELowPygmy',
@@ -1212,7 +1207,6 @@ export default [
       color: colors.buttons.yellow,
     },
     combinesWith: [
-
     ],
     demo: [],
   },
@@ -1463,127 +1457,85 @@ export default [
     description: 'Sonorous like the spring drops of melting icicles, the RAV Moon D Celtic Minor enchants you and leads deeper down a hidden path to the secret druid forest. The drum is tuned in a minor scale and has an incredibly soothing and relaxing sound. The voice of this scale is spellbinding and can easily hypnotize anyone who is hearing it. It is a perfect scale for those who just started their musical path with RAV.',
     descriptionRu: 'Sonorous like the spring drops of melting icicles, the RAV Moon D Celtic Minor enchants you and leads deeper down a hidden path to the secret druid forest. The drum is tuned in a minor scale and has an incredibly soothing and relaxing sound. The voice of this scale is spellbinding and can easily hypnotize anyone who is hearing it. It is a perfect scale for those who just started their musical path with RAV.',
     notesString: 'D3 A3 C4 D4 E4 F4 G4 A4 C5',
-    notes: [
-      {
-        key: 'A3',
-        delta: 3.1,
-        angle: 335,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4',
-        delta: 3.3,
-        angle: 15,
-        name: 'C4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4',
-        delta: 3,
-        angle: 300,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4',
-        delta: 3.7,
-        angle: 55,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F4',
-        delta: 3.3,
-        angle: 255,
-        name: 'F4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G4',
-        delta: 4.3,
-        angle: 110,
-        name: 'G4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C5',
-        delta: 4.3,
-        angle: 160,
-        name: 'C5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notes: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'C5',
+          name: 'C5',
+        },
+      ],
+    }),
     centerNote: {
       key: 'D3',
       name: 'D3',
       color: colors.buttons.yellow,
     },
-    notesStick: [
-      {
-        key: 'A3S',
-        delta: 3.1,
-        angle: 335,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4S',
-        delta: 3.3,
-        angle: 15,
-        name: 'C4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4S',
-        delta: 3,
-        angle: 300,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4S',
-        delta: 3.7,
-        angle: 55,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F4S',
-        delta: 3.3,
-        angle: 255,
-        name: 'F4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G4S',
-        delta: 4.3,
-        angle: 110,
-        name: 'G4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4S',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C5S',
-        delta: 4.3,
-        angle: 160,
-        name: 'C5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notesStick: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'A3S',
+          name: 'A3',
+        },
+        {
+          key: 'C4S',
+          name: 'C4',
+        },
+        {
+          key: 'D4S',
+          name: 'D4',
+        },
+        {
+          key: 'E4S',
+          name: 'E4',
+        },
+        {
+          key: 'F4S',
+          name: 'F4',
+        },
+        {
+          key: 'G4S',
+          name: 'G4',
+        },
+        {
+          key: 'A4S',
+          name: 'A4',
+        },
+        {
+          key: 'C5S',
+          name: 'C5',
+        },
+      ],
+    }),
     centerNoteStick: {
       key: 'D3S',
       name: 'D3',
@@ -1604,127 +1556,85 @@ export default [
     description: 'RAV Moon D Hijaz is an oriental and very charismatic scale. The mysterious, mesmerizing melody straight from an Arabic fairy tale takes you to the origins of the ancient sounds. Hijaz is a popular beginner-friendly instrument where the melody and percussion meet. This harmonic minor scale is very common in flamenco and middle eastern music. The tune is perfectly matched by the natural timbre of the RAV Moon instrument – an exemplary combination.',
     descriptionRu: 'RAV Moon D Hijaz is an oriental and very charismatic scale. The mysterious, mesmerizing melody straight from an Arabic fairy tale takes you to the origins of the ancient sounds. Hijaz is a popular beginner-friendly instrument where the melody and percussion meet. This harmonic minor scale is very common in flamenco and middle eastern music. The tune is perfectly matched by the natural timbre of the RAV Moon instrument – an exemplary combination.',
     notesString: 'D3 A3 C4 D4 D#4 F#4 G4 A4 C5',
-    notes: [
-      {
-        key: 'A3',
-        delta: 3.1,
-        angle: 335,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4',
-        delta: 3.3,
-        angle: 15,
-        name: 'C4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4',
-        delta: 3,
-        angle: 300,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D%234',
-        delta: 3.7,
-        angle: 55,
-        name: 'D#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F%234',
-        delta: 3.3,
-        angle: 255,
-        name: 'F#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G4',
-        delta: 4.3,
-        angle: 110,
-        name: 'G4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C5',
-        delta: 4.3,
-        angle: 160,
-        name: 'C5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notes: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'D%234',
+          name: 'D#4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'C5',
+          name: 'C5',
+        },
+      ],
+    }),
     centerNote: {
       key: 'D3',
       name: 'D3',
       color: colors.buttons.yellow,
     },
-    notesStick: [
-      {
-        key: 'A3S',
-        delta: 3.1,
-        angle: 335,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4S',
-        delta: 3.3,
-        angle: 15,
-        name: 'C4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4S',
-        delta: 3,
-        angle: 300,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D%234S',
-        delta: 3.7,
-        angle: 55,
-        name: 'D#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F%234S',
-        delta: 3.3,
-        angle: 255,
-        name: 'F#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G4S',
-        delta: 4.3,
-        angle: 110,
-        name: 'G4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4S',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C5S',
-        delta: 4.3,
-        angle: 160,
-        name: 'C5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notesStick: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'A3S',
+          name: 'A3',
+        },
+        {
+          key: 'C4S',
+          name: 'C4',
+        },
+        {
+          key: 'D4S',
+          name: 'D4',
+        },
+        {
+          key: 'D%234S',
+          name: 'D#4',
+        },
+        {
+          key: 'F%234S',
+          name: 'F#4',
+        },
+        {
+          key: 'G4S',
+          name: 'G4',
+        },
+        {
+          key: 'A4S',
+          name: 'A4',
+        },
+        {
+          key: 'C5S',
+          name: 'C5',
+        },
+      ],
+    }),
     centerNoteStick: {
       key: 'D3S',
       name: 'D3',
@@ -1745,127 +1655,85 @@ export default [
     description: 'Deep, mystical, mellow – we use these exact epithets when describing this scale. Playing it is like opening the door to a whimsical secret world, and the key is the D Integral. It offers you a choice between a major and minor key, thus can create two different moods. While it may be a bit more challenging to master, this chord progression is comprised of four commonly used chords. It can be employed as a backing track for many popular tunes.',
     descriptionRu: 'Deep, mystical, mellow – we use these exact epithets when describing this scale. Playing it is like opening the door to a whimsical secret world, and the key is the D Integral. It offers you a choice between a major and minor key, thus can create two different moods. While it may be a bit more challenging to master, this chord progression is comprised of four commonly used chords. It can be employed as a backing track for many popular tunes.',
     notesString: 'D3 F3 A3 A#3 C4 D4 E4 F4 A4',
-    notes: [
-      {
-        key: 'F3',
-        delta: 3.1,
-        angle: 335,
-        name: 'F3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3',
-        delta: 3.3,
-        angle: 15,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A%233',
-        delta: 3,
-        angle: 300,
-        name: 'A#3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4',
-        delta: 3.7,
-        angle: 55,
-        name: 'C4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4',
-        delta: 3.3,
-        angle: 255,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4',
-        delta: 4.3,
-        angle: 110,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F4',
-        delta: 3.8,
-        angle: 215,
-        name: 'F4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4',
-        delta: 4.3,
-        angle: 160,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notes: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'F3',
+          name: 'F3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'A%233',
+          name: 'A#3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+      ],
+    }),
     centerNote: {
       key: 'D3',
       name: 'D3',
       color: colors.buttons.yellow,
     },
-    notesStick: [
-      {
-        key: 'F3S',
-        delta: 3.1,
-        angle: 335,
-        name: 'F3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3S',
-        delta: 3.3,
-        angle: 15,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A%233S',
-        delta: 3,
-        angle: 300,
-        name: 'A#3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4S',
-        delta: 3.7,
-        angle: 55,
-        name: 'C4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4S',
-        delta: 3.3,
-        angle: 255,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4S',
-        delta: 4.3,
-        angle: 110,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F4S',
-        delta: 3.8,
-        angle: 215,
-        name: 'F4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4S',
-        delta: 4.3,
-        angle: 160,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notesStick: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'F3S',
+          name: 'F3',
+        },
+        {
+          key: 'A3S',
+          name: 'A3',
+        },
+        {
+          key: 'A%233S',
+          name: 'A#3',
+        },
+        {
+          key: 'C4S',
+          name: 'C4',
+        },
+        {
+          key: 'D4S',
+          name: 'D4',
+        },
+        {
+          key: 'E4S',
+          name: 'E4',
+        },
+        {
+          key: 'F4S',
+          name: 'F4',
+        },
+        {
+          key: 'A4S',
+          name: 'A4',
+        },
+      ],
+    }),
     centerNoteStick: {
       key: 'D3S',
       name: 'D3',
@@ -1886,127 +1754,85 @@ export default [
     description: 'D Major is one of the most bright and cheerful scales that brings an atmosphere of peace and kindness. This tuning charges with positive energy and is also ideal for accompanying spiritual practices and meditations for deep, bright sound. You could barely feel the burst of energy that penetrates through your fingertips. Explore the vibes of shining energy!',
     descriptionRu: 'D Major is one of the most bright and cheerful scales that brings an atmosphere of peace and kindness. This tuning charges with positive energy and is also ideal for accompanying spiritual practices and meditations for deep, bright sound. You could barely feel the burst of energy that penetrates through your fingertips. Explore the vibes of shining energy!',
     notesString: 'D3 G3 A3 B3 C#4 D4 E4 F#4 A4',
-    notes: [
-      {
-        key: 'G3',
-        delta: 3.1,
-        angle: 335,
-        name: 'G3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3',
-        delta: 3.3,
-        angle: 15,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'B3',
-        delta: 3,
-        angle: 300,
-        name: 'B3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C%234',
-        delta: 3.7,
-        angle: 55,
-        name: 'C#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4',
-        delta: 3.3,
-        angle: 255,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4',
-        delta: 4.3,
-        angle: 110,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F%234',
-        delta: 3.8,
-        angle: 215,
-        name: 'F#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4',
-        delta: 4.3,
-        angle: 160,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notes: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'B3',
+          name: 'B3',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'F%234',
+          name: 'F#4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+      ],
+    }),
     centerNote: {
       key: 'D3',
       name: 'D3',
       color: colors.buttons.yellow,
     },
-    notesStick: [
-      {
-        key: 'G3S',
-        delta: 3.1,
-        angle: 335,
-        name: 'G3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3S',
-        delta: 3.3,
-        angle: 15,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'B3S',
-        delta: 3,
-        angle: 300,
-        name: 'B3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C%234S',
-        delta: 3.7,
-        angle: 55,
-        name: 'C#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4S',
-        delta: 3.3,
-        angle: 255,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4S',
-        delta: 4.3,
-        angle: 110,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F%234S',
-        delta: 3.8,
-        angle: 215,
-        name: 'F#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4S',
-        delta: 4.3,
-        angle: 160,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notesStick: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'G3S',
+          name: 'G3',
+        },
+        {
+          key: 'A3S',
+          name: 'A3',
+        },
+        {
+          key: 'B3S',
+          name: 'B3',
+        },
+        {
+          key: 'C%234S',
+          name: 'C#4',
+        },
+        {
+          key: 'D4S',
+          name: 'D4',
+        },
+        {
+          key: 'E4S',
+          name: 'E4',
+        },
+        {
+          key: 'F%234S',
+          name: 'F#4',
+        },
+        {
+          key: 'A4S',
+          name: 'A4',
+        },
+      ],
+    }),
     centerNoteStick: {
       key: 'D3S',
       name: 'D3',
@@ -2027,127 +1853,86 @@ export default [
     description: 'Picture yourself transported to the heart of Africa, tapping into the vibes of ancient Pygmy tribes and their shamanic rituals. It\'s all about those deep, mystical tones that make you feel like you\'re part of something bigger. Whether you\'re jamming solo or bringing people together for a drum circle, this scale adds a touch of primal magic to your music. So, dive in and let the rhythms take you on a wild ride through African culture and centuries-old traditions.',
     descriptionRu: 'Picture yourself transported to the heart of Africa, tapping into the vibes of ancient Pygmy tribes and their shamanic rituals. It\'s all about those deep, mystical tones that make you feel like you\'re part of something bigger. Whether you\'re jamming solo or bringing people together for a drum circle, this scale adds a touch of primal magic to your music. So, dive in and let the rhythms take you on a wild ride through African culture and centuries-old traditions.',
     notesString: 'D3 G3 A3 A#3 D4 F4 G4 A4 C5',
-    notes: [
-      {
-        key: 'G3',
-        delta: 3.1,
-        angle: 335,
-        name: 'G3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3',
-        delta: 3.3,
-        angle: 15,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A%233',
-        delta: 3,
-        angle: 300,
-        name: 'A#3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4',
-        delta: 3.7,
-        angle: 55,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F4',
-        delta: 3.3,
-        angle: 255,
-        name: 'F4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G4',
-        delta: 4.3,
-        angle: 110,
-        name: 'G4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C5',
-        delta: 4.3,
-        angle: 160,
-        name: 'C5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notes: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'G3',
+          name: 'G3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'A%233',
+          name: 'A#3',
+        },
+        {
+          key: 'D4',
+          name: 'D4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'C5',
+          name: 'C5',
+        },
+      ],
+    }),
+  
     centerNote: {
       key: 'D3',
       name: 'D3',
       color: colors.buttons.yellow,
     },
-    notesStick: [
-      {
-        key: 'G3S',
-        delta: 3.1,
-        angle: 335,
-        name: 'G3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3S',
-        delta: 3.3,
-        angle: 15,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A%233S',
-        delta: 3,
-        angle: 300,
-        name: 'A#3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'D4S',
-        delta: 3.7,
-        angle: 55,
-        name: 'D4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F4S',
-        delta: 3.3,
-        angle: 255,
-        name: 'F4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G4S',
-        delta: 4.3,
-        angle: 110,
-        name: 'G4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4S',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C5S',
-        delta: 4.3,
-        angle: 160,
-        name: 'C5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notesStick: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'G3S',
+          name: 'G3',
+        },
+        {
+          key: 'A3S',
+          name: 'A3',
+        },
+        {
+          key: 'A%233S',
+          name: 'A#3',
+        },
+        {
+          key: 'D4S',
+          name: 'D4',
+        },
+        {
+          key: 'F4S',
+          name: 'F4',
+        },
+        {
+          key: 'G4S',
+          name: 'G4',
+        },
+        {
+          key: 'A4S',
+          name: 'A4',
+        },
+        {
+          key: 'C5S',
+          name: 'C5',
+        },
+      ],
+    }),
     centerNoteStick: {
       key: 'D3S',
       name: 'D3',
@@ -2168,127 +1953,85 @@ export default [
     description: 'If you are searching for versatility, you came up for the right scale. The drum’s name Universal Scale speaks for itself. Just like salted caramel, it combines 2 tastes in one, as you can play in both major and minor tonalities. By simply switching the root note, you can get a completely new melody as if you changed the instrument. The drum has a peaceful and balanced sound it will be suitable for yoga and meditation.',
     descriptionRu: 'If you are searching for versatility, you came up for the right scale. The drum’s name Universal Scale speaks for itself. Just like salted caramel, it combines 2 tastes in one, as you can play in both major and minor tonalities. By simply switching the root note, you can get a completely new melody as if you changed the instrument. The drum has a peaceful and balanced sound it will be suitable for yoga and meditation.',
     notesString: 'D3 F3 A3 C4 E4 F4 G4 A4 C5',
-    notes: [
-      {
-        key: 'F3',
-        delta: 3.1,
-        angle: 335,
-        name: 'F3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3',
-        delta: 3.3,
-        angle: 15,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4',
-        delta: 3,
-        angle: 300,
-        name: 'C4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4',
-        delta: 3.7,
-        angle: 55,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F4',
-        delta: 3.3,
-        angle: 255,
-        name: 'F4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G4',
-        delta: 4.3,
-        angle: 110,
-        name: 'G4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C5',
-        delta: 4.3,
-        angle: 160,
-        name: 'C5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notes: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'F3',
+          name: 'F3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C4',
+          name: 'C4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'F4',
+          name: 'F4',
+        },
+        {
+          key: 'G4',
+          name: 'G4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'C5',
+          name: 'C5',
+        },
+      ],
+    }),
     centerNote: {
       key: 'D3',
       name: 'D3',
       color: colors.buttons.yellow,
     },
-    notesStick: [
-      {
-        key: 'F3S',
-        delta: 3.1,
-        angle: 335,
-        name: 'F3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3S',
-        delta: 3.3,
-        angle: 15,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C4S',
-        delta: 3,
-        angle: 300,
-        name: 'C4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4S',
-        delta: 3.7,
-        angle: 55,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F4S',
-        delta: 3.3,
-        angle: 255,
-        name: 'F4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G4S',
-        delta: 4.3,
-        angle: 110,
-        name: 'G4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4S',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C5S',
-        delta: 4.3,
-        angle: 160,
-        name: 'C5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notesStick: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'F3S',
+          name: 'F3',
+        },
+        {
+          key: 'A3S',
+          name: 'A3',
+        },
+        {
+          key: 'C4S',
+          name: 'C4',
+        },
+        {
+          key: 'E4S',
+          name: 'E4',
+        },
+        {
+          key: 'F4S',
+          name: 'F4',
+        },
+        {
+          key: 'G4S',
+          name: 'G4',
+        },
+        {
+          key: 'A4S',
+          name: 'A4',
+        },
+        {
+          key: 'C5S',
+          name: 'C5',
+        },
+      ],
+    }),
     centerNoteStick: {
       key: 'D3S',
       name: 'D3',
@@ -2309,127 +2052,86 @@ export default [
     description: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Ariumi F#m-A.',
     descriptionRu: 'Prepare to be amazed by the unparalleled, one-of-a-kind  scale created in the RAV Laboratories that is bound to stir emotions in everyone who experiences it. Embrace the liberty of self-expression - hone your abilities in performing contemporary compositions that resonate with your wild soul through Ariumi F#m-A.',
     notesString: 'D3 E3 F#3 A3 C#4 E4 G#4 A4 C#5',
-    notes: [
-      {
-        key: 'E3',
-        delta: 3.1,
-        angle: 335,
-        name: 'E3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F%233',
-        delta: 3.3,
-        angle: 15,
-        name: 'F#3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3',
-        delta: 3,
-        angle: 300,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C%234',
-        delta: 3.7,
-        angle: 55,
-        name: 'C#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4',
-        delta: 3.3,
-        angle: 255,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G%234',
-        delta: 4.3,
-        angle: 110,
-        name: 'G#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C%235',
-        delta: 4.3,
-        angle: 160,
-        name: 'C#5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notes: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'E3',
+          name: 'E3',
+        },
+        {
+          key: 'F%233',
+          name: 'F#3',
+        },
+        {
+          key: 'A3',
+          name: 'A3',
+        },
+        {
+          key: 'C%234',
+          name: 'C#4',
+        },
+        {
+          key: 'E4',
+          name: 'E4',
+        },
+        {
+          key: 'G%234',
+          name: 'G#4',
+        },
+        {
+          key: 'A4',
+          name: 'A4',
+        },
+        {
+          key: 'C%235',
+          name: 'C#5',
+        },
+      ],
+    }),
+  
     centerNote: {
       key: 'D3',
       name: 'D3',
       color: colors.buttons.yellow,
     },
-    notesStick: [
-      {
-        key: 'E3S',
-        delta: 3.1,
-        angle: 335,
-        name: 'E3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'F%233S',
-        delta: 3.3,
-        angle: 15,
-        name: 'F#3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A3S',
-        delta: 3,
-        angle: 300,
-        name: 'A3',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C%234S',
-        delta: 3.7,
-        angle: 55,
-        name: 'C#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'E4S',
-        delta: 3.3,
-        angle: 255,
-        name: 'E4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'G%234S',
-        delta: 4.3,
-        angle: 110,
-        name: 'G#4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'A4S',
-        delta: 3.8,
-        angle: 215,
-        name: 'A4',
-        color: colors.buttons.yellow,
-      },
-      {
-        key: 'C%235S',
-        delta: 4.3,
-        angle: 160,
-        name: 'C#5',
-        color: colors.buttons.yellow,
-      },
-    ],
+    notesStick: getNotePositions({
+      type: '14',
+      notes: [
+        {
+          key: 'E3S',
+          name: 'E3',
+        },
+        {
+          key: 'F%233S',
+          name: 'F#3',
+        },
+        {
+          key: 'A3S',
+          name: 'A3',
+        },
+        {
+          key: 'C%234S',
+          name: 'C#4',
+        },
+        {
+          key: 'E4S',
+          name: 'E4',
+        },
+        {
+          key: 'G%234S',
+          name: 'G#4',
+        },
+        {
+          key: 'A4S',
+          name: 'A4',
+        },
+        {
+          key: 'C%235S',
+          name: 'C#5',
+        },
+      ],
+    }),
     centerNoteStick: {
       key: 'D3S',
       name: 'D3',
@@ -2442,7 +2144,6 @@ export default [
     ],
     demo: [],
   },
-  // PAN
   {
     type: '9P',
     key: 'PanDMajor',
@@ -2694,7 +2395,7 @@ export default [
     combinesWith: [
       { type: '9', key: 'GPygmy', title: 'RAV Vast G Pygmy' },
       { type: '9', key: 'DCelticMinor', title: 'RAV Vast D Celtic Minor' },
-      // { type: '9P', key: 'PanDCelticMinor', title: 'Rav Pan D Celtic Minor' },
+      { type: '9P', key: 'PanDCelticMinor', title: 'Rav Pan D Celtic Minor' },
     ],
     demo: [],
   },
@@ -2859,6 +2560,105 @@ export default [
       { type: '9', key: 'GPygmy', title: 'RAV Vast G Pygmy' },
       { type: '9', key: 'AAriumi', title: 'RAV Vast Dm-F Ariumi' },
     ],
+    demo: [],
+  },
+  {
+    type: '16',
+    key: 'Anima',
+    title: 'RAV ANIMA',
+    link: 'https://ravvast.com/products/rav-vast-anima-indigo',
+    description: 'The RAV Anima is a new concept in the RAV family. Its main feature is five central chords — F major, G major, A minor, C major, and D minor — some of the most common in modern music. When you strike one of the central tongues, you play the entire chord',
+    descriptionRu: 'The RAV Anima is a new concept in the RAV family. Its main feature is five central chords — F major, G major, A minor, C major, and D minor — some of the most common in modern music. When you strike one of the central tongues, you play the entire chord',
+    notesString: 'F2 G2 A2 C3 D3 E3 G3 A3 B3 C4 D4 E4 G4 A4',
+    notes: getNotePositions({
+      type: '16',
+      notes: [
+        { key: 'D3', name: 'D3' },
+        { key: 'A4', name: 'A4' },
+        { key: 'E4', name: 'E4' },
+        { key: 'C4', name: 'C4' },
+        { key: 'A3', name: 'A3' },
+        { key: 'E3', name: 'E3' },
+        { key: 'G3', name: 'G3' },
+        { key: 'B3', name: 'B3' },
+        { key: 'D4', name: 'D4' },
+        { key: 'G4', name: 'G4' },
+        { key: 'C3', name: 'C3' },
+        { key: 'A2', name: 'A2' },
+        { key: 'G2', name: 'G2' },
+        { key: 'F2', name: 'F2' },
+      ],
+    }),
+    notesStick: getNotePositions({
+      type: '16',
+      notes: [
+        { key: 'D3S', name: 'D3' },
+        { key: 'A4S', name: 'A4' },
+        { key: 'E4S', name: 'E4' },
+        { key: 'C4S', name: 'C4' },
+        { key: 'A3S', name: 'A3' },
+        { key: 'E3S', name: 'E3' },
+        { key: 'G3S', name: 'G3' },
+        { key: 'B3S', name: 'B3' },
+        { key: 'D4S', name: 'D4' },
+        { key: 'G4S', name: 'G4' },
+        { key: 'C3S', name: 'C3' },
+        { key: 'A2S', name: 'A2' },
+        { key: 'G2S', name: 'G2' },
+        { key: 'F2S', name: 'F2' },
+      ],
+    }),
+    combinesWith: [],
+    demo: [],
+  },
+  {
+    type: '16',
+    key: 'Anima432',
+    hasEffects: true,
+    title: 'RAV ANIMA 432',
+    link: `${BASE_LINK}rav-vast-anima-indigo`,
+    description: 'The RAV Anima is a new concept in the RAV family. Its main feature is five central chords — F major, G major, A minor, C major, and D minor — some of the most common in modern music. When you strike one of the central tongues, you play the entire chord',
+    descriptionRu: 'The RAV Anima is a new concept in the RAV family. Its main feature is five central chords — F major, G major, A minor, C major, and D minor — some of the most common in modern music. When you strike one of the central tongues, you play the entire chord',
+    notesString: 'F2 G2 A2 C3 D3 E3 G3 A3 B3 C4 D4 E4 G4 A4',
+    notes: getNotePositions({
+      type: '16',
+      notes: [
+        { key: 'D3', name: 'D3' },
+        { key: 'A4', name: 'A4' },
+        { key: 'E4', name: 'E4' },
+        { key: 'C4', name: 'C4' },
+        { key: 'A3', name: 'A3' },
+        { key: 'E3', name: 'E3' },
+        { key: 'G3', name: 'G3' },
+        { key: 'B3', name: 'B3' },
+        { key: 'D4', name: 'D4' },
+        { key: 'G4', name: 'G4' },
+        { key: 'C3', name: 'C3' },
+        { key: 'A2', name: 'A2' },
+        { key: 'G2', name: 'G2' },
+        { key: 'F2', name: 'F2' },
+      ],
+    }),
+    notesStick: getNotePositions({
+      type: '16',
+      notes: [
+        { key: 'D3S', name: 'D3' },
+        { key: 'A4S', name: 'A4' },
+        { key: 'E4S', name: 'E4' },
+        { key: 'C4S', name: 'C4' },
+        { key: 'A3S', name: 'A3' },
+        { key: 'E3S', name: 'E3' },
+        { key: 'G3S', name: 'G3' },
+        { key: 'B3S', name: 'B3' },
+        { key: 'D4S', name: 'D4' },
+        { key: 'G4S', name: 'G4' },
+        { key: 'C3S', name: 'C3' },
+        { key: 'A2S', name: 'A2' },
+        { key: 'G2S', name: 'G2' },
+        { key: 'F2S', name: 'F2' },
+      ],
+    }),
+    combinesWith: [],
     demo: [],
   },
 ];
