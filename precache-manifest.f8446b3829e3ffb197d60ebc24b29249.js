@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e229d39482bb171683c1a1a0419bf1da",
+    "revision": "2f68055a9ef32a9bc00b409d76aad31a",
     "url": "/ravplayer/index.html"
   },
   {
-    "revision": "538c12a3a7ec9f3fc8ce",
+    "revision": "c96770a94459c6e54f43",
     "url": "/ravplayer/static/css/main.1478d368.chunk.css"
   },
   {
-    "revision": "75ed31ecd398db654ffd",
-    "url": "/ravplayer/static/js/2.41734a6c.chunk.js"
+    "revision": "687edd0af46756a735da",
+    "url": "/ravplayer/static/js/2.7b2bbec7.chunk.js"
   },
   {
-    "revision": "538c12a3a7ec9f3fc8ce",
-    "url": "/ravplayer/static/js/main.447da26c.chunk.js"
+    "revision": "c96770a94459c6e54f43",
+    "url": "/ravplayer/static/js/main.91971e0a.chunk.js"
   },
   {
     "revision": "9e2e22480ae07a86927f",
     "url": "/ravplayer/static/js/runtime~main.0daa744d.js"
+  },
+  {
+    "revision": "db428b9b5e4b726bec5cab65d517ff22",
+    "url": "/ravplayer/static/media/anima-backing-track-1.db428b9b.mp3"
   },
   {
     "revision": "66bbee01a2a47fe02e7a0504380b3388",
