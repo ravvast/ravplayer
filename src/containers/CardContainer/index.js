@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { css } from '@emotion/core';
-import { parseQuery } from 'shared/libs/parseQuery/parseQuery';
-import CardMobile from 'containers/CardMobile';
-import Card from 'containers/Card';
-import { Loader, MinimalDrum, DemoDrum, SimpleDrum, Error } from 'components';
-import { useResizeEvent } from 'effects';
-import { breakpoints, colors } from 'styles';
-import { useDrumSounds } from 'shared/libs/hooks/useDrumSound/useDrumSound';
-import { useBackgroundMusicPlayer } from 'shared/libs/hooks/useBackgroundMusicPlayer/useBackgroundMusicPlayer';
+import React, { useState } from "react";
+import { css } from "@emotion/core";
+import { parseQuery } from "shared/libs/parseQuery/parseQuery";
+import CardMobile from "containers/CardMobile";
+import Card from "containers/Card";
+import { Loader, MinimalDrum, DemoDrum, SimpleDrum, Error } from "components";
+import { useResizeEvent } from "effects";
+import { breakpoints, colors } from "styles";
+import { useDrumSounds } from "shared/libs/hooks/useDrumSound/useDrumSound";
+import { useBackgroundMusicPlayer } from "shared/libs/hooks/useBackgroundMusicPlayer/useBackgroundMusicPlayer";
 
-const checkSimpleView = asPath => parseQuery(asPath).simpleView === 'true';
-const checkMinimalView = asPath => parseQuery(asPath).minimalView === 'true';
-const checkDemoView = asPath => parseQuery(asPath).demoView === 'true';
+const checkSimpleView = asPath => parseQuery(asPath).simpleView === "true";
+const checkMinimalView = asPath => parseQuery(asPath).minimalView === "true";
+const checkDemoView = asPath => parseQuery(asPath).demoView === "true";
 
 const CardContainer = () => {
   const isSimpleView = checkSimpleView(document.location.href);
@@ -38,7 +38,7 @@ const CardContainer = () => {
 
           @media (min-width: ${breakpoints.mobile}) {
             min-height: auto;
-            height: 536px;
+            height: 644px;
             border: solid 1px ${colors.dark.border};
             width: 960px;
           }
