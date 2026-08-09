@@ -11,7 +11,7 @@ const Error = () => (
       justify-content: center;
       align-items: center;
       text-align: center;
-      height: 644px;
+      height: 610px;
       max-width: 960px;
       width: 100%;
       border: solid 1px ${colors.dark.border};

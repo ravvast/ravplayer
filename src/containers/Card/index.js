@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { css } from '@emotion/core';
-import { AppContext } from 'providers/AppContextProvider';
-import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
-import { TITLES } from 'constants/titles';
+import React, { useContext } from "react";
+import { css } from "@emotion/core";
+import { AppContext } from "providers/AppContextProvider";
+import { useAudioPlayer } from "shared/libs/hooks/useAudioPlayer/useAudioPlayer";
+import { TITLES } from "constants/titles";
 import {
   Button,
   Caption,
@@ -14,9 +14,9 @@ import {
   EffectsSwitch,
   DemoButton,
   BackgroundMusicPlayer,
-} from 'components';
-import colors from 'styles/colors';
-import { ReactComponent as MoreIcon } from 'assets/more.svg';
+} from "components";
+import colors from "styles/colors";
+import { ReactComponent as MoreIcon } from "assets/more.svg";
 
 const Card = () => {
   const {
@@ -153,7 +153,7 @@ const Card = () => {
                     margin: 0 8px 8px;
                   `}
                 >
-                  {language === 'ru'
+                  {language === "ru"
                     ? selectedDrum.descriptionRu
                     : selectedDrum.description}
                 </p>
@@ -184,7 +184,7 @@ const Card = () => {
                 </div>
                 <BackgroundMusicPlayer
                   cx={css`
-                    margin: 16px 8px 0;
+                    margin: 8px;
                   `}
                 />
               </div>

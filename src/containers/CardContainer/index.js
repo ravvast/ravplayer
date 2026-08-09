@@ -38,7 +38,7 @@ const CardContainer = () => {
 
           @media (min-width: ${breakpoints.mobile}) {
             min-height: auto;
-            height: 644px;
+            height: 610px;
             border: solid 1px ${colors.dark.border};
             width: 960px;
           }

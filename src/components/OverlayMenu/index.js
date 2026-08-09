@@ -140,7 +140,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
             background-color: transparent;
             background-color: rgba(255, 255, 255, 0.99);
             -webkit-overflow-scrolling: touch;
-            height: 644px;
+            height: 610px;
             width: 960px;
             @media (max-width: ${breakpoints.mobile}) {
               height: 100%;
