@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2f68055a9ef32a9bc00b409d76aad31a",
+    "revision": "3f30984e903c70684de4f550362da6c3",
     "url": "/ravplayer/index.html"
   },
   {
-    "revision": "c96770a94459c6e54f43",
+    "revision": "3aaf3bce5c66f4cd2261",
     "url": "/ravplayer/static/css/main.1478d368.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ravplayer/static/js/2.7b2bbec7.chunk.js"
   },
   {
-    "revision": "c96770a94459c6e54f43",
-    "url": "/ravplayer/static/js/main.91971e0a.chunk.js"
+    "revision": "3aaf3bce5c66f4cd2261",
+    "url": "/ravplayer/static/js/main.de1718df.chunk.js"
   },
   {
     "revision": "9e2e22480ae07a86927f",
