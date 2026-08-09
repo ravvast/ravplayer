@@ -13,6 +13,7 @@ import {
   ModeSwitch,
   EffectsSwitch,
   DemoButton,
+  BackgroundMusicPlayer,
 } from 'components';
 import { colors } from 'styles';
 import { ReactComponent as MoreIcon } from 'assets/more.svg';
@@ -166,6 +167,11 @@ const CardMobile = () => {
                   {titles.learnMore}
                 </Button>
               </div>
+              <BackgroundMusicPlayer
+                cx={css`
+                  margin-top: 16px;
+                `}
+              />
             </div>
             <div
               css={css`

@@ -7,6 +7,7 @@ import { Loader, MinimalDrum, DemoDrum, SimpleDrum, Error } from 'components';
 import { useResizeEvent } from 'effects';
 import { breakpoints, colors } from 'styles';
 import { useDrumSounds } from 'shared/libs/hooks/useDrumSound/useDrumSound';
+import { useBackgroundMusicPlayer } from 'shared/libs/hooks/useBackgroundMusicPlayer/useBackgroundMusicPlayer';
 
 const checkSimpleView = asPath => parseQuery(asPath).simpleView === 'true';
 const checkMinimalView = asPath => parseQuery(asPath).minimalView === 'true';
@@ -20,6 +21,7 @@ const CardContainer = () => {
   const [isError, setIsError] = useState(false);
 
   useDrumSounds(setIsLoading, setIsError);
+  useBackgroundMusicPlayer();
 
   const renderDrumContent = content => {
     if (isMinimalView) return <MinimalDrum />;
