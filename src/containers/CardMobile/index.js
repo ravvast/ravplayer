@@ -40,6 +40,9 @@ const CardMobile = () => {
     selectedDrum.notesStick && selectedDrum.notesStick.length > 0
   );
   const hasEffectsMode = !!selectedDrum.hasEffects;
+  const hasCombinations = !!(
+    selectedDrum.combinesWith && selectedDrum.combinesWith.length > 0
+  );
 
   const titles = TITLES[language];
 
@@ -64,18 +67,16 @@ const CardMobile = () => {
                 align-items: center;
               `}
             >
-              {
-                <div
-                  css={css`
+              <div
+                css={css`
                     display: flex;
                     flex-direction: column;
                     margin-right: 8px;
                   `}
-                >
-                  <Title>{selectedDrum.title}</Title>
-                  <Caption>{selectedDrum.notesString}</Caption>
-                </div>
-              }
+              >
+                <Title>{selectedDrum.title}</Title>
+                <Caption>{selectedDrum.notesString}</Caption>
+              </div>
               <Button
                 outline
                 cx={css`
@@ -173,23 +174,25 @@ const CardMobile = () => {
                 `}
               />
             </div>
-            <div
-              css={css`
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 16px 0 12px;
-                border-top: solid 1px ${colors.dark.border};
-              `}
-            >
-              <Combination
-                drums={selectedDrum.combinesWith}
-                title={titles.combines}
-                selectDrum={setSelectedDrum}
-                demoIsPlaying={isDemoPlaying}
-                toggleDemo={toggleDemo}
-              />
-            </div>
+            {hasCombinations && (
+              <div
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 16px 0 12px;
+                  border-top: solid 1px ${colors.dark.border};
+                `}
+              >
+                <Combination
+                  drums={selectedDrum.combinesWith}
+                  title={titles.combines}
+                  selectDrum={setSelectedDrum}
+                  demoIsPlaying={isDemoPlaying}
+                  toggleDemo={toggleDemo}
+                />
+              </div>
+            )}
           </>
         )}
       </OverlayMenu>

@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "@emotion/core";
 import { breakpoints, colors } from "styles";
-import { Button } from "../";
+import Button from "../Button";
 
 const Error = () => (
   <div
@@ -11,7 +11,7 @@ const Error = () => (
       justify-content: center;
       align-items: center;
       text-align: center;
-      height: 610px;
+      height: 536px;
       max-width: 960px;
       width: 100%;
       border: solid 1px ${colors.dark.border};

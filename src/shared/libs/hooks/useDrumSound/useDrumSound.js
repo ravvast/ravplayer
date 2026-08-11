@@ -34,6 +34,7 @@ export const useDrumSounds = (setIsLoading, setIsError) => {
           }
         },
         onloaderror: (_, err) => {
+          // eslint-disable-next-line no-console
           console.error(`Error loading ${key}:`, err);
           setIsError(true);
         },

@@ -24,7 +24,7 @@ const EffectsSwitch = ({ onChange, checked }) => (
       Effects - {checked ? 'on' : 'off'}
     </p>
     <Switch
-      offColor='#DEDEDE'
+      offColor="#DEDEDE"
       checkedIcon={false}
       uncheckedIcon={false}
       height={35}

@@ -7,7 +7,7 @@ import { TITLES } from 'constants/titles';
 import { breakpoints } from 'styles';
 import { ReactComponent as StopIcon } from 'assets/stop.svg';
 import { ReactComponent as PlayIcon } from 'assets/play.svg';
-import { Button } from '../';
+import Button from '../Button';
 
 const DemoButton = ({ cx }) => {
   const { language, isDemoPlaying } = useContext(AppContext);

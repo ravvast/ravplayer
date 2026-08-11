@@ -1890,7 +1890,7 @@ export default [
         },
       ],
     }),
-  
+
     centerNote: {
       key: 'D3',
       name: 'D3',
@@ -2089,7 +2089,7 @@ export default [
         },
       ],
     }),
-  
+
     centerNote: {
       key: 'D3',
       name: 'D3',

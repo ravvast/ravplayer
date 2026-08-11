@@ -3,10 +3,11 @@ import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { css } from "@emotion/core";
 import { AppContext } from "providers/AppContextProvider";
-import { SmallButton, CustomSelect } from "components";
 import drums from "shared/assets/drums";
 import { breakpoints } from "styles";
 import { ReactComponent as CloseIcon } from "assets/close.svg";
+import CustomSelect from "../CustomSelect";
+import SmallButton from "../SmallButton";
 import { DrumRow } from "./components";
 
 const selectOptions = [
@@ -140,7 +141,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
             background-color: transparent;
             background-color: rgba(255, 255, 255, 0.99);
             -webkit-overflow-scrolling: touch;
-            height: 610px;
+            height: 536px;
             width: 960px;
             @media (max-width: ${breakpoints.mobile}) {
               height: 100%;

@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { css } from "@emotion/core";
-import { AppContext } from "providers/AppContextProvider";
-import { useAudioPlayer } from "shared/libs/hooks/useAudioPlayer/useAudioPlayer";
-import { TITLES } from "constants/titles";
+import React, { useContext } from 'react';
+import { css } from '@emotion/core';
+import { AppContext } from 'providers/AppContextProvider';
+import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
+import { TITLES } from 'constants/titles';
 import {
   Button,
   Caption,
@@ -14,9 +14,9 @@ import {
   EffectsSwitch,
   DemoButton,
   BackgroundMusicPlayer,
-} from "components";
-import colors from "styles/colors";
-import { ReactComponent as MoreIcon } from "assets/more.svg";
+} from 'components';
+import colors from 'styles/colors';
+import { ReactComponent as MoreIcon } from 'assets/more.svg';
 
 const Card = () => {
   const {
@@ -36,6 +36,9 @@ const Card = () => {
     selectedDrum.notesStick && selectedDrum.notesStick.length > 0
   );
   const hasEffectsMode = !!selectedDrum.hasEffects;
+  const hasCombinations = !!(
+    selectedDrum.combinesWith && selectedDrum.combinesWith.length > 0
+  );
 
   const titles = TITLES[language];
 
@@ -153,7 +156,7 @@ const Card = () => {
                     margin: 0 8px 8px;
                   `}
                 >
-                  {language === "ru"
+                  {language === 'ru'
                     ? selectedDrum.descriptionRu
                     : selectedDrum.description}
                 </p>
@@ -188,22 +191,24 @@ const Card = () => {
                   `}
                 />
               </div>
-              <div
-                css={css`
-                  border-top: solid 1px ${colors.dark.border};
-                  display: flex;
-                  justify-content: center;
-                  padding: 8px 16px 16px;
-                `}
-              >
-                <Combination
-                  drums={selectedDrum.combinesWith}
-                  title={titles.combines}
-                  selectDrum={setSelectedDrum}
-                  demoIsPlaying={isDemoPlaying}
-                  toggleDemo={toggleDemo}
-                />
-              </div>
+              {hasCombinations && (
+                <div
+                  css={css`
+                    border-top: solid 1px ${colors.dark.border};
+                    display: flex;
+                    justify-content: center;
+                    padding: 8px 16px 16px;
+                  `}
+                >
+                  <Combination
+                    drums={selectedDrum.combinesWith}
+                    title={titles.combines}
+                    selectDrum={setSelectedDrum}
+                    demoIsPlaying={isDemoPlaying}
+                    toggleDemo={toggleDemo}
+                  />
+                </div>
+              )}
             </div>
           </div>
         )}

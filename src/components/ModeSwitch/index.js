@@ -27,13 +27,13 @@ const ModeSwitch = ({ onChange, checked }) => (
       Play mode - {checked ? 'sticks' : 'fingers'}
     </p>
     <Switch
-      onColor='#DEDEDE'
-      offColor='#DEDEDE'
+      onColor="#DEDEDE"
+      offColor="#DEDEDE"
       height={35}
       width={70}
       onChange={onChange}
       checked={checked}
-      checkedIcon={
+      checkedIcon={(
         <FingerIcon
           css={css`
             margin-top: 6px;
@@ -42,8 +42,8 @@ const ModeSwitch = ({ onChange, checked }) => (
             height: 22px;
           `}
         />
-      }
-      uncheckedIcon={
+      )}
+      uncheckedIcon={(
         <DrumSticksIcon
           css={css`
             margin-top: 6px;
@@ -53,7 +53,7 @@ const ModeSwitch = ({ onChange, checked }) => (
             color: white;
           `}
         />
-      }
+      )}
     />
   </div>
 );
