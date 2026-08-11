@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3f30984e903c70684de4f550362da6c3",
+    "revision": "0ec962320158ff26e3b46aa2e3fca2c2",
     "url": "/ravplayer/index.html"
   },
   {
-    "revision": "3aaf3bce5c66f4cd2261",
+    "revision": "95b1a9488d0a0ecb2a73",
     "url": "/ravplayer/static/css/main.1478d368.chunk.css"
   },
   {
-    "revision": "687edd0af46756a735da",
-    "url": "/ravplayer/static/js/2.7b2bbec7.chunk.js"
+    "revision": "0b4a89cef672683e8f9b",
+    "url": "/ravplayer/static/js/2.0f8c2c8a.chunk.js"
   },
   {
-    "revision": "3aaf3bce5c66f4cd2261",
-    "url": "/ravplayer/static/js/main.de1718df.chunk.js"
+    "revision": "95b1a9488d0a0ecb2a73",
+    "url": "/ravplayer/static/js/main.05a3b3e4.chunk.js"
   },
   {
     "revision": "9e2e22480ae07a86927f",
@@ -22,6 +22,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "db428b9b5e4b726bec5cab65d517ff22",
     "url": "/ravplayer/static/media/anima-backing-track-1.db428b9b.mp3"
+  },
+  {
+    "revision": "749fb9b7e20f012a176f2802edad74d9",
+    "url": "/ravplayer/static/media/anima432-backing-track-1.749fb9b7.mp3"
   },
   {
     "revision": "66bbee01a2a47fe02e7a0504380b3388",
