@@ -73,5 +73,6 @@
     "start": "NODE_OPTIONS='--openssl-legacy-provider' node scripts/start.js",
     "build": "NODE_OPTIONS='--openssl-legacy-provider' GENERATE_SOURCEMAP=false node scripts/build.js",
     "deploy": "yarn build && gh-pages -d build -b gh-pages"
-  }
+  },
+  "homepage": "https://ravvast.github.io/ravplayer"
 }

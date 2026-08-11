@@ -16,5 +16,5 @@ export const backgroundMusicTracks = [
   },
 ];
 
-export const getBackgroundMusicTrackForDrum = drumKey =>
-  backgroundMusicTracks.find(track => track.drumKey === drumKey) || null;
+export const getBackgroundMusicTracksForDrum = drumKey =>
+  backgroundMusicTracks.filter(track => track.drumKey === drumKey);

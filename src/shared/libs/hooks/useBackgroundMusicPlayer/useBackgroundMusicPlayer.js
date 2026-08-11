@@ -2,12 +2,11 @@ import { useContext, useEffect, useRef } from 'react';
 import { Howl } from 'howler';
 import { AppContext } from 'providers/AppContextProvider';
 
+const BACKGROUND_MUSIC_VOLUME = 0.75;
+
 export const useBackgroundMusicPlayer = () => {
-  const {
-    selectedBackgroundMusicTrack,
-    isBackgroundMusicPlaying,
-    backgroundMusicVolume,
-  } = useContext(AppContext);
+  const { selectedBackgroundMusicTrack, isBackgroundMusicPlaying } =
+    useContext(AppContext);
 
   const soundRef = useRef(null);
 
@@ -17,7 +16,7 @@ export const useBackgroundMusicPlayer = () => {
     const sound = new Howl({
       src: [selectedBackgroundMusicTrack.src],
       loop: true,
-      volume: backgroundMusicVolume,
+      volume: BACKGROUND_MUSIC_VOLUME,
       html5: true, // avoid decoding the whole (multi-minute) track into memory
     });
     soundRef.current = sound;
@@ -43,10 +42,4 @@ export const useBackgroundMusicPlayer = () => {
       sound.pause();
     }
   }, [isBackgroundMusicPlaying]);
-
-  useEffect(() => {
-    if (soundRef.current) {
-      soundRef.current.volume(backgroundMusicVolume);
-    }
-  }, [backgroundMusicVolume]);
 };
