@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { getDrumId } from 'shared/libs/getDrumId/getDrumId';
 import { getInitialLanguage } from 'shared/libs/getInitialLanguage/getInitialLanguage';
 import drums from 'shared/assets/drums';
+import { getBackgroundMusicTracksForDrum } from 'shared/assets/backgroundMusic';
 
 export const AppContext = createContext({});
 
@@ -13,10 +14,20 @@ export const AppContextProvider = ({ children }) => {
   const [isStickMode, setIsStickMode] = useState(false);
   const [isEffectsMode, setIsEffectsMode] = useState(false);
   const [currentDemoSound, setCurrentDemoSound] = useState(null);
+  const [selectedBackgroundMusicTrack, setSelectedBackgroundMusicTrack] =
+    useState(getBackgroundMusicTracksForDrum(selectedDrum.key)[0] || null);
+  const [isBackgroundMusicPlaying, setIsBackgroundMusicPlaying] =
+    useState(false);
 
   useEffect(() => {
     if (!selectedDrum.hasEffects) {
       setIsEffectsMode(false);
+    }
+
+    const tracks = getBackgroundMusicTracksForDrum(selectedDrum.key);
+    setSelectedBackgroundMusicTrack(tracks[0] || null);
+    if (tracks.length === 0) {
+      setIsBackgroundMusicPlaying(false);
     }
   }, [selectedDrum]);
 
@@ -36,6 +47,10 @@ export const AppContextProvider = ({ children }) => {
         setIsEffectsMode,
         currentDemoSound,
         setCurrentDemoSound,
+        selectedBackgroundMusicTrack,
+        setSelectedBackgroundMusicTrack,
+        isBackgroundMusicPlaying,
+        setIsBackgroundMusicPlaying,
       }}
     >
       {children}

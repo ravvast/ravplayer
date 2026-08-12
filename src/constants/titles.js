@@ -5,6 +5,9 @@ export const TITLES = {
     learnMore: 'Узнать больше',
     select: 'Выбрать Модель',
     combines: 'Хорошо комбинирует с',
+    backgroundMusic: 'Фоновая музыка',
+    on: 'вкл',
+    off: 'выкл',
   },
   en: {
     play: 'Play Demo',
@@ -12,5 +15,8 @@ export const TITLES = {
     learnMore: 'Buy this RAV',
     select: 'Select Model',
     combines: 'Combines well with',
+    backgroundMusic: 'Background music',
+    on: 'on',
+    off: 'off',
   },
 };

@@ -13,6 +13,7 @@ import {
   ModeSwitch,
   EffectsSwitch,
   DemoButton,
+  BackgroundMusicPlayer,
 } from 'components';
 import colors from 'styles/colors';
 import { ReactComponent as MoreIcon } from 'assets/more.svg';
@@ -35,6 +36,9 @@ const Card = () => {
     selectedDrum.notesStick && selectedDrum.notesStick.length > 0
   );
   const hasEffectsMode = !!selectedDrum.hasEffects;
+  const hasCombinations = !!(
+    selectedDrum.combinesWith && selectedDrum.combinesWith.length > 0
+  );
 
   const titles = TITLES[language];
 
@@ -181,23 +185,30 @@ const Card = () => {
                     {titles.learnMore}
                   </Button>
                 </div>
-              </div>
-              <div
-                css={css`
-                  border-top: solid 1px ${colors.dark.border};
-                  display: flex;
-                  justify-content: center;
-                  padding: 8px 16px 16px;
-                `}
-              >
-                <Combination
-                  drums={selectedDrum.combinesWith}
-                  title={titles.combines}
-                  selectDrum={setSelectedDrum}
-                  demoIsPlaying={isDemoPlaying}
-                  toggleDemo={toggleDemo}
+                <BackgroundMusicPlayer
+                  cx={css`
+                    margin: 8px;
+                  `}
                 />
               </div>
+              {hasCombinations && (
+                <div
+                  css={css`
+                    border-top: solid 1px ${colors.dark.border};
+                    display: flex;
+                    justify-content: center;
+                    padding: 8px 16px 16px;
+                  `}
+                >
+                  <Combination
+                    drums={selectedDrum.combinesWith}
+                    title={titles.combines}
+                    selectDrum={setSelectedDrum}
+                    demoIsPlaying={isDemoPlaying}
+                    toggleDemo={toggleDemo}
+                  />
+                </div>
+              )}
             </div>
           </div>
         )}

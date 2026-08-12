@@ -1,7 +1,7 @@
-import React from 'react';
-import { css } from '@emotion/core';
-import { breakpoints, colors } from 'styles';
-import { Button } from '../';
+import React from "react";
+import { css } from "@emotion/core";
+import { breakpoints, colors } from "styles";
+import Button from "../Button";
 
 const Error = () => (
   <div
