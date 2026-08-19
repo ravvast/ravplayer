@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import { css } from '@emotion/core';
-import { AppContext } from 'providers/AppContextProvider';
-import { breakpoints, colors } from 'styles';
-import Drum from '../Drum';
-import ModeSwitch from '../ModeSwitch';
-import EffectsSwitch from '../EffectsSwitch';
-import Title from '../Title';
-import Caption from '../Caption';
-import DemoButton from '../DemoButton';
+import React, { useContext } from "react";
+import { css } from "@emotion/core";
+import { AppContext } from "providers/AppContextProvider";
+import { breakpoints, colors } from "styles";
+import Drum from "../Drum";
+import ModeSwitch from "../ModeSwitch";
+import EffectsSwitch from "../EffectsSwitch";
+import Title from "../Title";
+import Caption from "../Caption";
+import DemoButton from "../DemoButton";
 
 const SimpleDrum = () => {
   const {
@@ -27,7 +27,7 @@ const SimpleDrum = () => {
     <div
       css={css`
         display: flex;
-        height: 536px;
+        height: 590px;
         max-width: 960px;
         width: 100%;
         border: solid 1px ${colors.dark.border};

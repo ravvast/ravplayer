@@ -8,6 +8,8 @@ export const TITLES = {
     backgroundMusic: 'Фоновая музыка',
     on: 'вкл',
     off: 'выкл',
+    karaoke: 'Караоке',
+    karaokeHint: 'Играйте показанный аккорд одной рукой, а второй рукой свободно импровизируйте на внешнем круге язычков',
   },
   en: {
     play: 'Play Demo',
@@ -18,5 +20,7 @@ export const TITLES = {
     backgroundMusic: 'Background music',
     on: 'on',
     off: 'off',
+    karaoke: 'Karaoke',
+    karaokeHint: 'Play the highlighted chord with one hand, and freely improvise with the other on the outer ring of tongues',
   },
 };

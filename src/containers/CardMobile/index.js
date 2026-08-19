@@ -14,6 +14,7 @@ import {
   EffectsSwitch,
   DemoButton,
   BackgroundMusicPlayer,
+  KaraokePlayer,
 } from 'components';
 import { colors } from 'styles';
 import { ReactComponent as MoreIcon } from 'assets/more.svg';
@@ -168,11 +169,17 @@ const CardMobile = () => {
                   {titles.learnMore}
                 </Button>
               </div>
-              <BackgroundMusicPlayer
-                cx={css`
+              <div
+                css={css`
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
                   margin-top: 16px;
                 `}
-              />
+              >
+                <KaraokePlayer />
+                <BackgroundMusicPlayer />
+              </div>
             </div>
             {hasCombinations && (
               <div
