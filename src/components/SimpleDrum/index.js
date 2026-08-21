@@ -27,7 +27,7 @@ const SimpleDrum = () => {
     <div
       css={css`
         display: flex;
-        height: 590px;
+        height: 630px;
         max-width: 960px;
         width: 100%;
         border: solid 1px ${colors.dark.border};

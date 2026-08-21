@@ -7,14 +7,13 @@ import { getLegacySize } from 'shared/libs/getLegacySize/getLegacySize';
 import Button from '../Button';
 import KaraokeHint from '../KaraokeHint';
 
-const KARAOKE_STEP_DURATION = 3000;
-
 const OverlayButtons = () => {
   const {
     selectedDrum,
     isDemoPlaying,
     isKaraokePlaying,
     selectedKaraokeSequence,
+    karaokeStepDuration,
   } = useContext(AppContext);
 
   const { playSound } = useAudioPlayer();
@@ -64,16 +63,6 @@ const OverlayButtons = () => {
   const getYCoordinate = (delta, angle) =>
     centerButtonY - getDrumRadius(delta) * Math.sin(getRadians(angle));
 
-  const centerButtonRef = React.useRef();
-  const buttonsRefs = React.useRef([]);
-
-  const setButtonRef = id => ref => {
-    if (!buttonsRefs.current) {
-      buttonsRefs.current = [];
-    }
-    buttonsRefs.current[id] = ref;
-  };
-
   const { karaokeChords } = selectedDrum;
   const karaokeChordsList = (selectedKaraokeSequence
     && selectedKaraokeSequence.chords) || [];
@@ -92,22 +81,15 @@ const OverlayButtons = () => {
     setKaraokeFlightId(id => id + 1);
 
     const interval = setInterval(() => {
-      const arrivedChord = karaokeChordsList[karaokeIndexRef.current];
-      const arrivedKey = karaokeChords[arrivedChord];
-      const arrivedButton = arrivedKey && buttonsRefs.current[arrivedKey];
-      if (arrivedButton) {
-        arrivedButton.animate();
-      }
-
       karaokeIndexRef.current =
         (karaokeIndexRef.current + 1) % karaokeChordsList.length;
       setKaraokeIndex(karaokeIndexRef.current);
       setKaraokeFlightId(id => id + 1);
-    }, KARAOKE_STEP_DURATION);
+    }, karaokeStepDuration);
 
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isKaraokePlaying, karaokeChords, karaokeChordsList]);
+  }, [isKaraokePlaying, karaokeChords, karaokeChordsList, karaokeStepDuration]);
 
   let karaokeHint = null;
   if (isKaraokePlaying && karaokeChords && karaokeChordsList.length > 0) {
@@ -142,7 +124,7 @@ const OverlayButtons = () => {
           startLeft={startLeft}
           endTop={targetTop}
           endLeft={targetLeft}
-          duration={KARAOKE_STEP_DURATION}
+          duration={karaokeStepDuration}
         />
       );
     }
@@ -163,7 +145,6 @@ const OverlayButtons = () => {
         top={centerButtonY}
         left={centerButtonX}
         color={selectedDrum.centerNote.color}
-        ref={centerButtonRef}
         demoIsPlaying={isDemoPlaying}
         playSound={() => playSound(selectedDrum.centerNote.key)}
       >
@@ -177,7 +158,6 @@ const OverlayButtons = () => {
           color={object.color}
           labelColor={object.labelColor}
           demoIsPlaying={isDemoPlaying}
-          ref={setButtonRef(object.key)}
           playSound={() => playSound(object.key)}
           top={getXCoordinate(object.delta, object.angle)}
           left={getYCoordinate(object.delta, object.angle)}

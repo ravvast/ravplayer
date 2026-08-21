@@ -23,6 +23,7 @@ export const AppContextProvider = ({ children }) => {
     karaokeSequences[0],
   );
   const [isKaraokePlaying, setIsKaraokePlaying] = useState(false);
+  const [karaokeStepDuration, setKaraokeStepDuration] = useState(3000);
 
   useEffect(() => {
     if (!selectedDrum.hasEffects) {
@@ -64,6 +65,8 @@ export const AppContextProvider = ({ children }) => {
         setSelectedKaraokeSequence,
         isKaraokePlaying,
         setIsKaraokePlaying,
+        karaokeStepDuration,
+        setKaraokeStepDuration,
       }}
     >
       {children}

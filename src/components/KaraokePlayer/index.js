@@ -27,6 +27,19 @@ const sequenceOptions = karaokeSequences.map(sequence => ({
   label: sequence.title,
 }));
 
+// karaokeStepDuration is ms between hits; the slider is laid out so that
+// dragging right increases speed, which means a lower duration.
+const MIN_STEP_DURATION = 1200;
+const MAX_STEP_DURATION = 3500;
+const STEP_DURATION_STEP = 100;
+const SPEED_TICK_COUNT = 6;
+const speedTicks = Array.from({ length: SPEED_TICK_COUNT }, (_, index) =>
+  Math.round(
+    MIN_STEP_DURATION +
+      ((MAX_STEP_DURATION - MIN_STEP_DURATION) * index) /
+        (SPEED_TICK_COUNT - 1),
+  ));
+
 const KaraokePlayer = ({ cx }) => {
   const {
     language,
@@ -35,6 +48,8 @@ const KaraokePlayer = ({ cx }) => {
     setSelectedKaraokeSequence,
     isKaraokePlaying,
     setIsKaraokePlaying,
+    karaokeStepDuration,
+    setKaraokeStepDuration,
   } = useContext(AppContext);
 
   const titles = TITLES[language];
@@ -48,6 +63,13 @@ const KaraokePlayer = ({ cx }) => {
   const onSequenceChange = option => {
     const sequence = karaokeSequences.find(item => item.key === option.value);
     setSelectedKaraokeSequence(sequence || karaokeSequences[0]);
+  };
+
+  const speedSliderValue =
+    MIN_STEP_DURATION + MAX_STEP_DURATION - karaokeStepDuration;
+  const onSpeedChange = event => {
+    const sliderValue = Number(event.target.value);
+    setKaraokeStepDuration(MIN_STEP_DURATION + MAX_STEP_DURATION - sliderValue);
   };
 
   return (
@@ -102,6 +124,47 @@ const KaraokePlayer = ({ cx }) => {
           width: 100%;
         `}
       />
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        `}
+      >
+        <div
+          css={css`
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: ${colors.dark.secondary};
+          `}
+        >
+          <span>{titles.karaokeSpeed}</span>
+          <span>
+            {(karaokeStepDuration / 1000).toFixed(1)} {titles.sec}
+          </span>
+        </div>
+        <input
+          type="range"
+          min={MIN_STEP_DURATION}
+          max={MAX_STEP_DURATION}
+          step={STEP_DURATION_STEP}
+          list="karaoke-speed-ticks"
+          value={speedSliderValue}
+          onChange={onSpeedChange}
+          css={css`
+            width: 100%;
+            margin: 0;
+            accent-color: ${colors.dark.primary};
+          `}
+        />
+        <datalist id="karaoke-speed-ticks">
+          {speedTicks.map(tick => (
+            <option key={tick} value={tick} />
+          ))}
+        </datalist>
+      </div>
       <p
         css={css`
           margin: 0;

@@ -58,12 +58,6 @@ class Button extends PureComponent {
     this.props.playSound();
   }
 
-  animate = () => {
-    this.setState(({ buttons: currentButtons }) => ({
-      buttons: [...currentButtons, currentButtons.length + 1],
-    }));
-  }
-
   render() {
     const { color, labelColor, children, width, top, left } = this.props;
     const textColor = labelColor || color;

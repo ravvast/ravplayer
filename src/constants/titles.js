@@ -10,6 +10,8 @@ export const TITLES = {
     off: 'выкл',
     karaoke: 'Караоке',
     karaokeHint: 'Играйте показанный аккорд одной рукой, а второй рукой свободно импровизируйте на внешнем круге язычков',
+    karaokeSpeed: 'Скорость',
+    sec: 'сек',
   },
   en: {
     play: 'Play Demo',
@@ -22,5 +24,7 @@ export const TITLES = {
     off: 'off',
     karaoke: 'Karaoke',
     karaokeHint: 'Play the highlighted chord with one hand, and freely improvise with the other on the outer ring of tongues',
+    karaokeSpeed: 'Speed',
+    sec: 's',
   },
 };

@@ -1,6 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { css, keyframes } from '@emotion/core';
+import React from "react";
+import PropTypes from "prop-types";
+import { css, keyframes } from "@emotion/core";
+import { lightenColor } from "shared/libs/lightenColor/lightenColor";
+
+const HINT_COLOR_LIGHTEN_AMOUNT = 0.35;
 
 const KaraokeHint = ({
   flightKey,
@@ -12,40 +15,64 @@ const KaraokeHint = ({
   endLeft,
   duration,
 }) => {
+  const hintColor = lightenColor(color, HINT_COLOR_LIGHTEN_AMOUNT);
+
+  const brightnessIn = keyframes`
+    0% {
+      filter: brightness(40%);
+    }
+    100% {
+      filter: brightness(100%);
+    }
+  `;
+
   const flyIn = keyframes`
     0% {
       top: ${startTop}px;
       left: ${startLeft}px;
-      opacity: 0.55;
       transform: scale(0.6);
-    }
-    85% {
-      opacity: 0.95;
     }
     100% {
       top: ${endTop}px;
       left: ${endLeft}px;
-      opacity: 1;
       transform: scale(1);
     }
   `;
 
   return (
-    <div
-      key={flightKey}
-      css={css`
-        width: ${size}px;
-        height: ${size}px;
-        border-radius: 1000px;
-        position: absolute;
-        z-index: 8;
-        pointer-events: none;
-        background-color: ${color};
-        top: ${startTop}px;
-        left: ${startLeft}px;
-        animation: ${flyIn} ${duration}ms linear 1 forwards;
-      `}
-    />
+    <React.Fragment key={flightKey}>
+      <div
+        css={css`
+          box-sizing: border-box;
+          width: ${size}px;
+          height: ${size}px;
+          border-radius: 1000px;
+          position: absolute;
+          z-index: 7;
+          pointer-events: none;
+          border: 2px solid ${hintColor};
+          top: ${endTop}px;
+          left: ${endLeft}px;
+          animation: ${brightnessIn} ${duration}ms linear 1 forwards;
+        `}
+      />
+      <div
+        css={css`
+          width: ${size}px;
+          height: ${size}px;
+          border-radius: 1000px;
+          position: absolute;
+          z-index: 8;
+          pointer-events: none;
+          background-color: ${hintColor};
+          top: ${startTop}px;
+          left: ${startLeft}px;
+          animation:
+            ${flyIn} ${duration}ms linear 1 forwards,
+            ${brightnessIn} ${duration}ms linear 1 forwards;
+        `}
+      />
+    </React.Fragment>
   );
 };
 
