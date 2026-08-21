@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/ravplayer/static/css/main.1478d368.chunk.css",
-    "main.js": "/ravplayer/static/js/main.4463c98b.chunk.js",
+    "main.js": "/ravplayer/static/js/main.51c64ee7.chunk.js",
     "runtime~main.js": "/ravplayer/static/js/runtime~main.0daa744d.js",
-    "static/js/2.1c18f7e2.chunk.js": "/ravplayer/static/js/2.1c18f7e2.chunk.js",
+    "static/js/2.b246fde2.chunk.js": "/ravplayer/static/js/2.b246fde2.chunk.js",
     "index.html": "/ravplayer/index.html",
-    "precache-manifest.da972d1797dc16c6ecc046744123fca5.js": "/ravplayer/precache-manifest.da972d1797dc16c6ecc046744123fca5.js",
+    "precache-manifest.a50f1b5a4c96b5c5b7484ced0a9e452e.js": "/ravplayer/precache-manifest.a50f1b5a4c96b5c5b7484ced0a9e452e.js",
     "service-worker.js": "/ravplayer/service-worker.js",
     "static/media/anima-backing-track-1.mp3": "/ravplayer/static/media/anima-backing-track-1.db428b9b.mp3",
     "static/media/anima432-backing-track-1.mp3": "/ravplayer/static/media/anima432-backing-track-1.749fb9b7.mp3",
