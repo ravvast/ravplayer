@@ -9,6 +9,8 @@ import OverlayCircle from '../OverlayCircle';
 
 
 class Button extends PureComponent {
+  buttonRef = React.createRef();
+
   static propTypes = {
     playSound: PropTypes.func.isRequired,
     color: PropTypes.string.isRequired,
@@ -23,8 +25,6 @@ class Button extends PureComponent {
   state = {
     buttons: [],
   }
-
-  buttonRef = React.createRef();
 
   componentDidMount() {
     if (this.buttonRef.current) {
@@ -56,12 +56,6 @@ class Button extends PureComponent {
     }));
 
     this.props.playSound();
-  }
-
-  animate = () => {
-    this.setState(({ buttons: currentButtons }) => ({
-      buttons: [...currentButtons, currentButtons.length + 1],
-    }));
   }
 
   render() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { Drum, DemoButton } from '../';
+import Drum from '../Drum';
+import DemoButton from '../DemoButton';
 
 const DemoDrum = () => (
   <div

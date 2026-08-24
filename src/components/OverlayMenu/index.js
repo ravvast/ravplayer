@@ -1,19 +1,20 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
-import { css } from '@emotion/core';
-import { AppContext } from 'providers/AppContextProvider';
-import { SmallButton, CustomSelect } from 'components';
-import drums from 'shared/assets/drums';
-import { breakpoints } from 'styles';
-import { ReactComponent as CloseIcon } from 'assets/close.svg';
-import { DrumRow } from './components';
+import React, { useContext, useState } from "react";
+import PropTypes from "prop-types";
+import { css } from "@emotion/core";
+import { AppContext } from "providers/AppContextProvider";
+import drums from "shared/assets/drums";
+import { breakpoints } from "styles";
+import { ReactComponent as CloseIcon } from "assets/close.svg";
+import CustomSelect from "../CustomSelect";
+import SmallButton from "../SmallButton";
+import { DrumRow } from "./components";
 
 const selectOptions = [
-  { value: 'all', label: 'All' },
-  { value: 'ravVast', label: 'RAV Vast' },
-  { value: 'ravMoon', label: 'RAV Moon' },
-  { value: 'ravAnima', label: 'RAV ANIMA' },
+  { value: "all", label: "All" },
+  { value: "ravVast", label: "RAV Vast" },
+  { value: "ravMoon", label: "RAV Moon" },
+  { value: "ravAnima", label: "RAV ANIMA" },
 ];
 
 const OverlayMenu = ({ children, onMenuClose }) => {
@@ -30,19 +31,19 @@ const OverlayMenu = ({ children, onMenuClose }) => {
   };
 
   const getScrollBarSize = () => {
-    const outer = document.createElement('div');
+    const outer = document.createElement("div");
 
-    outer.style.visibility = 'hidden';
-    outer.style.width = '100px';
-    outer.style.msOverflowStyle = 'scrollbar';
+    outer.style.visibility = "hidden";
+    outer.style.width = "100px";
+    outer.style.msOverflowStyle = "scrollbar";
 
     document.body.appendChild(outer);
 
     const widthNoScroll = outer.offsetWidth;
-    outer.style.overflow = 'scroll';
+    outer.style.overflow = "scroll";
 
-    const inner = document.createElement('div');
-    inner.style.width = '100%';
+    const inner = document.createElement("div");
+    inner.style.width = "100%";
     outer.appendChild(inner);
 
     const widthWithScroll = inner.offsetWidth;
@@ -53,13 +54,13 @@ const OverlayMenu = ({ children, onMenuClose }) => {
   };
 
   const blockScroll = () => {
-    document.body.style.overflow = 'hidden';
-    document.body.style.height = '100%';
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100%";
 
     const localScrollTop = window.pageYOffset;
     setScrollTop(localScrollTop);
 
-    document.body.style.position = 'fixed';
+    document.body.style.position = "fixed";
 
     const hasScrollbar = checkScrollBar();
 
@@ -67,18 +68,18 @@ const OverlayMenu = ({ children, onMenuClose }) => {
       const scrollBarSize = getScrollBarSize();
       document.body.style.width = `calc(100% - ${scrollBarSize}px)`;
     } else {
-      document.body.style.width = '100%';
+      document.body.style.width = "100%";
     }
     document.body.style.top = `${-localScrollTop}px`;
   };
 
   const unblockScroll = () => {
-    document.body.style.overflow = 'auto';
-    document.body.style.height = 'auto';
+    document.body.style.overflow = "auto";
+    document.body.style.height = "auto";
 
-    document.body.style.position = '';
-    document.body.style.width = '';
-    document.body.style.top = '';
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.top = "";
     window.scroll(0, scrollTop);
 
     setScrollTop(0);
@@ -103,20 +104,20 @@ const OverlayMenu = ({ children, onMenuClose }) => {
 
   const filterByType = type => {
     const isPan =
-      type === '9P' || type === '11' || type === '12' || type === '13';
-    const isMoon = type === '14';
-    const isAnima = type === '16';
+      type === "9P" || type === "11" || type === "12" || type === "13";
+    const isMoon = type === "14";
+    const isAnima = type === "16";
     const isVast = !isPan && !isMoon && !isAnima;
 
-    if (selectedOption.value === 'ravVast') {
+    if (selectedOption.value === "ravVast") {
       return isVast;
     }
 
-    if (selectedOption.value === 'ravMoon') {
+    if (selectedOption.value === "ravMoon") {
       return isMoon;
     }
 
-    if (selectedOption.value === 'ravAnima') {
+    if (selectedOption.value === "ravAnima") {
       return isAnima;
     }
 
@@ -140,7 +141,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
             background-color: transparent;
             background-color: rgba(255, 255, 255, 0.99);
             -webkit-overflow-scrolling: touch;
-            height: 536px;
+            height: 630px;
             width: 960px;
             @media (max-width: ${breakpoints.mobile}) {
               height: 100%;
@@ -200,18 +201,18 @@ const OverlayMenu = ({ children, onMenuClose }) => {
                 key={object.key}
                 title={object.title}
                 caption={object.notesString}
-                isPan={object.type === '11' || object.type === '9P'}
-                isMoon={object.type === '14'}
-                isMystic={object.type === '15'}
+                isPan={object.type === "11" || object.type === "9P"}
+                isMoon={object.type === "14"}
+                isMystic={object.type === "15"}
                 cx={css`
-                  margin-top: ${index === 0 ? '128px' : '0'};
+                  margin-top: ${index === 0 ? "128px" : "0"};
                   margin-bottom: ${index === drums.length - 1
-                    ? '64px'
-                    : '24px'};
+                    ? "64px"
+                    : "24px"};
                   @media (max-width: ${breakpoints.mobile}) {
                     margin-bottom: ${index === drums.length - 1
-                      ? '24px'
-                      : '8px'};
+                      ? "24px"
+                      : "8px"};
                   }
                 `}
                 onClick={() => {
@@ -245,7 +246,7 @@ const OverlayMenu = ({ children, onMenuClose }) => {
               options={selectOptions}
             />
             <button
-              type='button'
+              type="button"
               css={css`
                 width: 56px;
                 height: 56px;

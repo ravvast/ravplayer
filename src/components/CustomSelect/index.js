@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import { breakpoints } from 'styles';
 
-const CustomSelect = ({ defaultValue, onChange, options, cx }) => (
+const CustomSelect = ({ value, defaultValue, onChange, options, cx }) => (
   <Select
+    value={value}
     defaultValue={defaultValue}
     onChange={onChange}
     options={options}
@@ -24,6 +25,7 @@ const CustomSelect = ({ defaultValue, onChange, options, cx }) => (
 CustomSelect.propTypes = {
   onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.any).isRequired,
+  value: PropTypes.any,
   defaultValue: PropTypes.any,
   cx: PropTypes.any,
 };

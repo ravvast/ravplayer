@@ -1,13 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { css } from '@emotion/core';
 import { AppContext } from 'providers/AppContextProvider';
 import { useResizeEvent } from 'effects';
 import { useAudioPlayer } from 'shared/libs/hooks/useAudioPlayer/useAudioPlayer';
 import { getLegacySize } from 'shared/libs/getLegacySize/getLegacySize';
 import Button from '../Button';
+import KaraokeHint from '../KaraokeHint';
 
 const OverlayButtons = () => {
-  const { selectedDrum, isDemoPlaying } = useContext(AppContext);
+  const {
+    selectedDrum,
+    isDemoPlaying,
+    isKaraokePlaying,
+    selectedKaraokeSequence,
+    karaokeStepDuration,
+  } = useContext(AppContext);
 
   const { playSound } = useAudioPlayer();
 
@@ -56,15 +63,72 @@ const OverlayButtons = () => {
   const getYCoordinate = (delta, angle) =>
     centerButtonY - getDrumRadius(delta) * Math.sin(getRadians(angle));
 
-  const centerButtonRef = React.useRef();
-  const buttonsRefs = React.useRef([]);
+  const { karaokeChords } = selectedDrum;
+  const karaokeChordsList = (selectedKaraokeSequence
+    && selectedKaraokeSequence.chords) || [];
 
-  const setButtonRef = id => ref => {
-    if (!buttonsRefs.current) {
-      buttonsRefs.current = [];
+  const [karaokeIndex, setKaraokeIndex] = useState(0);
+  const [karaokeFlightId, setKaraokeFlightId] = useState(0);
+  const karaokeIndexRef = React.useRef(0);
+
+  useEffect(() => {
+    if (!isKaraokePlaying || !karaokeChords || karaokeChordsList.length === 0) {
+      return undefined;
     }
-    buttonsRefs.current[id] = ref;
-  };
+
+    karaokeIndexRef.current = 0;
+    setKaraokeIndex(0);
+    setKaraokeFlightId(id => id + 1);
+
+    const interval = setInterval(() => {
+      karaokeIndexRef.current =
+        (karaokeIndexRef.current + 1) % karaokeChordsList.length;
+      setKaraokeIndex(karaokeIndexRef.current);
+      setKaraokeFlightId(id => id + 1);
+    }, karaokeStepDuration);
+
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isKaraokePlaying, karaokeChords, karaokeChordsList, karaokeStepDuration]);
+
+  let karaokeHint = null;
+  if (isKaraokePlaying && karaokeChords && karaokeChordsList.length > 0) {
+    const activeChord = karaokeChordsList[karaokeIndex];
+    const activeNote = selectedDrum.notes.find(
+      note => note.key === karaokeChords[activeChord],
+    );
+
+    if (activeNote) {
+      const hintSize = Math.round(buttonWidth * 0.4);
+      const targetTop =
+        getXCoordinate(activeNote.delta, activeNote.angle) +
+        buttonWidth / 2 -
+        hintSize / 2;
+      const targetLeft =
+        getYCoordinate(activeNote.delta, activeNote.angle) +
+        buttonWidth / 2 -
+        hintSize / 2;
+      const edgeRadius = (drumWidth / 2) * 0.92;
+      const radians = getRadians(activeNote.angle);
+      const startTop =
+        drumWidth / 2 + edgeRadius * Math.cos(radians) - hintSize / 2;
+      const startLeft =
+        drumWidth / 2 - edgeRadius * Math.sin(radians) - hintSize / 2;
+
+      karaokeHint = (
+        <KaraokeHint
+          flightKey={karaokeFlightId}
+          size={hintSize}
+          color={activeNote.color}
+          startTop={startTop}
+          startLeft={startLeft}
+          endTop={targetTop}
+          endLeft={targetLeft}
+          duration={karaokeStepDuration}
+        />
+      );
+    }
+  }
 
   return (
     <div
@@ -81,7 +145,6 @@ const OverlayButtons = () => {
         top={centerButtonY}
         left={centerButtonX}
         color={selectedDrum.centerNote.color}
-        ref={centerButtonRef}
         demoIsPlaying={isDemoPlaying}
         playSound={() => playSound(selectedDrum.centerNote.key)}
       >
@@ -95,7 +158,6 @@ const OverlayButtons = () => {
           color={object.color}
           labelColor={object.labelColor}
           demoIsPlaying={isDemoPlaying}
-          ref={setButtonRef(object.key)}
           playSound={() => playSound(object.key)}
           top={getXCoordinate(object.delta, object.angle)}
           left={getYCoordinate(object.delta, object.angle)}
@@ -103,6 +165,7 @@ const OverlayButtons = () => {
           {object.name}
         </Button>
       ))}
+      {karaokeHint}
     </div>
   );
 };

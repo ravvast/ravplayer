@@ -63,9 +63,9 @@
     "eslint-loader": "2.1.2",
     "eslint-plugin-emotion": "^10.0.14",
     "eslint-plugin-flowtype": "2.50.1",
-    "eslint-plugin-import": "2.16.0",
-    "eslint-plugin-jsx-a11y": "6.2.1",
-    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "^1.5.0",
     "gh-pages": "^6.3.0"
   },
@@ -73,5 +73,6 @@
     "start": "NODE_OPTIONS='--openssl-legacy-provider' node scripts/start.js",
     "build": "NODE_OPTIONS='--openssl-legacy-provider' GENERATE_SOURCEMAP=false node scripts/build.js",
     "deploy": "yarn build && gh-pages -d build -b gh-pages"
-  }
+  },
+  "homepage": "https://ravvast.github.io/ravplayer"
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { Drum } from '../';
+import Drum from '../Drum';
 
 const MinimalDrum = () => (
   <div
